@@ -1,0 +1,783 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/images/titleIcon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="软软糯糯的汤圆">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="软件测试复习第一章软件测试的对象对软件形成过程的文档、数据以及程序进行的测试，而不仅仅是对程序进行的测试。软件 &#x3D;&#x3D;文档 + 数据 + 程序 软件测试的经典定义测试是为发现错误而执行程序的过程。测试是为了证明程序有错，而不是证明程序无错误。一个好的测试用例是在于它能发现以前未发现的错误。一个成功的测试是发现了以前未发现的错误的测试。 软件生命周期的主要测试活动 软件测试的目的发现软件缺陷和错误；对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试复习">
+<meta property="og:url" content="http://example.com/2022/07/21/collage/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Tangyuan的博客">
+<meta property="og:description" content="软件测试复习第一章软件测试的对象对软件形成过程的文档、数据以及程序进行的测试，而不仅仅是对程序进行的测试。软件 &#x3D;&#x3D;文档 + 数据 + 程序 软件测试的经典定义测试是为发现错误而执行程序的过程。测试是为了证明程序有错，而不是证明程序无错误。一个好的测试用例是在于它能发现以前未发现的错误。一个成功的测试是发现了以前未发现的错误的测试。 软件生命周期的主要测试活动 软件测试的目的发现软件缺陷和错误；对">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrgz3dbtj20f808jdgj.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrp8jr8oj20jg0dxt9x.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrr4bn8cj20g103lglv.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrrgj02nj20k40813zj.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrs4gey0j20hk09hdgj.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrsm8v0ej20ix096jsd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrsxhw2bj20j90b1gmk.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrt694r5j20is0ad3zd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrtdpnyaj20k306l74v.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nru0t3r6j20kb0b4q4l.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrub5j2dj20k30auacb.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nry5b4btj20hj08dwf7.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nryckwvjj20gf082q3v.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nryjll00j20d9094t9h.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nryq51c2j20il05wjs3.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3ns442ur0j20ev02474e.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nsbu91wxj20c608waab.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nu4shrgxj20h30agjt5.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nunb9b5ej206u05tq2x.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nurw29isj20fu05hmxp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nusfpdw5j20ff08e0u6.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nx6ayjzwj20p70chjsn.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nxow0r35j20o90eqmyt.jpg">
+<meta property="article:published_time" content="2022-07-21T01:50:47.000Z">
+<meta property="article:modified_time" content="2022-07-21T03:47:16.885Z">
+<meta property="article:author" content="软软糯糯的汤圆">
+<meta property="article:tag" content="复习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrgz3dbtj20f808jdgj.jpg">
+  
+  
+  
+  <title>软件测试复习 - Tangyuan的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>TangyuanBlog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="软件测试复习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-21 09:50" pubdate>
+          2022年7月21日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          74 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">软件测试复习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="软件测试复习"><a href="#软件测试复习" class="headerlink" title="软件测试复习"></a>软件测试复习</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="软件测试的对象"><a href="#软件测试的对象" class="headerlink" title="软件测试的对象"></a>软件测试的对象</h3><p>对软件形成过程的文档、数据以及程序进行的测试，而不仅仅是对程序进行的测试。软件 ==文档 + 数据 + 程序</p>
+<h3 id="软件测试的经典定义"><a href="#软件测试的经典定义" class="headerlink" title="软件测试的经典定义"></a>软件测试的经典定义</h3><p>测试是为发现错误而执行程序的过程。测试是为了证明程序有错，而不是证明程序无错误。一个好的测试用例是在于它能发现以前未发现的错误。一个成功的测试是发现了以前未发现的错误的测试。</p>
+<h3 id="软件生命周期的主要测试活动"><a href="#软件生命周期的主要测试活动" class="headerlink" title="软件生命周期的主要测试活动"></a>软件生命周期的主要测试活动</h3><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrgz3dbtj20f808jdgj.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628104403832"></p>
+<h3 id="软件测试的目的"><a href="#软件测试的目的" class="headerlink" title="软件测试的目的"></a>软件测试的目的</h3><p>发现软件缺陷和错误；对软件质量进行度量和评价；通过分析错误产生的原因还可以帮助发现开发工作所采用的软件过程的缺陷，以便进行软件过程改进。通过分析错误产生的原因，发现开发工作所采用的软件过程的缺陷，用于进行软件过程改进。</p>
+<h3 id="软件测试的原则"><a href="#软件测试的原则" class="headerlink" title="软件测试的原则"></a>软件测试的原则</h3><p>（1）尽早测试；（2）全面测试（程序、文档、数据）；（3）全过程测试；（4）独立的、迭代的测试；（5）帕累托原则（6）对测试出的结果要有一个确认的过程；（7）制定严格的测试计划；（8）完全测试是不可能的；（9）注意回归测试的关联性；（10）妥善保存一切测试过程文档。</p>
+<h3 id="完全的测试是不可能的"><a href="#完全的测试是不可能的" class="headerlink" title="完全的测试是不可能的"></a>完全的测试是不可能的</h3><p>软件太复杂，资源不容许等。 需要根据实际情况来决定资源的分配，对测试程度和范围进行有效的控制，只有这样才能投入最少的成本获得最大的回报。</p>
+<h3 id="不能修复所有的软件故障"><a href="#不能修复所有的软件故障" class="headerlink" title="不能修复所有的软件故障"></a>不能修复所有的软件故障</h3><p>原因：<br>     没有足够的资源进行修复，修复的风险较大，不值得修复<br>结论：<br>     关键是要进行正确的判断、合理的取舍，根据成本和风险分析决定哪些必须修复，哪些可以不修复 </p>
+<h3 id="CMMI的核心思想"><a href="#CMMI的核心思想" class="headerlink" title="CMMI的核心思想"></a>CMMI的核心思想</h3><p>产品质量在很大程度上取决于用于其开发、维护的过程质量。</p>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><h3 id="黑盒测试的非功能测试"><a href="#黑盒测试的非功能测试" class="headerlink" title="黑盒测试的非功能测试"></a>黑盒测试的非功能测试</h3><p>（1）负载测试。（2）压力测试（3）扩展性测试（4）容量测试（5）安全性测试（6）灾难恢复测试（7）一致性测试（8）可用性测试</p>
+<h3 id="例题解析"><a href="#例题解析" class="headerlink" title="例题解析"></a>例题解析</h3><h4 id="画流程图"><a href="#画流程图" class="headerlink" title="画流程图"></a>画流程图</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrp8jr8oj20jg0dxt9x.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105202671"></p>
+<h4 id="语句覆盖"><a href="#语句覆盖" class="headerlink" title="语句覆盖"></a>语句覆盖</h4><p>![image-20220628105333588](/Users/tangyuan/Library/Application Support/typora-user-images/image-20220628105333588.png)</p>
+<h4 id="判断覆盖"><a href="#判断覆盖" class="headerlink" title="判断覆盖"></a>判断覆盖</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrr4bn8cj20g103lglv.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105351520"></p>
+<h4 id="条件覆盖"><a href="#条件覆盖" class="headerlink" title="条件覆盖"></a>条件覆盖</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrrgj02nj20k40813zj.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105410969"></p>
+<h4 id="基本路径法"><a href="#基本路径法" class="headerlink" title="基本路径法"></a>基本路径法</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrs4gey0j20hk09hdgj.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105449166"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrsm8v0ej20ix096jsd.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105518001"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrsxhw2bj20j90b1gmk.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105536157"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrt694r5j20is0ad3zd.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105550255"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrtdpnyaj20k306l74v.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105602012"></p>
+<h4 id="等价类法"><a href="#等价类法" class="headerlink" title="等价类法"></a>等价类法</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nru0t3r6j20kb0b4q4l.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105638511"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nrub5j2dj20k30auacb.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628105655372"></p>
+<h4 id="判定表法"><a href="#判定表法" class="headerlink" title="判定表法"></a>判定表法</h4><p>某图书发行公司，采用下列政策优惠用户:书店订购20册<br>以上，优惠25%， 否则不优惠;图书馆和个人订购6册以下则<br>不优惠，6-19册 则优惠5%，20-49册 则优惠10%，50册以上则<br>优惠15%。请用判定表法编写测试用例。</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nry5b4btj20hj08dwf7.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628110037084"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nryckwvjj20gf082q3v.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628110048802"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nryjll00j20d9094t9h.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628110059951"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nryq51c2j20il05wjs3.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628110110440"></p>
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><h3 id="测试流程"><a href="#测试流程" class="headerlink" title="测试流程"></a>测试流程</h3><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3ns442ur0j20ev02474e.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628110620526"></p>
+<h3 id="回归测试"><a href="#回归测试" class="headerlink" title="回归测试"></a>回归测试</h3><p>回归测试是指修改了旧代码后，重新进行测试以确认修改没有引入新的错误或导致其他代码产生错误。回归测试作为软件生命周期的一个组成部分，在整个软件测试过程中占有很大的工作量比重，软件开发的各个阶段都会进行多次回归测试</p>
+<h3 id="冒烟测试-Smoke-Testing"><a href="#冒烟测试-Smoke-Testing" class="headerlink" title="冒烟测试(Smoke Testing)"></a>冒烟测试(Smoke Testing)</h3><p>指在对一个新版本进行大规模的测试之前，先验证一下软件的基本功能是否可以实现，是否具备可测性  方法：测试小组在正规测试一个新版本之前，先指派一两个测试人员测试一下软件的主要功能，如果没有实现，则打回开发组重新开发</p>
+<h3 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h3><p>一个叙述了预定的测试活动的范围、途径、资源及进度安排的文档。它确定了测试项、被测特征、测试任务、人员安排以及任何偶发事件的风险。==三要素==：时间，资源，范围 ==其他方面==：策略，风险控制</p>
+<p>对象：测试计划就是描述所有要完成的测试工作，包括被测试项目的背景、目标、范围、方式、资源、进度安排、测试组织，以及与测试有关的风险等方面。 </p>
+<p>作用：使软件测试工作进行更顺利，促进项目参加人员彼此的沟通<br>，及早发现和修正软件规格说明书的问题，使软件测试工作更易于管理</p>
+<h4 id="制定测试计划的原则"><a href="#制定测试计划的原则" class="headerlink" title="制定测试计划的原则"></a>制定测试计划的原则</h4><p>1．制定测试计划应尽早开始2．保持测试计划的灵活性3．保持测试计划简洁和易读4．尽量争取多渠道评审测试计划5．计算测试计划的投入</p>
+<h4 id="如何制订软件测试计划"><a href="#如何制订软件测试计划" class="headerlink" title="如何制订软件测试计划"></a>如何制订软件测试计划</h4><p>认真做好测试资料的搜集整理工作明确测试的目标，增强测试计划的实用性，坚持“5W”规则，明确内容与过程，采用评审和更新机制，保证测试计划满足实际需求</p>
+<h3 id="5W1H"><a href="#5W1H" class="headerlink" title="5W1H"></a>5W1H</h3><p>对象 （What）——什么事情   场所 （Where）——什么地点  时间和程序 （When）——什么时候  人员 （Who）——责任人  为什么（Why）——原因  方式 （How）——如何</p>
+<h3 id="测试计划面对的问题"><a href="#测试计划面对的问题" class="headerlink" title="测试计划面对的问题"></a>测试计划面对的问题</h3><p>与开发者意见不一致，缺乏测试工具，培训不够，管理部门缺乏对测试工作的理解和支持，缺乏用户的参与，测试时间不足，过分依赖测试人员，测试人员处于进退两难的状态， 不得不说“不</p>
+<h3 id="软件需求的层次"><a href="#软件需求的层次" class="headerlink" title="软件需求的层次"></a>软件需求的层次</h3><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nsbu91wxj20c608waab.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628111346604"></p>
+<h4 id="业务需求"><a href="#业务需求" class="headerlink" title="业务需求:"></a>业务需求:</h4><p>是组织或客户高层次的目标：通常来自项目投资人、购买产品的客户、实际用户的管理者、市场销售部门或产品策划部门。业务需求描述了组织为什么要开发一个系统，即组织希望达到的目标。远景和范围文档用于记录业务需求。</p>
+<h4 id="用户需求"><a href="#用户需求" class="headerlink" title="用户需求"></a>用户需求</h4><p>用户的目标，或用户要求系统必须能完成的任务：用自然语言加图表的形式给出的关于系统需要提供哪些服务以及系统操作受到哪些约束的声明；“用例-场景描述”和“事件-响应表”都是表达用户需求的有效途径；描述了用户能使用系统做些什么。</p>
+<h4 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h4><p>系统需求是比用户需求更详细的需求描述，是系统实现的基本依据。因此，是一个完全的和一致的系统描述，是软件工程人员系统设计的起点。系统需求后的提交物为软件的《需求规格说明书》，该文档将详细的给出系统将要提供的服务以及系统所受到的约束。《需求规格说明书》是系统开发的基础。</p>
+<h3 id="测试需求"><a href="#测试需求" class="headerlink" title="测试需求"></a>测试需求</h3><h4 id="什么是测试需求"><a href="#什么是测试需求" class="headerlink" title="什么是测试需求"></a>什么是测试需求</h4><p>测试需求，即测试条件，是组件/系统中能被一个或多个测试用例验证的条目或事件。例如，功能、事务、特征、质量属性或者结构化元素。我们在项目测试工作中，首先需要明确测试需求（What），才能决定怎么测（How），测试时间（When），需要多少人（Who），测试的环境是什么（Where），测试中需要的技能、工具以及相应的背景知识，测试中可能遇到的风险等等。<br>测试需求并不等同于软件需求，它是以测试的观点根据软件需求整理出来的，作为测试该软件的主要工作内容。</p>
+<h4 id="测试需求的作用"><a href="#测试需求的作用" class="headerlink" title="测试需求的作用"></a>测试需求的作用</h4><p>测试案例的设计依据：通过建立测试需求，将项目的原始业务需求和系统设计与测试案例连接起来，有效的保证了测试案例对需求和设计的覆盖，从而保证了测试的完备性。</p>
+<p>捕捉原始业务需求和系统设计的缺陷：通过测试需求分析，发现原始业务需求和系统设计中在可测试性分析方面的缺陷，从而提高业务需求和设计的质量.</p>
+<p>辅助测试计划的制定：测试需求基于对项目的原始业务需求或系统设计文档进行层次化的功能点划分，以及功能点测试顺序的描述，有效地辅助了测试计划的制定。</p>
+<p>评价测试实施的结果： 测试需求中对管理属性的描述，为测试结果的评估提供了基本素材。比如：测试需求的优先级决定了对应案例的优先级，进而决定了对应缺陷的优先级及严重性度量。</p>
+<h4 id="测试需求分析的原则"><a href="#测试需求分析的原则" class="headerlink" title="测试需求分析的原则"></a>测试需求分析的原则</h4><p>测试需求并不完全等同于软件需求，它是以测试的观点来整理软件需求的； 一个测试需求应明确的描述一项需要测试的内容，即对于多项测试内容，应尽可能的剥离开来，保证一个测试需求只包含一项测试内容；通常测试需求对应的需求来源包括客户已明确的，实际可行的解决方案，还包括客户没有明确的内容，即显性需求和隐形需求；测试需求分析，理论上在系统需求评审通过后进行。但是为了尽早开始测试工作，尽快熟悉系统需求，所以我们一般是在系统需求获取结束后即开始需求的可测试化分析；不同的软件业务背景不同，所要求的特性也不相同，需求的可测试化的侧重点自然也不相同，如功能需求、性能需求等。</p>
+<h4 id="测试需求分析准备与组织"><a href="#测试需求分析准备与组织" class="headerlink" title="测试需求分析准备与组织"></a>测试需求分析准备与组织</h4><p>尽可能的收集与业务功能相关的需求信息；与客户以及开发方明确本次测试的测试基线；初步分析系统需求的规模，根据项目组成员情况，进行分工；负责需求测试化分析的人员，按照各自的分工，以测试基线为重点，如测试需求规格说明书，围绕测试基线，结合收集到的各类文档、系统界面，以及必要时的与客户和开发人员的沟通，进行测试需求的抽取和编写。</p>
+<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><h4 id="什么是测试用例"><a href="#什么是测试用例" class="headerlink" title="什么是测试用例"></a>什么是测试用例</h4><p>·测试用例是指在实施测试时，被测系统提供输入的数据，操作或各种系统设置以及预期结果的一个集合。<br>·测试用例就是一个文档，描述输入、动作、或者时间和一个期望的结果，其目的是确定应用程序的某个特性是否正常的工作。<br>测试用例是软件测试的核心 ！测试用例的设计编写是一项必须掌握的能力。</p>
+<h4 id="测试用例的基本要素"><a href="#测试用例的基本要素" class="headerlink" title="测试用例的基本要素"></a>测试用例的基本要素</h4><p>用例编号 用例标题 用例级别 预置条件 操作步骤 预期结果</p>
+<p>三要素：标题 、步骤 、预期结果</p>
+<h4 id="测试用例的作用与特性"><a href="#测试用例的作用与特性" class="headerlink" title="测试用例的作用与特性"></a>测试用例的作用与特性</h4><ol>
+<li>有效性2. 避免测试的盲目性3. 可维护性4. 可复用性5. 可评估性6. 可管理性</li>
+</ol>
+<h4 id="测试用例设计的基本原则"><a href="#测试用例设计的基本原则" class="headerlink" title="测试用例设计的基本原则"></a>测试用例设计的基本原则</h4><p>1.用成熟测试用例设计方法来指导设计2. 测试用例的正确性3. 测试用例的代表性4. 测试结果的可判定性5. 测试结果的可再现性6. 足够详细、准确和清晰的步骤</p>
+<h4 id="测试设计测试用例应注意的问题"><a href="#测试设计测试用例应注意的问题" class="headerlink" title="测试设计测试用例应注意的问题"></a>测试设计测试用例应注意的问题</h4><p>(1) 把测试用例设计等同于测试输入数据的设计(2) 强调测试用例设计得越详细越好(3) 追求测试用例设计“一步到位”(4) 将多个测试用例混在一个用例中(5) 让没有测试经验的人员设计测试用例</p>
+<h3 id="测试用例执行"><a href="#测试用例执行" class="headerlink" title="测试用例执行"></a>测试用例执行</h3><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>1、进行测试准备2、实施冒烟测试3、检测进入标准4、执行测试用例5、记录测试结果6、报告测试结果7、实施回归测试8、检测准出标准</p>
+<h4 id="测试用例执行中应该注意以下几个问题"><a href="#测试用例执行中应该注意以下几个问题" class="headerlink" title="测试用例执行中应该注意以下几个问题"></a>测试用例执行中应该注意以下几个问题</h4><p>(1) 全方位的观察测试用例执行结果(2) 加强测试过程记录(3) 及时确认发现的问题(4) 与开发人员良好的沟通(5) 及时更新测试用例(6) 提交一份优秀的问题报告单(7) 测试结果分析</p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><h4 id="单元"><a href="#单元" class="headerlink" title="单元"></a>单元</h4><p>即软件设计的最小单位，又称为模块。可以认为是认为规定的最小的被测功能模块。</p>
+<h4 id="单元具有一些基本属性"><a href="#单元具有一些基本属性" class="headerlink" title="单元具有一些基本属性"></a>单元具有一些基本属性</h4><p>明确的功能，可以清晰地与同一程序的其他部分划分开来。对于结构化程序而言，程序单元是指程序中定义的函数。对于面向对象的程序而言，程序单元是指特定的一个具体的类或相关的多个类。</p>
+<h4 id="单元测试-1"><a href="#单元测试-1" class="headerlink" title="单元测试"></a>单元测试</h4><p>​    指对软件中的最小可测试单元或基本组成单元进行检查和验证。单元测试是其他类型测试的基础</p>
+<h4 id="单元测试的目的"><a href="#单元测试的目的" class="headerlink" title="单元测试的目的"></a>单元测试的目的</h4><p>验证代码是与设计相符合的<br> 发现在编码过程中引入的错误</p>
+<h4 id="单元测试的意义"><a href="#单元测试的意义" class="headerlink" title="单元测试的意义"></a>单元测试的意义</h4><p>对于程序员:  可以自信的交付自己的代码<br>对于整个项目：尽早发现错误，减少成本</p>
+<h3 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h3><h4 id="集成（Integration）"><a href="#集成（Integration）" class="headerlink" title="集成（Integration）"></a>集成（Integration）</h4><p>​    是指把多个单元组合起来形成更大的单元。 </p>
+<h4 id="集成测试（Integration-Testing）"><a href="#集成测试（Integration-Testing）" class="headerlink" title="集成测试（Integration Testing）"></a>集成测试（Integration Testing）</h4><p>​    又称组装测试，是在假定各个软件单元已经通过了单元测试的前提下，检查各个软件单元之间的接口以及集成后的功能是否正确。 </p>
+<h4 id="集成测试的层次"><a href="#集成测试的层次" class="headerlink" title="集成测试的层次"></a>集成测试的层次</h4><p>类内集成测试 类间集成测试</p>
+<h4 id="集成测试的关注点"><a href="#集成测试的关注点" class="headerlink" title="集成测试的关注点"></a>集成测试的关注点</h4><p>模块间的数据传递是否正确。模块间是否存在资源竞争问题。模块组合后的功能是否满足要求。新增模块是否影响其他模块的功能。 </p>
+<h4 id="集成测试的策略"><a href="#集成测试的策略" class="headerlink" title="集成测试的策略"></a>集成测试的策略</h4><p>在对测试对象分析的基础上，描述软件单元集成（组装）的方式和方法，它是集成测试过程中各种活动的基础。</p>
+<h4 id="集成测试—辅助模块"><a href="#集成测试—辅助模块" class="headerlink" title="集成测试—辅助模块"></a>集成测试—辅助模块</h4><p>对于两个以上模块进行集成时，需要考虑它们和周围模块的联系。<br>为了模拟这些联系，需要设置若干辅助模块，包括以下两种：<br>驱动程序/驱动模块（driver）<br>             用以模拟被测模块的上级模块。驱动模块在集成测试中接受测试数据，把相关的数据传送给被测模块，启动被测模块，并打印出相应的结果。<br>桩程序/桩模块（stub）<br>       也有人称为存根程序，用以模拟被测模块工作过程中所调用的模块。桩模块由被测模块调用，它们一般只进行很少的数据处理，例如打印入口和返回，以便于检验被测模块与其下级模块的接口。</p>
+<h4 id="基于分解的集成测试"><a href="#基于分解的集成测试" class="headerlink" title="基于分解的集成测试"></a>基于分解的集成测试</h4><h5 id="增量式集成-amp-非增量式集成"><a href="#增量式集成-amp-非增量式集成" class="headerlink" title="增量式集成 &amp; 非增量式集成"></a>增量式集成 &amp; 非增量式集成</h5><p>非增量式测试模式<br>先分别对每一个模块进行单元测试，再把所有模块按照层次结构的要求一次性的组装在一起进行测试，最终得到要求的软件系统。如大棒模式。<br>增量式测试模式<br>是一个逐步集成的过程，先分别对系统中的每一个模块进行单元测试，再把这些模块逐步组装为较大系统，在组装过程中边连接边测试，以发现连接过程中产生的问题。</p>
+<h5 id="非增量式集成"><a href="#非增量式集成" class="headerlink" title="非增量式集成"></a>非增量式集成</h5><p>  优点：<br>可以迅速完成集成测试，需要的测试用例最少。<br>方法比较简单，可并行工作，对资源利用率较高。<br>  缺点：<br>一次试运行成功的可能行并不大。<br>在发现错误时，问题定位和修改都比较困难。<br>  适用范围：<br>一个维护型项目（或功能增强型项目，其以前的产品已经<br>很稳定，并且新增项目只有少数几个构件被增加或修改。<br>被测系统比较小，且每个构件都经过了充分的单元测试</p>
+<h5 id="增量式集成"><a href="#增量式集成" class="headerlink" title="增量式集成"></a>增量式集成</h5><p>增量式集成<br>     增量式集成与“一步到位”的集成相反<br>     它把程序划分成小段来构造和测试。<br>优点：<br>比较容易定位和改正错误；<br>对接口可以进行更彻底的测试。<br>目前集成测试，普遍采用渐增式集成方法。</p>
+<p>增量式：自顶向下集成 — 深度优先  自底向上集成 三明治集成</p>
+<h4 id="集成测试前准备"><a href="#集成测试前准备" class="headerlink" title="集成测试前准备"></a>集成测试前准备</h4><p>◇人员安排◇测试计划◇测试内容◇集成模式◇测试方法</p>
+<h4 id="集成测试过程"><a href="#集成测试过程" class="headerlink" title="集成测试过程"></a>集成测试过程</h4><p>1．计划阶段</p>
+<p>​     （1）确定被测试对象和测试范围。<br>​      （2）评估集成测试被测试对象的数量及难度，即工作量。<br>​      （3）确定角色分工和划分工作任务。<br>​      （4）表识出测试各个阶段的时间、任务、约束条件。<br>​      （5）考虑一定的风险分析机应急计划。<br>​      （6）考虑和准备集成测试需要的测试工具、测试仪器、环境等资源。<br>​      （7）考虑外部技术支援的力度和深度，以及相关培训安排；定义测试完成标准。 </p>
+<p>  2．设计阶段</p>
+<p>  （1）被测对象结构分析。<br>      （2）集成测试模块分析。<br>      （3）集成测试接口分析。<br>      （4）集成测试策略分析。<br>      （5）集成测试工具分析。<br>      （6）集成测试环境分析。<br>      （7）集成测试工作量估计和安排。</p>
+<p> 3．实施阶段</p>
+<p>​      （1）集成测试用例设计。<br>​      （2）集成测试代码设计。<br>​      （3）集成测试脚本开发。<br>​      （4）集成测试工具开发或选择。</p>
+<p> 4．执行阶段</p>
+<p>5．评估阶段 </p>
+<h3 id="系统测试"><a href="#系统测试" class="headerlink" title="系统测试"></a>系统测试</h3><h4 id="系统测试-1"><a href="#系统测试-1" class="headerlink" title="系统测试"></a>系统测试</h4><p>   对已经集成好的软件系统进行的测试，以验证软件系统的功能和性能等满足其需求规格所指定的要求。</p>
+<h4 id="系统测试的对象"><a href="#系统测试的对象" class="headerlink" title="系统测试的对象"></a>系统测试的对象</h4><p>软件产品 操作系统 硬件  数据库 外设  相关配置 支持软件及其接口</p>
+<h4 id="与单元测试、集成测试的区别"><a href="#与单元测试、集成测试的区别" class="headerlink" title="与单元测试、集成测试的区别"></a>与单元测试、集成测试的区别</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nu4shrgxj20h30agjt5.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628121612047"></p>
+<h4 id="常用的系统测试。"><a href="#常用的系统测试。" class="headerlink" title="常用的系统测试。"></a>常用的系统测试。</h4><p>功能测试 性能测试 压力测试 安全性测试  兼容性测试 GUI测试 安装测试  文档测试</p>
+<h4 id="功能测试主要为发现以下几类错误"><a href="#功能测试主要为发现以下几类错误" class="headerlink" title="功能测试主要为发现以下几类错误"></a>功能测试主要为发现以下几类错误</h4><ol>
+<li>是否有不正确或遗漏的功能？ 2. 功能实现是否满足用户需求和隐式需求？3. 能否正确接受输入？能否正确地输出结果？</li>
+</ol>
+<h4 id="性能测试常用指标"><a href="#性能测试常用指标" class="headerlink" title="性能测试常用指标"></a>性能测试常用指标</h4><p>响应时间 并发用户数 吞吐量 性能计数器</p>
+<p>性能测试术语：在线用户 虚拟用户 思考时间 负载模式</p>
+<h4 id="性能测试的步骤"><a href="#性能测试的步骤" class="headerlink" title="性能测试的步骤"></a>性能测试的步骤</h4><p>确定性能测试需求 根据测试需求，选择测试工具和开发相应的测试脚本 建立性能测试负载模型（就是确定并发虚拟用户的数量、每次请求的数据量等） 执行性能测试 结果分析，并提交性能测试报告</p>
+<h3 id="验收测试"><a href="#验收测试" class="headerlink" title="验收测试"></a>验收测试</h3><h4 id="验收测试的主要内容："><a href="#验收测试的主要内容：" class="headerlink" title="验收测试的主要内容："></a>验收测试的主要内容：</h4><p>配置复审  合法性检查  软件文档检查  软件代码测试 软件功能和性能测试 测试结果交付内容</p>
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><h3 id="WEB性能测试"><a href="#WEB性能测试" class="headerlink" title="WEB性能测试"></a>WEB性能测试</h3><h4 id="Web性能测试的主要术语"><a href="#Web性能测试的主要术语" class="headerlink" title="Web性能测试的主要术语"></a>Web性能测试的主要术语</h4><p>用户并发数量 请求响应时间 事务响应时间 吞吐量 TPS 资源利用率</p>
+<p>虚拟用户 请求成功率</p>
+<h4 id="Web性能测试的目标和测试策略"><a href="#Web性能测试的目标和测试策略" class="headerlink" title="Web性能测试的目标和测试策略"></a>Web性能测试的目标和测试策略</h4><p>（1）确定Web应用系统的总体性能参数，包括所支持的最大并发用户数、事务处理成功率、请求相应的往返延迟等。<br>（2）确定在各个级别的负载及压力测试下服务器输出的具体性能参数</p>
+<h4 id="Web应用系统性能测试类别"><a href="#Web应用系统性能测试类别" class="headerlink" title="Web应用系统性能测试类别"></a>Web应用系统性能测试类别</h4><p>（1）预期指标的性能测试：软件需求规格说明书或设计说明中指出的性能指标。<br>（2）独立业务性能测试：针对核心业务模块中功能比较复杂、使用比较繁琐、核心的业务等进行测试。<br>（3）组合业务性能测试：模拟多用户同时对一个或多个模块的不同功能进行操作。是接近用户实际情况的测试。</p>
+<p>（4）负载测试：目标是确保系统在超出最大预期工作量的情况下仍能正常运行。<br>（5）压力测试：测试系统的限制及故障恢复能力。<br>（6）强度测试：核实测试对象性能行为在异常或极端条件之下的可接受性。<br>（7）数据库容量测试：数据库具有一定数据量时，测试相关页面是否能够及时显示数据。</p>
+<p>（8）疲劳强度性能测试：以一定的负载压力长时间运行系统的测试。<br>（9）网络性能测试：主要测试应用系统用户数与网络带宽的关系。<br>（10）大数据量测试：实时大数据量在有大量铺底数据时的系统运行情况。</p>
+<h3 id="WEb功能-界面测试"><a href="#WEb功能-界面测试" class="headerlink" title="WEb功能/界面测试"></a>WEb功能/界面测试</h3><h4 id="测试类别："><a href="#测试类别：" class="headerlink" title="测试类别："></a>测试类别：</h4><p>等价类划分 边界值用例设计 判定表 场景法</p>
+<h4 id="功能测试类别"><a href="#功能测试类别" class="headerlink" title="功能测试类别"></a>功能测试类别</h4><p>链接测试 表单测试 设计语言测试 数据库测试 Cookies测试<br>相关性功能检查与测试</p>
+<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><h4 id="软件测试的目的-1"><a href="#软件测试的目的-1" class="headerlink" title="软件测试的目的"></a>软件测试的目的</h4><p>发现软件缺陷和错误；对软件质量进行度量和评价；通过分析错误产生的原因还可以帮助发现开发工作所采用的软件过程的缺陷，以便进行软件过程改进。</p>
+<h4 id="什么软件质量"><a href="#什么软件质量" class="headerlink" title="什么软件质量"></a>什么软件质量</h4><p>（1）软件产品中能满足给定需要的性质和特性的总体。<br>（2）软件具有所期望的各种属性的组合程度。<br>（3）顾客和用户觉得软件满足其综合期望的程度（明确的、隐含的、实际中的实用需求）。<br>（4）确定软件在使用中满足顾客预期要求的程度。</p>
+<h4 id="是否可以零缺陷？"><a href="#是否可以零缺陷？" class="headerlink" title="是否可以零缺陷？"></a>是否可以零缺陷？</h4><p>高质量的软件：约束下的高质量<br>能够按照预期的时间和成本提交给用户，并能够按照预期要求正确工作的软件</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nunb9b5ej206u05tq2x.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628123359956"></p>
+<h3 id="软件缺陷"><a href="#软件缺陷" class="headerlink" title="软件缺陷"></a>软件缺陷</h3><p>软件缺陷简单说就是存在于软件（文档、数据、程序）之中的那些不希望，或不可接受的偏差，而导致软件产生的质量问题。</p>
+<h4 id="什么叫做软件缺陷"><a href="#什么叫做软件缺陷" class="headerlink" title="什么叫做软件缺陷"></a>什么叫做软件缺陷</h4><p>按照一般的定义，只要符合下面5个规则中的一个，就叫做软件缺陷：<br>软件未达到软件规格说明书中规定的功能；<br>软件超出软件规格说明书中指明的范围；<br>软件未达到软件规格说明书中指出的应达到的目标；<br>软件运行出现错误；<br>软件测试人员认为软件难于理解，不易使用，运行速度慢，或者最终用户认为软件使用效果不好。</p>
+<h4 id="软件缺陷的有效描述规则"><a href="#软件缺陷的有效描述规则" class="headerlink" title="软件缺陷的有效描述规则"></a>软件缺陷的有效描述规则</h4><p>单一准确 可以再现 完整统一 短小简练 特定条件 补充完善 不作评价</p>
+<h4 id="软件缺陷的属性"><a href="#软件缺陷的属性" class="headerlink" title="软件缺陷的属性"></a>软件缺陷的属性</h4><p>（1）缺陷标识<br>（2）缺陷描述与缺陷注释<br>（3）缺陷类型<br>（4）缺陷严重程度级别<br>（5）缺陷产生可能性<br>（6）缺陷的优先级<br>（7）缺陷状态<br>（8）软件缺陷的起源<br>（9）软件缺陷的来源<br>（10）缺陷根源</p>
+<h4 id="缺陷状态"><a href="#缺陷状态" class="headerlink" title="缺陷状态"></a>缺陷状态</h4><p>New (新缺陷)：测试中新发现的软件缺陷（bug）；<br>Open (打开)：由开发人员确认是缺陷；<br>Fixed (修正)：开发人员已完成修正，等待测试人员验证；<br>Rejected (拒绝)：由于测试人员对某功能项理解不足产生的不是缺陷的问题，经开发人员提出，并由测试人员确认的不是缺陷的问题；<br>Deferred (延期): 不在回归测试版本修复的错误，下一版或以后再修复的缺陷；<br>Closed (关闭)：复测后，确认的已被修复的缺陷；<br>Reopen(重开)：开发人员已修改，但测试人员回归测试后发现依然存在的缺陷；<br>Pending（未决的）：开发方确认是缺陷，但需要进一步和客户确认后再决定是否修改的缺陷。</p>
+<h4 id="缺陷严重程度定义"><a href="#缺陷严重程度定义" class="headerlink" title="缺陷严重程度定义"></a>缺陷严重程度定义</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nurw29isj20fu05hmxp.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628123823856"></p>
+<h4 id="缺陷级别（严重等级）"><a href="#缺陷级别（严重等级）" class="headerlink" title="缺陷级别（严重等级）"></a>缺陷级别（严重等级）</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nusfpdw5j20ff08e0u6.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628123855182"></p>
+<h4 id="软件缺陷根源"><a href="#软件缺陷根源" class="headerlink" title="软件缺陷根源"></a>软件缺陷根源</h4><p>（1）功能不正常<br>（2）软件在使用上不方便<br>（3）软件的结构未做良好规划<br>（4）功能不充分<br>（5）与软件操作者的互动不良<br>（6）使用性能不佳<br>（7）未做好错误处理</p>
+<p>（8）边界错误<br>（9）计算错误<br>（10）使用一段时间所产生的错误<br>（11）控制流程的错误<br>（12）在大数据量压力之下所产生的错误<br>（13）在不同硬件环境下产生的错误<br>（14）版本控制不良所产生的错误<br>（15）软件文档的错误</p>
+<h4 id="缺陷报告"><a href="#缺陷报告" class="headerlink" title="缺陷报告"></a>缺陷报告</h4><p>见书</p>
+<h2 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h2><h3 id="测试风险管理"><a href="#测试风险管理" class="headerlink" title="测试风险管理"></a>测试风险管理</h3><p>项目风险管理是识别和分析项目风险及采取应对措施的活动。包括将积极因素所产生的影响最大化和使消极因素产生的影响最小化两方面内容。</p>
+<h4 id="风险因素"><a href="#风险因素" class="headerlink" title="风险因素"></a>风险因素</h4><p>消极风险：规避、转移、减轻、接受<br>积极风险：开拓、分享、提高、接受</p>
+<h4 id="项目风险和产品风险"><a href="#项目风险和产品风险" class="headerlink" title="项目风险和产品风险"></a>项目风险和产品风险</h4><p>项目风险包括项目执行过程的各方面，如任务协同、资源分配（包括人员、测试工具、测试环境）、进度、工期、成本、技术等。一般可以通过非测试措施（如沟通协调、资源申请、风险升级、范围变更等）进行风险缓释。</p>
+<p>产品风险是基于产品本身（被测对象）所存在的风险，例如功能性、性能、兼容性、安全性、可靠性、稳定性、可移植性的风险等。产品风险是基于产品本身特性存在的。一般可以通过增加对应测试场景或加强测试等措施进行风险减缓或规避。</p>
+<h4 id="软件风险分析"><a href="#软件风险分析" class="headerlink" title="软件风险分析"></a>软件风险分析</h4><p>风险标识：唯一标识<br>风险问题：风险问题的简要描述<br>发生可能性：发生可能性的级别（1-10）<br>影响的严重程度：风险影响的严重性级别（1-10）<br>风险预测值：可能性与严重性的乘积<br>风险优先级：高中低，或1-2-3</p>
+<h4 id="风险评估与风险控"><a href="#风险评估与风险控" class="headerlink" title="风险评估与风险控"></a>风险评估与风险控</h4><p>风险评估主要依据三个因素：风险描述风险概率风险影响<br>风险控制：风险规避风险转移风险降低（损失控制）风险保留（风险承担）</p>
+<h4 id="风险管理的过程"><a href="#风险管理的过程" class="headerlink" title="风险管理的过程"></a>风险管理的过程</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nx6ayjzwj20p70chjsn.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628140126994"></p>
+<h4 id="风险分类"><a href="#风险分类" class="headerlink" title="风险分类"></a>风险分类</h4><p>技术或质量风险：使用未经验证的或复杂的技术，项目进行过程中变更技术路线，硬件、软件和网络功能划分不合理，在有用的产品生产出来之前，该技术过时，不现实的质量目标<br>项目管理风险：不合理的进度，资源冲突，缺乏项目管理经验</p>
+<p>组织风险：对项目的重视程度不够资金缺乏，外部风险，业主变更，法律纠纷</p>
+<p>市场风险：产品或服务能推销出去吗？用户会接受并采用这一产品或服务吗？会不会被竞争对手赶在前面</p>
+<p>财务风险：组织有能力承担这一项目吗？项目干系人在财务预算时的信心如何？项目会满足NPV、ROI和回报估计吗？如果不能满足，公司还有能力继续进行该项目吗？公司的现金流是否能够支撑该项目？</p>
+<h4 id="风险识别过程"><a href="#风险识别过程" class="headerlink" title="风险识别过程"></a>风险识别过程</h4><p>项目组通过查阅项目文档，分析项目假设和分析项目信息等活动识别项目风险<br>    信息搜集技术：头脑风暴法，德尔菲技术，访谈和SWOT分析</p>
+<h4 id="风险响应的类型"><a href="#风险响应的类型" class="headerlink" title="风险响应的类型"></a>风险响应的类型</h4><p>规避<br>工程法：防止风险因素出现<br>减少已经存在的风险因素<br>将风险因素与潜在受损目标隔离<br>教育：使相关人员接受风险及风险管理教育<br>制度：以制度化的方式从事项目活动</p>
+<p>转移：借用合同或协议，在风险一旦发生时将损失的一部分转移到项目以外的第三方身上。<br>转移风险的四种方式：出售、发包、开脱责任合同、保险和担保<br>回避：是指当项目风险潜在威胁发生可能性大，不利后果也太严重，又无其它策略可用时，主动放弃项目或改变项目目标与行动方案，从而规避风险的一种策略。<br>减弱<br>接受</p>
+<h3 id="测试进度管理"><a href="#测试进度管理" class="headerlink" title="测试进度管理"></a>测试进度管理</h3><p>项目进度管理的主要目标是在规定的时间内，制定出合理、经济的进度计划，并在该计划执行过程中，检查实际进度是否与计划进度相一致，以保证项目按时完成。<br>（1）每个软件项目都面临着一个无法回避的最终交付日期，这个期限构成了项目管理的三大约束之一，软件测试活动因此也必须在某个时间点完成；<br>（2）所有的项目管理活动都不可避免的围绕着时间坐标进行，这个横坐标为项目提供了一个重要的量化指标和尺度。</p>
+<h4 id="测试进度管理过程"><a href="#测试进度管理过程" class="headerlink" title="测试进度管理过程"></a>测试进度管理过程</h4><p>（1）计划制定 (2）进度跟踪 （3）分析偏差（4）进度调整</p>
+<h4 id="工作量估算"><a href="#工作量估算" class="headerlink" title="工作量估算"></a>工作量估算</h4><p>类比估算 自下而上估算 PERT估算</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3nxow0r35j20o90eqmyt.jpg" srcset="/img/loading.gif" lazyload alt="image-20220628141918218"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="category-chain-item">大学课程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%A4%8D%E4%B9%A0/">#复习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>软件测试复习</div>
+      <div>http://example.com/2022/07/21/collage/软件测试复习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>软软糯糯的汤圆</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月21日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/21/collage/%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86%E5%A4%8D%E4%B9%A0/" title="企业管理复习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">企业管理复习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/21/collage/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%A6%82%E8%AE%BA/" title="软件体系结构概论">
+                        <span class="hidden-mobile">软件体系结构概论</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,865 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/images/titleIcon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="软软糯糯的汤圆">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="软件体系结构概论第一章 软件体系结构概述软件危机软件危机的表现 软件成本日益增长 开发进度难以控制 软件质量差 软件维护困难  软件危机的原因 用户需求不明确 缺乏正确的理论指导 软件规模越来越大 软件复杂度越来越高  计算机的发展历史  世界上第一台计算机：埃尼阿克 1946.2.14 由美国军方定制 现代计算机之父：冯·诺伊曼 计算机应该以二进制为基础 计算机应该采用存储方式工作 明确指出了计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件体系结构概论">
+<meta property="og:url" content="http://example.com/2022/07/21/collage/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%A6%82%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Tangyuan的博客">
+<meta property="og:description" content="软件体系结构概论第一章 软件体系结构概述软件危机软件危机的表现 软件成本日益增长 开发进度难以控制 软件质量差 软件维护困难  软件危机的原因 用户需求不明确 缺乏正确的理论指导 软件规模越来越大 软件复杂度越来越高  计算机的发展历史  世界上第一台计算机：埃尼阿克 1946.2.14 由美国军方定制 现代计算机之父：冯·诺伊曼 计算机应该以二进制为基础 计算机应该采用存储方式工作 明确指出了计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gztcd648a0j21xy0sednh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gztccvugbyj212o0epdir.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzu79775aaj20z80gg77y.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxn7hq2faj20it08i3z1.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxn9t3rmjj20s60bgmzc.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxnanyvhdj20qa08sdg2.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxnjbhz2kj20sy0ektcc.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxo5nd86pj21540iadk2.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxoj1xu12j20jg0ck3z2.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxorlw229j20zk0kktaz.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxotjp1tmj20vk0n0wgy.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxp74vhp1j20u60n6acg.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h01e5zy42wj20ju0f20tf.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h01el1feubj20n00gw0u8.jpg">
+<meta property="og:image" content="https://img-blog.csdn.net/20170921103126413?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxnempo/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://img-blog.csdn.net/20170921103210026?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxnempo/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h05rwk51vwj20so0giwjs.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1h05sdiujlnj20s2076jsn.jpg">
+<meta property="article:published_time" content="2022-07-21T01:50:47.000Z">
+<meta property="article:modified_time" content="2022-07-21T03:47:20.128Z">
+<meta property="article:author" content="软软糯糯的汤圆">
+<meta property="article:tag" content="复习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/e6c9d24ely1gztcd648a0j21xy0sednh.jpg">
+  
+  
+  
+  <title>软件体系结构概论 - Tangyuan的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>TangyuanBlog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="软件体系结构概论"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-21 09:50" pubdate>
+          2022年7月21日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">软件体系结构概论</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="软件体系结构概论"><a href="#软件体系结构概论" class="headerlink" title="软件体系结构概论"></a>软件体系结构概论</h1><h2 id="第一章-软件体系结构概述"><a href="#第一章-软件体系结构概述" class="headerlink" title="第一章 软件体系结构概述"></a>第一章 软件体系结构概述</h2><h3 id="软件危机"><a href="#软件危机" class="headerlink" title="软件危机"></a>软件危机</h3><h5 id="软件危机的表现"><a href="#软件危机的表现" class="headerlink" title="软件危机的表现"></a>软件危机的表现</h5><ul>
+<li>软件成本日益增长</li>
+<li>开发进度难以控制</li>
+<li>软件质量差</li>
+<li>软件维护困难</li>
+</ul>
+<h5 id="软件危机的原因"><a href="#软件危机的原因" class="headerlink" title="软件危机的原因"></a>软件危机的原因</h5><ul>
+<li>用户需求不明确</li>
+<li>缺乏正确的理论指导</li>
+<li>软件规模越来越大</li>
+<li>软件复杂度越来越高</li>
+</ul>
+<h3 id="计算机的发展历史"><a href="#计算机的发展历史" class="headerlink" title="计算机的发展历史"></a>计算机的发展历史</h3><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gztcd648a0j21xy0sednh.jpg" srcset="/img/loading.gif" lazyload alt="CE8A8C5BBFD98B4CA3A56AFD72B6B917"></p>
+<ul>
+<li>世界上第一台计算机：埃尼阿克 1946.2.14 由美国军方定制</li>
+<li>现代计算机之父：冯·诺伊曼<ul>
+<li>计算机应该以二进制为基础</li>
+<li>计算机应该采用存储方式工作</li>
+<li>明确指出了计算机组成5部分</li>
+</ul>
+</li>
+</ul>
+<h3 id="编程语言的发展历史"><a href="#编程语言的发展历史" class="headerlink" title="编程语言的发展历史"></a>编程语言的发展历史</h3><ul>
+<li>第一代（1946-1953）机器语言</li>
+<li>第二代（1954-1964）汇编语言</li>
+<li>第三代（1965-now）高级语言 c语言1972年问世 c++ 1980年 python 1991年 java 1995 php 1995 C# 2001 GO 2009</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gztccvugbyj212o0epdir.jpg" srcset="/img/loading.gif" lazyload alt="D2E1F7C068F2650F85196170EF5EDDBF"></p>
+<h3 id="构件与软件重用"><a href="#构件与软件重用" class="headerlink" title="构件与软件重用"></a>构件与软件重用</h3><ul>
+<li>构件是指语义完整、语法正确和有可重用价值的单位软件，是软件<br>重用过程中可以明确辨识的系统;结构上，它是语义描述、通讯接<br>口和实现代码的复合体。</li>
+<li>重用是指在两次或多次不同的软件开发过程中重复使用相同或相近<br>软件元素的过程。</li>
+</ul>
+<h4 id="检索与提取构件"><a href="#检索与提取构件" class="headerlink" title="检索与提取构件"></a>检索与提取构件</h4><ul>
+<li>基于关键字检索：素材网站</li>
+<li>刻面检索法：京东商城的类别分类</li>
+<li>超文本检索法：微信小程序开发文档的跳转</li>
+<li>其他检索法</li>
+</ul>
+<h4 id="理解与评价构件"><a href="#理解与评价构件" class="headerlink" title="理解与评价构件"></a>理解与评价构件</h4><ul>
+<li>构件的功能与行为</li>
+<li>相关知识领域</li>
+<li>可适应性约束条件与例外情形</li>
+<li>可以预见的修改部分以及修改方法</li>
+</ul>
+<h4 id="修改构件"><a href="#修改构件" class="headerlink" title="修改构件"></a>修改构件</h4><ul>
+<li>理想情况下是不作修改直接用于新的软件项目</li>
+<li>但大多数情况下，必须对构件进行或多或少的修改以适应新的需求</li>
+<li>为了减少修改的工作量，要求开发人员尽量</li>
+</ul>
+<h4 id="构件组装"><a href="#构件组装" class="headerlink" title="构件组装"></a>构件组装</h4><ul>
+<li><p>基于功能的组装</p>
+<ul>
+<li>基于功能的组装技术采用子程序调用和参数传递的方式将构件组装起来。它要求库中的构件以子程序/过程/函数的形式出现，并且接口说明必须清晰。</li>
+<li>当使用这种组装技术进行软件开发时，开发人员首先应对目标软件系统进行功能分解，将系统分解为强内聚、松耦合的功能模块。然后根据各模块的功能需求提取构件，对它进行适应性修改后再挂接在.上述功能分解框架中。</li>
+</ul>
+</li>
+<li><p>基于数据的组装</p>
+</li>
+<li><ul>
+<li>首先，根据当前软件问题的核心数据结构设计出- -个框架，然后根据框架中各结点的需求提取构件并进行适应性修改，再将构件逐个分配至框架中的适当位置。</li>
+<li>此后，构件的组装方式仍然是传统的子程序调用与参数传递。这种组装技术也要求库中构件以子程序形式出现，但它所依赖的软<br>件设计方法不再是功能分解，而是面向数据的设计方法，例如Jackson系统开发方法。</li>
+</ul>
+</li>
+<li><p>面向对象的组装</p>
+</li>
+<li><ul>
+<li>构造法:在子类中引进基类的对象作为子类的成员变量，然后<br>在子类中通过成员变量重用基类的属性和方法。</li>
+<li>子类法:将新子类直接说明为库中基类的子类，通过继承和修<br>改基类的属性与行为完成新子类的定义。</li>
+</ul>
+</li>
+</ul>
+<h3 id="软件体系结构的兴起与发展"><a href="#软件体系结构的兴起与发展" class="headerlink" title="软件体系结构的兴起与发展"></a>软件体系结构的兴起与发展</h3><p>​    随着软件系统规模越来越大、越来越复杂，整个系统的结构和规格说明显得越来越重要。<br>​    对于大规模的复杂软件系统来说，对总体的系统结构设计和规格说明比起对计算的算法和数据结构的选择已经变得明显重要得多。<br>​    对软件体系结构的系统、深入的研究将会成为提高软件生产率和解决软件维护问题的新的最有希望的途径。<br>​    事实上，软件总是有体系结构的，不存在没有体系结构的软件。软件体系结构虽脱胎于软件工程，但其形成同时借鉴了计算机体系结构和网络体系结构中很多宝贵的思想和方法，最近几年软件体系结构研究已完全独立于软件工程的研究，成为计算机科学的一一个最新的研究方向和独立学科分支。</p>
+<h4 id="软件结构的定义"><a href="#软件结构的定义" class="headerlink" title="软件结构的定义"></a>软件结构的定义</h4><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzu79775aaj20z80gg77y.jpg" srcset="/img/loading.gif" lazyload alt="image-20220301110213444" style="zoom: 50%;" />
+
+ 
+
+<h3 id="第二章-软件体系结构模型"><a href="#第二章-软件体系结构模型" class="headerlink" title="第二章 软件体系结构模型"></a>第二章 软件体系结构模型</h3><ul>
+<li>结构模型</li>
+<li>动态模型</li>
+<li>过程模型</li>
+<li>功能模型</li>
+<li>4+1模型</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxn7hq2faj20it08i3z1.jpg" srcset="/img/loading.gif" lazyload alt="BC69F7CAFBBC503639F602D48A9AF8D7"></p>
+<h3 id="第三章软件体系结构风格"><a href="#第三章软件体系结构风格" class="headerlink" title="第三章软件体系结构风格"></a>第三章软件体系结构风格</h3><ul>
+<li>软件体系风格的定义</li>
+<li>经典的软件体系结构风格</li>
+</ul>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxn9t3rmjj20s60bgmzc.jpg" srcset="/img/loading.gif" lazyload alt="image-20220304103307945" style="zoom:50%;" />
+
+<ol>
+<li>管道与过滤器风格：</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxnanyvhdj20qa08sdg2.jpg" srcset="/img/loading.gif" lazyload alt="image-20220304103357414"></p>
+<p>输入通过过滤器，经过内部处理，产生输入输出。输入还没被完全消费之前，输出就产生了。</p>
+<p>应用场景：大数据的清洗 数据处理</p>
+<p>优点：高内聚 低耦合 支持软件的重用 允许多个输入输出 </p>
+<p>缺点：通常导致进程成为批处理的结构 不适合处理交互式的应用 数据上没有通用标准</p>
+<ol start="2">
+<li>数据抽象和面向对象组织</li>
+</ol>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxnjbhz2kj20sy0ektcc.jpg" srcset="/img/loading.gif" lazyload alt="image-20220304104215752" style="zoom: 55%;" />
+
+<p>优点：</p>
+<p>缺点：必须知道对象的标识 必须修改所有显示调用他的其他对象，并消除由此带来的一些副作用。</p>
+<ol start="3">
+<li>基于事件的隐式调用</li>
+</ol>
+<p>类似于回调函数</p>
+<p>优点：</p>
+<p>缺点：构件放弃了对系统计算的控制，不能确定其他控件是否会影响他 数据交换的问题 不能直接的数据交互 关于正确性的推理存在问题</p>
+<ol start="4">
+<li>分层系统</li>
+</ol>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxo5nd86pj21540iadk2.jpg" srcset="/img/loading.gif" lazyload alt="image-20220304110343615" style="zoom:55%;" />
+
+<p>优点：支持重用 支持功能增强 支持基于抽象程度递增的系统设计</p>
+<p>缺点：不容易划分分层，很难找到合适的，正确的层次抽象方法。</p>
+<ol start="5">
+<li>仓库系统</li>
+</ol>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxoj1xu12j20jg0ck3z2.jpg" srcset="/img/loading.gif" lazyload alt="image-20220304111636627" style="zoom:50%;" />
+
+<ol start="6">
+<li><p>C2风格</p>
+</li>
+<li><p>CS风格</p>
+</li>
+</ol>
+<p>组成：数据库 客户应用程序 网络</p>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxorlw229j20zk0kktaz.jpg" srcset="/img/loading.gif" lazyload alt="image-20220304112449627" style="zoom:50%;" />
+
+<p>服务器：对安全性要求 访问并发行的控制 全局数据完整行数据库的备份与恢复</p>
+<p>客户端：提供用户与数据库交互的页面 向数据库提交用户发出的请求并接受来记服务器的消息</p>
+<p>处理流程：</p>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxotjp1tmj20vk0n0wgy.jpg" srcset="/img/loading.gif" lazyload alt="image-20220304112642602" style="zoom:50%;" />
+
+<p>优点：模型简单 易于理解 强大的数据操作 客户端和服务的在不同计算机 硬件和软件有适应性和灵活性</p>
+<p>缺点：开发成本高 客户端设计复杂 信息内容和形式单一 用户界面风格不一 使用繁杂 软件移植困难 维护和升级困难 新技术不能轻易应用</p>
+<ol start="8">
+<li>三层CS风格</li>
+</ol>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1gzxp74vhp1j20u60n6acg.jpg" srcset="/img/loading.gif" lazyload alt="image-20220304113944905" style="zoom: 40%; margin:0; border:1px solid orange;" />
+
+<p>三层体系结构中最重要的就是中间件。</p>
+<p>优点：</p>
+<ul>
+<li>允许合理的划分三层结构的功能，使逻辑上保持相对独立性。提高可维护性和可拓展性。</li>
+<li>开发可以并行</li>
+<li>灵活有效的选用相应的平台和硬件</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>通讯效率可能不高</li>
+<li>设计的时候必须慎重的考虑三层通讯的方法，频度以及数据量。</li>
+</ul>
+<ol start="9">
+<li><h6 id="三层BS风格"><a href="#三层BS风格" class="headerlink" title="三层BS风格"></a>三层BS风格</h6></li>
+</ol>
+<p>浏览器/WEB服务器/数据库服务器</p>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h01e5zy42wj20ju0f20tf.jpg" srcset="/img/loading.gif" lazyload alt="image-20220307162019868" style="zoom: 50%;margin:0" />
+
+<p>优点：</p>
+<ul>
+<li>一个浏览器就可以运行全部的模块，0客户端 便于升级。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>缺乏对动态页面的支持，没有集成有效的处理功能</li>
+<li>系统扩展能力差，安全难以控制</li>
+<li>数据查询到速度远远小于C/S</li>
+<li>一般以页面为单位，数据的动态交互性不强，不利于在线事物处理应用。</li>
+</ul>
+<ol start="10">
+<li><h4 id="异构风格"><a href="#异构风格" class="headerlink" title="异构风格"></a>异构风格</h4></li>
+</ol>
+<p>查改有别</p>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h01el1feubj20n00gw0u8.jpg" srcset="/img/loading.gif" lazyload alt="image-20220307163447265" style="zoom:50%;;margin:0" />
+
+<h3 id="第四章-软件体系结构描述"><a href="#第四章-软件体系结构描述" class="headerlink" title="第四章 软件体系结构描述"></a>第四章 软件体系结构描述</h3><p>1、描述方法的分类<br>◎ 图形表达工具<br>◎ 模块内连接语言<br>◎ 基于软构件的系统描述语言<br>◎ <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84&spm=1001.2101.3001.7020">软件体系结构</a>描述语言</p>
+<p>2、软件体系结构描述框架标准<br>（1）IEEE P1471<br>（2）Rational</p>
+<p>3、ADL与其他语言的比较</p>
+<ul>
+<li>构造能力：ADL能够使用较小的独立体系结构元素来建造大型软件系统；</li>
+<li>抽象能力：ADL使得软件体系结构中的构件和连接件描述可以只关注它们的抽象特性，而不管其具体的实现细节；</li>
+<li>重用能力：ADL使得组成软件系统的构件、连接件甚至是软件体系结构都成为软件系统开发和设计的可重用部件；</li>
+<li>组合能力：ADL使得其描述的每一系统元素都有其自己的局部结构，这种描述局部结构的特点使得ADL支持软件系统的动态变化组合；</li>
+<li>异构能力：ADL允许多个不同的体系结构描述关联存在；</li>
+<li>分析和推理能力：ADL允许对其描述的体系结构进行多种不同的性能和功能上的多种推理分析。</li>
+</ul>
+<p>4、ADL与其他语言的比较<br><img src="https://img-blog.csdn.net/20170921103126413?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxnempo/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" lazyload alt="这里写图片描述"></p>
+<p><img src="https://img-blog.csdn.net/20170921103210026?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxnempo/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" lazyload alt="这里写图片描述"></p>
+<p>5、C2 – 概述<br>C2和其提供的设计环境（Argo）支持采用基于时间的风格来描述用户界面系统，并支持使用可替换、可重用的构件开发GUI的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84&spm=1001.2101.3001.7020">体系结构</a>。<br>在C2中，连接件负责构件之间消息的传递，而构件维持状态、执行操作并通过两个名字分别为“top”和“bottom”的端口和其它的构件交换信息。<br>每个接口包含一种可发送的消息和一组可接收的消息。构件之间的消息要么是请求其它构件执行某个操作的请求消息，要么是通知其他构件自身执行了某个操作或状态发生改变的通知消息。<br>构件之间的消息交换不能直接进行，而只能通过连接件来完成。每个构件接口最多只能和一个连接件相连，而连接件可以和任意数目的构件或连接件相连。<br>请求消息只能向上层传送而通知消息只能向下层传送。<br>通知消息的传递只对应于构件内部的操作，而和接收消息的构件的需求无关。<br>C2对构件和连接件的实现语言、实现构件的线程控制、构件的部署以及连接件使用的通讯协议等都不加限制。</p>
+<h2 id="第五章软件体系结构评估"><a href="#第五章软件体系结构评估" class="headerlink" title="第五章软件体系结构评估"></a>第五章软件体系结构评估</h2><h3 id="质量属性"><a href="#质量属性" class="headerlink" title="质量属性"></a>质量属性</h3><h4 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h4><p>性能指==响应时间==和==吞吐量==</p>
+<h4 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h4><ul>
+<li>平均失效等待时间：系统能用的时间</li>
+<li>平均失效间隔时间（MTBF）</li>
+</ul>
+<h4 id="可用性"><a href="#可用性" class="headerlink" title="可用性"></a>可用性</h4><p>可用性是系统能正常运行的时间比例。</p>
+<h4 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h4><p>机密性 完整性 不可否认性 可控性</p>
+<h4 id="可修改性"><a href="#可修改性" class="headerlink" title="可修改性"></a>可修改性</h4><p>可维护性，可扩展性，结构重组，可移植性</p>
+<h4 id="功能性"><a href="#功能性" class="headerlink" title="功能性"></a>功能性</h4><p>完成期望工作的能力。</p>
+<h4 id="可变性"><a href="#可变性" class="headerlink" title="可变性"></a>可变性</h4><p>变更成新项目的能力。</p>
+<h4 id="可集成性"><a href="#可集成性" class="headerlink" title="可集成性"></a>可集成性</h4><p>系统与其他系统协作的程度</p>
+<h4 id="互操作性"><a href="#互操作性" class="headerlink" title="互操作性"></a>互操作性</h4><p>程序和其他编程语言编写的软件系统的交互作用</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="敏感点和权衡点"><a href="#敏感点和权衡点" class="headerlink" title="敏感点和权衡点"></a>敏感点和权衡点</h4><p>敏感点是一个或多个构件的特性。度量构件时要考虑的质量属性</p>
+<p>权衡点事影响多个质量属性的特性，是多个质量属性的敏感点。</p>
+<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h05rwk51vwj20so0giwjs.jpg" srcset="/img/loading.gif" lazyload alt="image-20220311111751711"></p>
+<h3 id="评估的主要方式"><a href="#评估的主要方式" class="headerlink" title="评估的主要方式"></a>评估的主要方式</h3><ul>
+<li>调查问卷和检查表</li>
+<li>基于场景的评估方式</li>
+<li>基于度量的评估方式</li>
+</ul>
+<h3 id="评估方式比较"><a href="#评估方式比较" class="headerlink" title="评估方式比较"></a>评估方式比较</h3><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h05sdiujlnj20s2076jsn.jpg" srcset="/img/loading.gif" lazyload alt="image-20220311113412908"></p>
+<h3 id="ATAM评估方法"><a href="#ATAM评估方法" class="headerlink" title="ATAM评估方法"></a>ATAM评估方法</h3><ul>
+<li>获取和分析技术</li>
+<li>评估结果</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="category-chain-item">大学课程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%A4%8D%E4%B9%A0/">#复习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>软件体系结构概论</div>
+      <div>http://example.com/2022/07/21/collage/软件体系结构概论/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>软软糯糯的汤圆</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月21日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/21/collage/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/" title="软件测试复习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">软件测试复习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/21/collage/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%80%83%E9%A2%98/" title="软件体系结构考题">
+                        <span class="hidden-mobile">软件体系结构考题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

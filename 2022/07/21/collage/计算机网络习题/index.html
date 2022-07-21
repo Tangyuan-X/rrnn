@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/images/titleIcon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="软软糯糯的汤圆">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="计算机网络习题第一章1-02 试简述分组交换的要点答：在分组交换网络中，采用存储转发方式工作，数据以短的分组形式传送。如果一个源站有一个长的报文要发送，该报文就会被分割成一系列的分组。每个分组包含用户数据的一部分加上一些控制信息。控制信息至少要包括网络为了把分组送到目的地做路由选择所需要的信息。在路径上的每个结点，分组被接收，短时间存储，然后传递给下一结点。   分组交换网的主要优点：① 高效。②">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络习题">
+<meta property="og:url" content="http://example.com/2022/07/21/collage/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%A0%E9%A2%98/index.html">
+<meta property="og:site_name" content="Tangyuan的博客">
+<meta property="og:description" content="计算机网络习题第一章1-02 试简述分组交换的要点答：在分组交换网络中，采用存储转发方式工作，数据以短的分组形式传送。如果一个源站有一个长的报文要发送，该报文就会被分割成一系列的分组。每个分组包含用户数据的一部分加上一些控制信息。控制信息至少要包括网络为了把分组送到目的地做路由选择所需要的信息。在路径上的每个结点，分组被接收，短时间存储，然后传递给下一结点。   分组交换网的主要优点：① 高效。②">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-21T01:50:47.000Z">
+<meta property="article:modified_time" content="2022-07-21T03:47:11.589Z">
+<meta property="article:author" content="软软糯糯的汤圆">
+<meta property="article:tag" content="复习">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>计算机网络习题 - Tangyuan的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>TangyuanBlog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="计算机网络习题"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-21 09:50" pubdate>
+          2022年7月21日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">计算机网络习题</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="计算机网络习题"><a href="#计算机网络习题" class="headerlink" title="计算机网络习题"></a>计算机网络习题</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="1-02-试简述分组交换的要点"><a href="#1-02-试简述分组交换的要点" class="headerlink" title="1-02 试简述分组交换的要点"></a>1-02 试简述分组交换的要点</h3><p class="p-txt">答：在分组交换网络中，采用存储转发方式工作，数据以短的分组形式传送。如果一个源站有一个长的报文要发送，该报文就会被分割成一系列的分组。每个分组包含用户数据的一部分加上一些控制信息。控制信息至少要包括网络为了把分组送到目的地做路由选择所需要的信息。在路径上的每个结点，分组被接收，短时间存储，然后传递给下一结点。
+</p>
+
+<p class="p-txt">分组交换网的主要优点：① 高效。② 灵活。③ 迅速。④ 可靠。
+</p>
+
+<p class="p-txt">缺点：分组在节点转发时因排队而造成一定的延时;分组必须携带一些控制信息而产生额外开销;
+</p>
+
+<h3 id="1-03、试从多个方面比较电路交换、报文交换和分组交换的主要优缺点。"><a href="#1-03、试从多个方面比较电路交换、报文交换和分组交换的主要优缺点。" class="headerlink" title="1-03、试从多个方面比较电路交换、报文交换和分组交换的主要优缺点。"></a>1-03、试从多个方面比较电路交换、报文交换和分组交换的主要优缺点。</h3><p><strong>电路交换</strong>：需要建立连接后才能传输数据，线路的传输效率很低，同时建立连接需要额外的时间。建立连接后数据直接从源点到目的地就像是在一个管道中传输数据。<br><strong>报文交换</strong>：采用存储转发原则，不需要建立连接，也就不需要额外消耗建立连接的时间，但是在数据传输过程中，必须等到收到整个报文后，才可以转发到下一个结点，速率也不怎么高。<br><strong>分组交换</strong>：同样采用存储转发方式，但是分组交换是将一个大的报文分为很多小分组在转发，这样就不需要等到每次收到一整个报文才转发，而是收到一个分组后就直接转发，时间消耗更少，但是分组交换在进行分组的过程中需要额外的首部，会造成一定的消耗。<br>分组交换的优点：高效，灵活，迅速，可靠。</p>
+<h3 id="计算机网络都有哪些类别？各种类别都有哪些特点？"><a href="#计算机网络都有哪些类别？各种类别都有哪些特点？" class="headerlink" title="计算机网络都有哪些类别？各种类别都有哪些特点？"></a><strong>计算机网络都有哪些类别？各种类别都有哪些特点？</strong></h3><p>答：按照网络的作用范围分为：<br>广域网：作用范围几十到几千公里<br>城域网：作用距离5~50km<br>局域网：1km左右<br>个域网：10m左右<br>按照使用者分：<br>公用网：所有愿意按照电信公司的规定缴纳费用的人都可以使用的网络，（由电信公司出资建造的大型网）<br>专用网：某个部门为满足本单位的特殊业务工作的需要而建造的网络。</p>
+<h3 id="收发两端之间的传输距离为1000km，信号在媒体上的传播速率为2×108m-s。试计算以下两种情况的发送时延和传播时延。"><a href="#收发两端之间的传输距离为1000km，信号在媒体上的传播速率为2×108m-s。试计算以下两种情况的发送时延和传播时延。" class="headerlink" title="收发两端之间的传输距离为1000km，信号在媒体上的传播速率为2×108m/s。试计算以下两种情况的发送时延和传播时延。"></a>收发两端之间的传输距离为1000km，信号在媒体上的传播速率为2×108m/s。试计算以下两种情况的发送时延和传播时延。</h3><p>发送时延和传播时延：</p>
+<p>（1）数据长度为10 7bit，数据发送速率为100kb/s<br>（2）数据长度为10 5bit，数据发送速率为1Gbits/s</p>
+<ol>
+<li>发送时延 = 10 7 / 10 5 = 100s</li>
+</ol>
+<p>​            传播时延 =  1X10 6 / 2X10 8= 0.005S</p>
+<ol start="2">
+<li>发送时延 = 10 5 / 10  9= 0.0001s</li>
+</ol>
+<p>​            传播时延 =  1X10 6 / 2X10 8= 0.005S</p>
+<p>结论：若数据长度大而发送速率低，则在总的时延中，发送时延往往大于传播时延。但若数据长度短而发送速率高，则传播时延就可能是总时延中的主要成分。</p>
+<p>​    </p>
+<h3 id="假设信号在媒体上的传播速率为2-3X108m-s。媒体长度L分别为（1）10cm（网络接口卡）（2）100m（局域网）（3）100km（城域网）（4）5000km（广域网）试计算档数据率为1Mbps和10Gbps时在以上媒体中正在传播的比特数"><a href="#假设信号在媒体上的传播速率为2-3X108m-s。媒体长度L分别为（1）10cm（网络接口卡）（2）100m（局域网）（3）100km（城域网）（4）5000km（广域网）试计算档数据率为1Mbps和10Gbps时在以上媒体中正在传播的比特数" class="headerlink" title="假设信号在媒体上的传播速率为2.3X108m/s。媒体长度L分别为（1）10cm（网络接口卡）（2）100m（局域网）（3）100km（城域网）（4）5000km（广域网）试计算档数据率为1Mbps和10Gbps时在以上媒体中正在传播的比特数"></a>假设信号在媒体上的传播速率为2.3X108m/s。媒体长度L分别为（1）10cm（网络接口卡）（2）100m（局域网）（3）100km（城域网）（4）5000km（广域网）试计算档数据率为1Mbps和10Gbps时在以上媒体中正在传播的比特数</h3><p>传播时延=信道长度/电磁波在信道上的传播速率</p>
+<p>时延带宽积=传播时延*带宽</p>
+<p>（1）1Mb/s时：<br>0.1m/2.3/108×1×106b/s=0.000435bit=4.35×10-4bit<br>10Gb/s时：0.1m/2.3/108×10×109b/s=0.000435bit=4.35bit</p>
+<p>（2）1Mb/s时： 100m/2.3/108×1×106b/s=0.435 bit</p>
+<p>10Gb/s时：100m/2.3/108×10×109b/s=4.35×10-3bit<br>（3）1Mb/s时： 100000/2.3/108×1×106 b/s =435 bit<br>10Gb/s时：100000/2.3/108×10×109 b/s=4.35×106 bit<br>（4）1Mb/s时： 5×106/2.3/108×1×106 b/s=2.1739×104 bit<br>10Gb/s时：5×106/2.3/108×10×109 b/s=2.1739×108bit</p>
+<h3 id="长度为100字节的应用层数据交给运输层传送，需加上20字节的TCP首部。再交给网络层传送，需加上20字节的IP首部。最后交给数据链路层的以太网传送，加上首部和尾部18字节。试求数据的传输效率。-若应用层数据长度为1000字节，数据的传输效率是多少"><a href="#长度为100字节的应用层数据交给运输层传送，需加上20字节的TCP首部。再交给网络层传送，需加上20字节的IP首部。最后交给数据链路层的以太网传送，加上首部和尾部18字节。试求数据的传输效率。-若应用层数据长度为1000字节，数据的传输效率是多少" class="headerlink" title="长度为100字节的应用层数据交给运输层传送，需加上20字节的TCP首部。再交给网络层传送，需加上20字节的IP首部。最后交给数据链路层的以太网传送，加上首部和尾部18字节。试求数据的传输效率。 若应用层数据长度为1000字节，数据的传输效率是多少"></a>长度为100字节的应用层数据交给运输层传送，需加上20字节的TCP首部。再交给网络层传送，需加上20字节的IP首部。最后交给数据链路层的以太网传送，加上首部和尾部18字节。试求数据的传输效率。 若应用层数据长度为1000字节，数据的传输效率是多少</h3><p>数据长度为100字节时<br>传输效率=100/（100+20+20+18）=63.3%<br>数据长度为1000字节时，<br>传输效率=1000/（1000+20+20+18）=94.5% </p>
+<h3 id="协议与服务有何区别？有何关系？"><a href="#协议与服务有何区别？有何关系？" class="headerlink" title="协议与服务有何区别？有何关系？"></a>协议与服务有何区别？有何关系？</h3><p><strong>协议：</strong></p>
+<p>为进行网络中的数据交换而建立的规则、标准或规定称为网络协议，简称协议。</p>
+<p>协议是控制两个对等实体(或多个实体)进行通信的规则的集合。</p>
+<p><strong>网络协议的三要素：</strong></p>
+<p>&lt;1&gt;语法：数据与控制信息的结构或格式</p>
+<p>&lt;2&gt;语义：需要发出何种控制信息，完成何种动作以及做出何种响应。</p>
+<p>&lt;3&gt;同步：事情实现顺序的详细说明</p>
+<p><strong>服务：</strong></p>
+<p> 服务是指下层为紧向邻的上层提供的功能调用，也就是垂直的。</p>
+<p>对等实体在协议的控制下，使得本层能为上一层提供服务，但要实现本层协议还需要使用下一层所提供的服务。 </p>
+<p><strong>区别：</strong></p>
+<p>　　协议是控制对等实体之间通信的规则，是水平的。</p>
+<p>　　服务是下层通过层间接口向上层提供的功能，是垂直的。</p>
+<p><strong>关系：</strong></p>
+<p>　　 协议的实现保证了能够向上一层提供服务，要实现本层协议还需使用下层提供的服务。</p>
+<p>PDU ：协议数据单元　　对等实体之间传送的数据单位</p>
+<p>SDU : 服务数据单元　　层与层之间交换的数据的单位</p>
+<p>可以是多个SDU合成一个PDU,也可以是一个SDU划分为几个PDU。</p>
+<h3 id="网络协议的三要素"><a href="#网络协议的三要素" class="headerlink" title="网络协议的三要素"></a>网络协议的三要素</h3><p>1、语义。语义是解释控制信息每个部分的意义。它规定了需要发出何种控制信息，以及完成的动作与做出什么样的响应。</p>
+<p>2、语法。语法是用户数据与控制信息的结构与格式，以及数据出现的顺序。</p>
+<p>3、时序。时序是对事件发生顺序的详细说明。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="category-chain-item">大学课程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%A4%8D%E4%B9%A0/">#复习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>计算机网络习题</div>
+      <div>http://example.com/2022/07/21/collage/计算机网络习题/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>软软糯糯的汤圆</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月21日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/21/collage/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%A4%A7%E6%80%BB%E7%BB%93/" title="移动开发大总结">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">移动开发大总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/21/collage/%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86%E5%A4%8D%E4%B9%A0/" title="企业管理复习">
+                        <span class="hidden-mobile">企业管理复习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

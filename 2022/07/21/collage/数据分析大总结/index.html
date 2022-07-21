@@ -1,0 +1,769 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/images/titleIcon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="软软糯糯的汤圆">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="数据分析大总结第一章数据分析的步骤 导入数据 数据准备 探索和清理 拟合一个统计模型 评估模型拟合结果 模型的交叉验证 在数据上评估模型预测效果 形成报告  代码清单1-1婴儿在出生后一年内的月龄和体重数据12345678910&gt; age &lt;- c(1,3,5,2,11,9,3,9,12,3)  &#x2F;&#x2F;输入age&gt; weight &lt;- c(4.4,5.3,7.2,5.2,8.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析大总结">
+<meta property="og:url" content="http://example.com/2022/07/21/collage/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%A4%A7%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Tangyuan的博客">
+<meta property="og:description" content="数据分析大总结第一章数据分析的步骤 导入数据 数据准备 探索和清理 拟合一个统计模型 评估模型拟合结果 模型的交叉验证 在数据上评估模型预测效果 形成报告  代码清单1-1婴儿在出生后一年内的月龄和体重数据12345678910&gt; age &lt;- c(1,3,5,2,11,9,3,9,12,3)  &#x2F;&#x2F;输入age&gt; weight &lt;- c(4.4,5.3,7.2,5.2,8.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-21T01:50:47.000Z">
+<meta property="article:modified_time" content="2022-07-21T03:47:26.341Z">
+<meta property="article:author" content="软软糯糯的汤圆">
+<meta property="article:tag" content="复习">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>数据分析大总结 - Tangyuan的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>TangyuanBlog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数据分析大总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-21 09:50" pubdate>
+          2022年7月21日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          76 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数据分析大总结</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="数据分析大总结"><a href="#数据分析大总结" class="headerlink" title="数据分析大总结"></a>数据分析大总结</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="数据分析的步骤"><a href="#数据分析的步骤" class="headerlink" title="数据分析的步骤"></a>数据分析的步骤</h3><ol>
+<li>导入数据</li>
+<li>数据准备 探索和清理</li>
+<li>拟合一个统计模型</li>
+<li>评估模型拟合结果</li>
+<li>模型的交叉验证</li>
+<li>在数据上评估模型预测效果</li>
+<li>形成报告</li>
+</ol>
+<h3 id="代码清单1-1婴儿在出生后一年内的月龄和体重数据"><a href="#代码清单1-1婴儿在出生后一年内的月龄和体重数据" class="headerlink" title="代码清单1-1婴儿在出生后一年内的月龄和体重数据"></a>代码清单1-1婴儿在出生后一年内的月龄和体重数据</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> age <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">11</span><span class="hljs-punctuation">,</span><span class="hljs-number">9</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">9</span><span class="hljs-punctuation">,</span><span class="hljs-number">12</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>输入age<br><span class="hljs-operator">&gt;</span> weight <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">4.4</span><span class="hljs-punctuation">,</span><span class="hljs-number">5.3</span><span class="hljs-punctuation">,</span><span class="hljs-number">7.2</span><span class="hljs-punctuation">,</span><span class="hljs-number">5.2</span><span class="hljs-punctuation">,</span><span class="hljs-number">8.5</span><span class="hljs-punctuation">,</span><span class="hljs-number">7.3</span><span class="hljs-punctuation">,</span><span class="hljs-number">6.0</span><span class="hljs-punctuation">,</span><span class="hljs-number">10.4</span><span class="hljs-punctuation">,</span><span class="hljs-number">10.2</span><span class="hljs-punctuation">,</span><span class="hljs-number">6.1</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>输入weight<br><span class="hljs-operator">&gt;</span> mean<span class="hljs-punctuation">(</span>weight<span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>求平均值<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">7.06</span> <br><span class="hljs-operator">&gt;</span> sd<span class="hljs-punctuation">(</span>weight<span class="hljs-punctuation">)</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>求标准差<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2.077498</span> <br><span class="hljs-operator">&gt;</span> cor<span class="hljs-punctuation">(</span>age<span class="hljs-punctuation">,</span>weight<span class="hljs-punctuation">)</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>求相关性<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">0.9075655</span> <br><span class="hljs-operator">&gt;</span> plot<span class="hljs-punctuation">(</span>age<span class="hljs-punctuation">,</span>weight<span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>绘图<br><span class="hljs-operator">&gt;</span> q<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="代码清单1-2-用于管理R工作空间的命令使用示例"><a href="#代码清单1-2-用于管理R工作空间的命令使用示例" class="headerlink" title="代码清单1-2 用于管理R工作空间的命令使用示例"></a>代码清单1-2 用于管理R工作空间的命令使用示例</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs r">setwd<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;C:/myprojects/project1&quot;</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>设置工作路径<br>options<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>显示或设置当前选项<br>options<span class="hljs-punctuation">(</span>digits<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span> <br>x <span class="hljs-operator">&lt;-</span> runif<span class="hljs-punctuation">(</span><span class="hljs-number">20</span><span class="hljs-punctuation">)</span> <br>summary<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span> <br>hist<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span> <br>q<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="第二章-创建数据集"><a href="#第二章-创建数据集" class="headerlink" title="第二章 创建数据集"></a>第二章 创建数据集</h2><h3 id="代码清单2-4创建一个数据框"><a href="#代码清单2-4创建一个数据框" class="headerlink" title="代码清单2.4创建一个数据框"></a>代码清单2.4创建一个数据框</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> patientID <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">4</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>输入患者id<br><span class="hljs-operator">&gt;</span> age <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">25</span><span class="hljs-punctuation">,</span> <span class="hljs-number">34</span><span class="hljs-punctuation">,</span> <span class="hljs-number">28</span><span class="hljs-punctuation">,</span> <span class="hljs-number">52</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>输入患者年龄<br><span class="hljs-operator">&gt;</span> diabetes <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Type1&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Type2&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Type1&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Type1&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>输入类别<br><span class="hljs-operator">&gt;</span> status <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Poor&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Improved&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Excellent&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Poor&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>输入等级<br><span class="hljs-operator">&gt;</span> patientdata <span class="hljs-operator">&lt;-</span> data.frame<span class="hljs-punctuation">(</span>patientID<span class="hljs-punctuation">,</span> age<span class="hljs-punctuation">,</span> diabetes<span class="hljs-punctuation">,</span> status<span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>创建数据框<br><span class="hljs-operator">&gt;</span> patientdata <br> patientID age diabetes status <br><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">25</span> Type1 Poor <br><span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">34</span> Type2 Improved <br><span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">28</span> Type1 Excellent <br><span class="hljs-number">4</span> <span class="hljs-number">4</span> <span class="hljs-number">52</span> Type1 Poor<br></code></pre></td></tr></table></figure>
+
+<h3 id="代码清单2-5选取数据框中的元素"><a href="#代码清单2-5选取数据框中的元素" class="headerlink" title="代码清单2-5选取数据框中的元素"></a>代码清单2-5选取数据框中的元素</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> patientdata<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>选取<span class="hljs-number">1</span><span class="hljs-operator">-</span><span class="hljs-number">2</span>列<br> patientID age <br><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">25</span> <br><span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">34</span> <br><span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">28</span><br><span class="hljs-operator">&gt;</span> patientdata<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;diabetes&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;status&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>选取指定列<br> diabetes status <br><span class="hljs-number">1</span> Type1 Poor <br><span class="hljs-number">2</span> Type2 Improved <br><span class="hljs-number">3</span> Type1 Excellent <br><span class="hljs-number">4</span> Type1 Poor <br> <span class="hljs-operator">&gt;</span> patientdata<span class="hljs-operator">$</span>age <span class="hljs-operator">/</span><span class="hljs-operator">/</span>选取指定列为矢量<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">25</span> <span class="hljs-number">34</span> <span class="hljs-number">28</span> <span class="hljs-number">52</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Read-table-使用键盘输入数据"><a href="#Read-table-使用键盘输入数据" class="headerlink" title="Read.table(使用键盘输入数据)"></a>Read.table(使用键盘输入数据)</h3><p><em>mydataframe</em> &lt;- read.table(<em>file</em>, <em>options</em>) </p>
+<p>默认用空格分割，改变使用sep=””</p>
+<h3 id="3-2-第二章课后"><a href="#3-2-第二章课后" class="headerlink" title="3-2 第二章课后"></a>3-2 第二章课后</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus">res &lt;- read<span class="hljs-selector-class">.table</span>(<span class="hljs-string">&#x27;test.txt&#x27;</span>) #读取数据<br><span class="hljs-function"><span class="hljs-title">dim</span><span class="hljs-params">(res)</span></span> #查看数据维度<br><span class="hljs-function"><span class="hljs-title">names</span><span class="hljs-params">(res)</span></span> &lt;- <span class="hljs-built_in">c</span>(<span class="hljs-string">&#x27;T1&#x27;</span>,<span class="hljs-string">&#x27;T2&#x27;</span>) #给数据列改名<br><span class="hljs-function"><span class="hljs-title">sum</span><span class="hljs-params">(is.na(res)</span></span>) #计算数据NA个数<br>res &lt;- na<span class="hljs-selector-class">.omit</span>(res) #删除NA<br>res<span class="hljs-selector-attr">[1:6,]</span> #查看数据前六行<br>res<br></code></pre></td></tr></table></figure>
+
+<h3 id="表2-4-处理数据对象的实用函数"><a href="#表2-4-处理数据对象的实用函数" class="headerlink" title="表2-4 处理数据对象的实用函数"></a>表2-4 处理数据对象的实用函数</h3><table>
+<thead>
+<tr>
+<th align="left">length(<em>object</em>) 显示对象中元素/成分的数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">dim(<em>object</em>) 显示某个对象的维度</td>
+</tr>
+<tr>
+<td align="left">str(<em>object</em>) 显示某个对象的结构</td>
+</tr>
+<tr>
+<td align="left">class(<em>object</em>) 显示某个对象的类或类型</td>
+</tr>
+<tr>
+<td align="left">mode(<em>object</em>) 显示某个对象的模式</td>
+</tr>
+</tbody></table>
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><h3 id="代码清单4-1-创建leadership数据框"><a href="#代码清单4-1-创建leadership数据框" class="headerlink" title="代码清单4-1 创建leadership数据框"></a>代码清单4-1 创建leadership数据框</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs r">manager <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span> <span class="hljs-number">5</span><span class="hljs-punctuation">)</span> <br>date <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;10/24/08&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;10/28/08&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;10/1/08&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;10/12/08&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;5/1/09&quot;</span><span class="hljs-punctuation">)</span> <br>country <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;US&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;US&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;UK&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;UK&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;UK&quot;</span><span class="hljs-punctuation">)</span> <br>gender <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;M&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;F&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;F&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;M&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;F&quot;</span><span class="hljs-punctuation">)</span> <br>age <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">32</span><span class="hljs-punctuation">,</span> <span class="hljs-number">45</span><span class="hljs-punctuation">,</span> <span class="hljs-number">25</span><span class="hljs-punctuation">,</span> <span class="hljs-number">39</span><span class="hljs-punctuation">,</span> <span class="hljs-number">99</span><span class="hljs-punctuation">)</span> <br>q1 <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <br>q2 <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <br>q3 <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span> <br>q4 <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NA</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <br>q5 <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NA</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span> <br>leadership <span class="hljs-operator">&lt;-</span> data.frame<span class="hljs-punctuation">(</span>manager<span class="hljs-punctuation">,</span> date<span class="hljs-punctuation">,</span> country<span class="hljs-punctuation">,</span> gender<span class="hljs-punctuation">,</span> age<span class="hljs-punctuation">,</span> <br> q1<span class="hljs-punctuation">,</span> q2<span class="hljs-punctuation">,</span> q3<span class="hljs-punctuation">,</span> q4<span class="hljs-punctuation">,</span> q5<span class="hljs-punctuation">,</span> stringsAsFactors<span class="hljs-operator">=</span><span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>创建数据框<br></code></pre></td></tr></table></figure>
+
+<h3 id="变量的重编码"><a href="#变量的重编码" class="headerlink" title="变量的重编码"></a>变量的重编码</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs r">leadership<span class="hljs-operator">$</span>age<span class="hljs-punctuation">[</span>leadership<span class="hljs-operator">$</span>age <span class="hljs-operator">==</span> <span class="hljs-number">99</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-literal">NA</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>将<span class="hljs-number">99</span>岁的年龄值重编码为缺失值<br><br>leadership<span class="hljs-operator">$</span>agecat<span class="hljs-punctuation">[</span>leadership<span class="hljs-operator">$</span>age <span class="hljs-operator">&gt;</span> <span class="hljs-number">75</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;Elder&quot;</span> <br>leadership<span class="hljs-operator">$</span>agecat<span class="hljs-punctuation">[</span>leadership<span class="hljs-operator">$</span>age <span class="hljs-operator">&gt;=</span> <span class="hljs-number">55</span> <span class="hljs-operator">&amp;</span> <br> leadership<span class="hljs-operator">$</span>age <span class="hljs-operator">&lt;=</span> <span class="hljs-number">75</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;Middle Aged&quot;</span> <br>leadership<span class="hljs-operator">$</span>agecat<span class="hljs-punctuation">[</span>leadership<span class="hljs-operator">$</span>age <span class="hljs-operator">&lt;</span> <span class="hljs-number">55</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;Young&quot;</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>按年龄分类<br></code></pre></td></tr></table></figure>
+
+<h3 id="变量的重命名"><a href="#变量的重命名" class="headerlink" title="变量的重命名"></a>变量的重命名</h3><p>names(leadership)[2] &lt;- “testDate” </p>
+<p>names(leadership)[6:10] &lt;- c(“item1”, “item2”, “item3”, “item4”, “item5”) </p>
+<h3 id="缺失值"><a href="#缺失值" class="headerlink" title="缺失值"></a>缺失值</h3><p>函数is.na()允许你检测缺失值是否存在</p>
+<p>is.na(y) 将返回c(FALSE, FALSE, FALSE, TRUE)</p>
+<p>使用na.omit()删除不完整的观测</p>
+<h3 id="数据集取子集"><a href="#数据集取子集" class="headerlink" title="数据集取子集"></a>数据集取子集</h3><h4 id="选入（保留）变量"><a href="#选入（保留）变量" class="headerlink" title="选入（保留）变量"></a>选入（保留）变量</h4><p>newdata &lt;- leadership[, c(6:10)] </p>
+<h4 id="剔除（丢弃）变量"><a href="#剔除（丢弃）变量" class="headerlink" title="剔除（丢弃）变量"></a>剔除（丢弃）变量</h4><p>myvars &lt;- names(leadership) %in% c(“q3”, “q4”) </p>
+<p>newdata &lt;- leadership[!myvars] </p>
+<h4 id="选入观测"><a href="#选入观测" class="headerlink" title="选入观测"></a>选入观测</h4><p>newdata &lt;- leadership[1:3,] </p>
+<p>newdata &lt;- leadership[leadership$gender==”M” &amp;  leadership$age &gt; 30,] </p>
+<h3 id="随机抽样"><a href="#随机抽样" class="headerlink" title="随机抽样"></a>随机抽样</h3><p>从leadership数据集中随机抽取一个大小为3的样本：</p>
+<p>mysample &lt;- leadership[sample(1:nrow(leadership), 3, replace=FALSE),] </p>
+<p>第三个参数表示无放回抽样</p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><p>abs(x) 绝对值 abs(-4)返回值为 4 </p>
+<p>sqrt(x) 平方根 sqrt(25)返回值为 5，和 25^(0.5)等价</p>
+<p>ceiling(x) 不小于 <em>x</em> 的最小整数 ceiling(3.475)返回值为 4 </p>
+<p>floor(x) 不大于 <em>x</em> 的最大整数 floor(3.475)返回值为 3 </p>
+<h3 id="统计函数"><a href="#统计函数" class="headerlink" title="统计函数"></a>统计函数</h3><p>mean(<em>x</em>) 平均数 mean(c(1,2,3,4))返回值为 2.5 </p>
+<p>median(<em>x</em>) 中位数 median(c(1,2,3,4))返回值为 2.5 </p>
+<p>sd(<em>x</em>) 标准差 sd(c(1,2,3,4))返回值为 1.29 </p>
+<p>var(<em>x</em>) 方差 var(c(1,2,3,4))返回值为 1.67 </p>
+<p>mad(<em>x</em>) 绝对中位差（median absolute deviation） mad(c(1,2,3,4))返回值为 1.48 </p>
+<h3 id="代码清单5-1-均值和标准差的计算"><a href="#代码清单5-1-均值和标准差的计算" class="headerlink" title="代码清单5-1 均值和标准差的计算"></a>代码清单5-1 均值和标准差的计算</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-operator">&gt;</span> x <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span><span class="hljs-number">6</span><span class="hljs-punctuation">,</span><span class="hljs-number">7</span><span class="hljs-punctuation">,</span><span class="hljs-number">8</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> mean<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>求均值<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">4.5</span> <br><span class="hljs-operator">&gt;</span> sd<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>求标准差<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2.449490</span><br><br><span class="hljs-operator">/</span><span class="hljs-operator">/</span>复杂的方式<br><span class="hljs-operator">&gt;</span> n <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">length</span><span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> meanx <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span><span class="hljs-operator">/</span>n <br><span class="hljs-operator">&gt;</span> css <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span>x <span class="hljs-operator">-</span> meanx<span class="hljs-punctuation">)</span><span class="hljs-operator">^</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> sdx <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">sqrt</span><span class="hljs-punctuation">(</span>css <span class="hljs-operator">/</span> <span class="hljs-punctuation">(</span>n<span class="hljs-operator">-</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> meanx <br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">4.5</span> <br><span class="hljs-operator">&gt;</span> sdx <br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2.449490</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="apply函数-代码清单5-5"><a href="#apply函数-代码清单5-5" class="headerlink" title="apply函数 代码清单5-5"></a>apply函数 代码清单5-5</h3><p>apply(<em>x</em>, <em>MARGIN</em>, <em>FUN</em>, …) 其中，<em>x</em>为数据对象，<em>MARGIN</em>是维度的下标，<em>FUN</em>是由你指定的函数，而…则包括了任何想传</p>
+<p>递给<em>FUN</em>的参数。在矩阵或数据框中，MARGIN=1表示行，MARGIN=2表示列。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> mydata <span class="hljs-operator">&lt;-</span> matrix<span class="hljs-punctuation">(</span>rnorm<span class="hljs-punctuation">(</span><span class="hljs-number">30</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> nrow<span class="hljs-operator">=</span><span class="hljs-number">6</span><span class="hljs-punctuation">)</span> <br> <span class="hljs-operator">&gt;</span> mydata <br> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">]</span><br> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-number">0.71298</span> <span class="hljs-number">1.368</span> <span class="hljs-operator">-</span><span class="hljs-number">0.8320</span> <span class="hljs-operator">-</span><span class="hljs-number">1.234</span> <span class="hljs-operator">-</span><span class="hljs-number">0.790</span> <br> <span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.15096</span> <span class="hljs-operator">-</span><span class="hljs-number">1.149</span> <span class="hljs-operator">-</span><span class="hljs-number">1.0001</span> <span class="hljs-operator">-</span><span class="hljs-number">0.725</span> <span class="hljs-number">0.506</span> <br> <span class="hljs-punctuation">[</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">1.77770</span> <span class="hljs-number">0.519</span> <span class="hljs-operator">-</span><span class="hljs-number">0.6675</span> <span class="hljs-number">0.721</span> <span class="hljs-operator">-</span><span class="hljs-number">1.350</span> <br> <span class="hljs-punctuation">[</span><span class="hljs-number">4</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.00132</span> <span class="hljs-operator">-</span><span class="hljs-number">0.308</span> <span class="hljs-number">0.9117</span> <span class="hljs-operator">-</span><span class="hljs-number">1.391</span> <span class="hljs-number">1.558</span> <br> <span class="hljs-punctuation">[</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.00543</span> <span class="hljs-number">0.378</span> <span class="hljs-operator">-</span><span class="hljs-number">0.0906</span> <span class="hljs-operator">-</span><span class="hljs-number">1.485</span> <span class="hljs-operator">-</span><span class="hljs-number">0.350</span> <br> <span class="hljs-punctuation">[</span><span class="hljs-number">6</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.52178</span> <span class="hljs-operator">-</span><span class="hljs-number">0.539</span> <span class="hljs-operator">-</span><span class="hljs-number">1.7347</span> <span class="hljs-number">2.050</span> <span class="hljs-number">1.569</span> <br> <span class="hljs-operator">&gt;</span> apply<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> mean<span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.155</span> <span class="hljs-operator">-</span><span class="hljs-number">0.504</span> <span class="hljs-operator">-</span><span class="hljs-number">0.511</span> <span class="hljs-number">0.154</span> <span class="hljs-operator">-</span><span class="hljs-number">0.310</span> <span class="hljs-number">0.165</span> <br> <span class="hljs-operator">&gt;</span> apply<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> mean<span class="hljs-punctuation">)</span><br> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.2907</span> <span class="hljs-number">0.0449</span> <span class="hljs-operator">-</span><span class="hljs-number">0.5688</span> <span class="hljs-operator">-</span><span class="hljs-number">0.3442</span> <span class="hljs-number">0.1906</span> <br> <span class="hljs-operator">&gt;</span> apply<span class="hljs-punctuation">(</span>mydata<span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> mean<span class="hljs-punctuation">,</span> trim<span class="hljs-operator">=</span><span class="hljs-number">0.2</span><span class="hljs-punctuation">)</span> <br> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.1699</span> <span class="hljs-number">0.0127</span> <span class="hljs-operator">-</span><span class="hljs-number">0.6475</span> <span class="hljs-operator">-</span><span class="hljs-number">0.6575</span> <span class="hljs-number">0.2312</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="代码清单5-4-将函数应用于数据对象"><a href="#代码清单5-4-将函数应用于数据对象" class="headerlink" title="代码清单5-4 将函数应用于数据对象"></a>代码清单5-4 将函数应用于数据对象</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> a <span class="hljs-operator">&lt;-</span> 5 <br><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">sqrt</span><span class="hljs-punctuation">(</span>a<span class="hljs-punctuation">)</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>求平方根<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2.236068</span> <br><span class="hljs-operator">&gt;</span> b <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1.243</span><span class="hljs-punctuation">,</span> <span class="hljs-number">5.654</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2.99</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">round</span><span class="hljs-punctuation">(</span>b<span class="hljs-punctuation">)</span>  <span class="hljs-operator">/</span><span class="hljs-operator">/</span>四舍五入取整<br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">1</span> <span class="hljs-number">6</span> <span class="hljs-number">3</span> <br><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">c</span> <span class="hljs-operator">&lt;-</span> matrix<span class="hljs-punctuation">(</span>runif<span class="hljs-punctuation">(</span><span class="hljs-number">12</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> nrow<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">c</span> <br> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span> <br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-number">0.4205</span> <span class="hljs-number">0.355</span> <span class="hljs-number">0.699</span> <span class="hljs-number">0.323</span> <br><span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-number">0.0270</span> <span class="hljs-number">0.601</span> <span class="hljs-number">0.181</span> <span class="hljs-number">0.926</span> <br><span class="hljs-punctuation">[</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-number">0.6682</span> <span class="hljs-number">0.319</span> <span class="hljs-number">0.599</span> <span class="hljs-number">0.215</span> <br><span class="hljs-operator">&gt;</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">)</span> <br> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span> <br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.866</span> <span class="hljs-operator">-</span><span class="hljs-number">1.036</span> <span class="hljs-operator">-</span><span class="hljs-number">0.358</span> <span class="hljs-operator">-</span><span class="hljs-number">1.130</span> <br><span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">3.614</span> <span class="hljs-operator">-</span><span class="hljs-number">0.508</span> <span class="hljs-operator">-</span><span class="hljs-number">1.711</span> <span class="hljs-operator">-</span><span class="hljs-number">0.077</span> <br><span class="hljs-punctuation">[</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span><span class="hljs-number">0.403</span> <span class="hljs-operator">-</span><span class="hljs-number">1.144</span> <span class="hljs-operator">-</span><span class="hljs-number">0.513</span> <span class="hljs-operator">-</span><span class="hljs-number">1.538</span> <br><span class="hljs-operator">&gt;</span> mean<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">)</span> <br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-number">0.444</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="数据处理难题"><a href="#数据处理难题" class="headerlink" title="数据处理难题"></a>数据处理难题</h3><h4 id="步骤1"><a href="#步骤1" class="headerlink" title="步骤1"></a>步骤1</h4><p>原始的学生花名册已经给出了。options(digits=2)限定了输出小数点后数字的位数，并且让输出更容易阅读：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> options<span class="hljs-punctuation">(</span>digits<span class="hljs-operator">=</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> roster<br></code></pre></td></tr></table></figure>
+
+<h4 id="步骤2"><a href="#步骤2" class="headerlink" title="步骤2"></a>步骤2</h4><p>由于数学、科学和英语考试的分值不同（均值和标准差相去甚远），在组合之前需要先让它们变得可以比较。一种方法是将变量进行标准化，这样每科考试的成绩就都是用单位标准差来表示，而不是以原始的尺度来表示了。这个过程可以使用scale()函数来实现：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> z <span class="hljs-operator">&lt;-</span> scale<span class="hljs-punctuation">(</span>roster<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-operator">:</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> z<br></code></pre></td></tr></table></figure>
+
+<h4 id="步骤3"><a href="#步骤3" class="headerlink" title="步骤3"></a>步骤3</h4><p>然后，可以通过函数mean()来计算各行的均值以获得综合得分，并使用函数cbind()将其添加到花名册中：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> score <span class="hljs-operator">&lt;-</span> apply<span class="hljs-punctuation">(</span>z<span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> mean<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> roster <span class="hljs-operator">&lt;-</span> cbind<span class="hljs-punctuation">(</span>roster<span class="hljs-punctuation">,</span> score<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> roster<br></code></pre></td></tr></table></figure>
+
+<h4 id="步骤4"><a href="#步骤4" class="headerlink" title="步骤4"></a>步骤4</h4><p>函数quantile()给出了学生综合得分的百分位数。可以看到，成绩为A的分界点为0.74，B的分界点为0.44，等等。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> y <span class="hljs-operator">&lt;-</span> quantile<span class="hljs-punctuation">(</span>roster<span class="hljs-operator">$</span>score<span class="hljs-punctuation">,</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">.8</span><span class="hljs-punctuation">,</span><span class="hljs-number">.6</span><span class="hljs-punctuation">,</span><span class="hljs-number">.4</span><span class="hljs-punctuation">,</span><span class="hljs-number">.2</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> y<br></code></pre></td></tr></table></figure>
+
+<h4 id="步骤5"><a href="#步骤5" class="headerlink" title="步骤5"></a>步骤5</h4><p>通过使用逻辑运算符，你可以将学生的百分位数排名重编码为一个新的类别型成绩变量。下面在数据框roster中创建了变量grade。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> roster<span class="hljs-operator">$</span>grade<span class="hljs-punctuation">[</span>score <span class="hljs-operator">&gt;=</span> y<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;A&quot;</span> <br><span class="hljs-operator">&gt;</span> roster<span class="hljs-operator">$</span>grade<span class="hljs-punctuation">[</span>score <span class="hljs-operator">&lt;</span> y<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&amp;</span> score <span class="hljs-operator">&gt;=</span> y<span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;B&quot;</span> <br><span class="hljs-operator">&gt;</span> roster<span class="hljs-operator">$</span>grade<span class="hljs-punctuation">[</span>score <span class="hljs-operator">&lt;</span> y<span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&amp;</span> score <span class="hljs-operator">&gt;=</span> y<span class="hljs-punctuation">[</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;C&quot;</span> <br><span class="hljs-operator">&gt;</span> roster<span class="hljs-operator">$</span>grade<span class="hljs-punctuation">[</span>score <span class="hljs-operator">&lt;</span> y<span class="hljs-punctuation">[</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&amp;</span> score <span class="hljs-operator">&gt;=</span> y<span class="hljs-punctuation">[</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;D&quot;</span> <br><span class="hljs-operator">&gt;</span> roster<span class="hljs-operator">$</span>grade<span class="hljs-punctuation">[</span>score <span class="hljs-operator">&lt;</span> y<span class="hljs-punctuation">[</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">&quot;F&quot;</span> <br><span class="hljs-operator">&gt;</span> roster<br></code></pre></td></tr></table></figure>
+
+<h4 id="步骤6"><a href="#步骤6" class="headerlink" title="步骤6"></a>步骤6</h4><p>你将使用函数strsplit()以空格为界把学生姓名拆分为姓氏和名字。把strsplit()应用到一个字符串组成的向量上会返回一个列表：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> name <span class="hljs-operator">&lt;-</span> strsplit<span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span>roster<span class="hljs-operator">$</span>Student<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot; &quot;</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> name<br></code></pre></td></tr></table></figure>
+
+<h4 id="步骤7"><a href="#步骤7" class="headerlink" title="步骤7"></a>步骤7</h4><p>你可以使用函数sapply()提取列表中每个成分的第一个元素，放入一个储存名字的向量Firstname，并提取每个成分的第二个元素，放入一个储存姓氏的向量Lastname。”[“是一个可以提取某个对象的一部分的函数——在这里它是用来提取列表name各成分中的第一个或第二个元素的。你将使用cbind()把它们添加到花名册中。由于已经不再需要student变量，可以将其丢弃</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> Firstname <span class="hljs-operator">&lt;-</span> sapply<span class="hljs-punctuation">(</span>name<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;[&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> Lastname <span class="hljs-operator">&lt;-</span> sapply<span class="hljs-punctuation">(</span>name<span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;[&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> roster <span class="hljs-operator">&lt;-</span> cbind<span class="hljs-punctuation">(</span>Firstname<span class="hljs-punctuation">,</span> Lastname<span class="hljs-punctuation">,</span> roster<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-operator">-</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> roster<br></code></pre></td></tr></table></figure>
+
+<h4 id="步骤8"><a href="#步骤8" class="headerlink" title="步骤8"></a>步骤8</h4><p>最后，可以使用函数order()依姓氏和名字对数据集进行排序：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> roster<span class="hljs-punctuation">[</span>order<span class="hljs-punctuation">(</span>Lastname<span class="hljs-punctuation">,</span>Firstname<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="代码清单5-9-数据集的转置"><a href="#代码清单5-9-数据集的转置" class="headerlink" title="代码清单5-9 数据集的转置"></a>代码清单5-9 数据集的转置</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> cars <span class="hljs-operator">&lt;-</span> mtcars<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span> <br><span class="hljs-operator">&gt;</span> cars<br><span class="hljs-operator">&gt;</span> t<span class="hljs-punctuation">(</span>cars<span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>转置<br></code></pre></td></tr></table></figure>
+
+<h3 id="代码清单5-10-整合数据"><a href="#代码清单5-10-整合数据" class="headerlink" title="代码清单5-10 整合数据"></a>代码清单5-10 整合数据</h3><p>aggregate(x, <em>by</em>, <em>FUN</em>) </p>
+<p>其中<em>x</em>是待折叠的数据对象，<em>by</em>是一个变量名组成的列表，这些变量将被去掉以形成新的观测，</p>
+<p>而<em>FUN</em>则是用来计算描述性统计量的标量函数，它将被用来计算新观测中的值。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> options<span class="hljs-punctuation">(</span>digits<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> attach<span class="hljs-punctuation">(</span>mtcars<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> aggdata <span class="hljs-operator">&lt;-</span>aggregate<span class="hljs-punctuation">(</span>mtcars<span class="hljs-punctuation">,</span> by<span class="hljs-operator">=</span><span class="hljs-built_in">list</span><span class="hljs-punctuation">(</span>cyl<span class="hljs-punctuation">,</span>gear<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> FUN<span class="hljs-operator">=</span>mean<span class="hljs-punctuation">,</span> na.rm<span class="hljs-operator">=</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> aggdata<br></code></pre></td></tr></table></figure>
+
+<h2 id="第五章-基本统计分析"><a href="#第五章-基本统计分析" class="headerlink" title="第五章 基本统计分析"></a>第五章 基本统计分析</h2><h3 id="代码清单7-1-通过summary-计算描述性统计量"><a href="#代码清单7-1-通过summary-计算描述性统计量" class="headerlink" title="代码清单7-1 通过summary()计算描述性统计量"></a>代码清单7-1 通过summary()计算描述性统计量</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> myvars <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;mpg&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;hp&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;wt&quot;</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> summary<span class="hljs-punctuation">(</span>mtcars<span class="hljs-punctuation">[</span>myvars<span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span> <br></code></pre></td></tr></table></figure>
+
+<p>summary()函数提供了最小值、最大值、四分位数和数值型变量的均值，以及因子向量和逻辑型向量的频数统计。</p>
+<h3 id="7-2-频数表和列联表"><a href="#7-2-频数表和列联表" class="headerlink" title="7.2 频数表和列联表"></a>7.2 频数表和列联表</h3><h4 id="一维列联表"><a href="#一维列联表" class="headerlink" title="一维列联表"></a>一维列联表</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R">mytable <span class="hljs-operator">&lt;-</span> with<span class="hljs-punctuation">(</span>Arthritis<span class="hljs-punctuation">,</span> table<span class="hljs-punctuation">(</span>Improved<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>使用table<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>函数生成简单的频数统计表<br>prop.table<span class="hljs-punctuation">(</span>mytable<span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>用prop.table<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>将这些频数转化为比例值<br>prop.table<span class="hljs-punctuation">(</span>mytable<span class="hljs-punctuation">)</span><span class="hljs-operator">*</span><span class="hljs-number">100</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>使用prop.table<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-operator">*</span><span class="hljs-number">100</span>转化为百分比<br></code></pre></td></tr></table></figure>
+
+<h4 id="二维列联表"><a href="#二维列联表" class="headerlink" title="二维列联表"></a>二维列联表</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs R">mytable <span class="hljs-operator">&lt;-</span> table<span class="hljs-punctuation">(</span>A<span class="hljs-punctuation">,</span> B<span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>其中的A是行变量，B是列变量<br>mytable <span class="hljs-operator">&lt;-</span> xtabs<span class="hljs-punctuation">(</span><span class="hljs-operator">~</span> A <span class="hljs-operator">+</span> B<span class="hljs-punctuation">,</span> data<span class="hljs-operator">=</span>mydata<span class="hljs-punctuation">)</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>xtabs<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>函数还可使用公式风格的输入创建列联表<br>mytable <span class="hljs-operator">&lt;-</span> xtabs<span class="hljs-punctuation">(</span><span class="hljs-operator">~</span> Treatment<span class="hljs-operator">+</span>Improved<span class="hljs-punctuation">,</span> data<span class="hljs-operator">=</span>Arthritis<span class="hljs-punctuation">)</span><br><span class="hljs-operator">/</span><span class="hljs-operator">/</span>使用margin.table<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>和prop.table<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>函数分别生成边际频数和比例<br>margin.table<span class="hljs-punctuation">(</span>mytable<span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><br>prop.table<span class="hljs-punctuation">(</span>mytable<span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">/</span><span class="hljs-operator">/</span>使用addmargins<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>函数为这些表格添加边际和<br>addmargins<span class="hljs-punctuation">(</span>mytable<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="卡方独立性检验"><a href="#卡方独立性检验" class="headerlink" title="卡方独立性检验"></a>卡方独立性检验</h3><p>使用chisq.test()函数对二维表的行变量和列变量进行卡方独立性检验</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> library<span class="hljs-punctuation">(</span>vcd<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> mytable <span class="hljs-operator">&lt;-</span> xtabs<span class="hljs-punctuation">(</span><span class="hljs-operator">~</span>Treatment<span class="hljs-operator">+</span>Improved<span class="hljs-punctuation">,</span> data<span class="hljs-operator">=</span>Arthritis<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> chisq.test<span class="hljs-punctuation">(</span>mytable<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="三种相关性"><a href="#三种相关性" class="headerlink" title="三种相关性"></a>三种相关性</h3><p>cor()函数可以计算这三种相关系数 : Pearson、Spearman和Kendall相关</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> x <span class="hljs-operator">&lt;-</span> states<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Population&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Income&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Illiteracy&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;HS Grad&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span> <br><span class="hljs-operator">&gt;</span> y <span class="hljs-operator">&lt;-</span> states<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Life Exp&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Murder&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span> <br><span class="hljs-operator">&gt;</span> cor<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">,</span>y<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="t检验"><a href="#t检验" class="headerlink" title="t检验"></a>t检验</h3><h4 id="独立样本的-t-检验"><a href="#独立样本的-t-检验" class="headerlink" title="独立样本的 t 检验"></a>独立样本的 t 检验</h4><p>比较了南方（group 1）和非南方（group 0）各州的监禁概率</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> library<span class="hljs-punctuation">(</span>MASS<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> t.test<span class="hljs-punctuation">(</span>Prob <span class="hljs-operator">~</span> So<span class="hljs-punctuation">,</span> data<span class="hljs-operator">=</span>UScrime<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="非独立样本的-t-检验"><a href="#非独立样本的-t-检验" class="headerlink" title="非独立样本的 t 检验"></a>非独立样本的 t 检验</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> library<span class="hljs-punctuation">(</span>MASS<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> sapply<span class="hljs-punctuation">(</span>UScrime<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;U1&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-string">&quot;U2&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">function</span><span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span>mean<span class="hljs-operator">=</span>mean<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>sd<span class="hljs-operator">=</span>sd<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> with<span class="hljs-punctuation">(</span>UScrime<span class="hljs-punctuation">,</span> t.test<span class="hljs-punctuation">(</span>U1<span class="hljs-punctuation">,</span> U2<span class="hljs-punctuation">,</span> paired<span class="hljs-operator">=</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Wilcoxon秩和检验"><a href="#Wilcoxon秩和检验" class="headerlink" title="Wilcoxon秩和检验"></a>Wilcoxon秩和检验</h3><p>wilcox.test(<em>y</em> ~ <em>x</em>, <em>data</em>) </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">wilcox.test<span class="hljs-punctuation">(</span>Prob <span class="hljs-operator">~</span> So<span class="hljs-punctuation">,</span> data<span class="hljs-operator">=</span>UScrime<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="代码清单7-15-检验某种相关系数的显著性"><a href="#代码清单7-15-检验某种相关系数的显著性" class="headerlink" title="代码清单7-15 检验某种相关系数的显著性"></a>代码清单7-15 检验某种相关系数的显著性</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">cor.test<span class="hljs-punctuation">(</span>states<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> states<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="第六章-回归"><a href="#第六章-回归" class="headerlink" title="第六章 回归"></a>第六章 回归</h2><h3 id="代码清单8-1-简单线性回归"><a href="#代码清单8-1-简单线性回归" class="headerlink" title="代码清单8-1 简单线性回归"></a>代码清单8-1 简单线性回归</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> fit <span class="hljs-operator">&lt;-</span> lm<span class="hljs-punctuation">(</span>weight <span class="hljs-operator">~</span> height<span class="hljs-punctuation">,</span> data<span class="hljs-operator">=</span>women<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> summary<span class="hljs-punctuation">(</span>fit<span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> women<span class="hljs-operator">$</span>weight<br><span class="hljs-operator">&gt;</span> fitted<span class="hljs-punctuation">(</span>fit<span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> residuals<span class="hljs-punctuation">(</span>fit<span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> plot<span class="hljs-punctuation">(</span>women<span class="hljs-operator">$</span>height<span class="hljs-punctuation">,</span>women<span class="hljs-operator">$</span>weight<span class="hljs-punctuation">,</span> xlab<span class="hljs-operator">=</span><span class="hljs-string">&quot;Height (in inches)&quot;</span><span class="hljs-punctuation">,</span>  ylab<span class="hljs-operator">=</span><span class="hljs-string">&quot;Weight (in pounds)&quot;</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> abline<span class="hljs-punctuation">(</span>fit<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="代码清单8-2-多项式回归"><a href="#代码清单8-2-多项式回归" class="headerlink" title="代码清单8-2 多项式回归"></a>代码清单8-2 多项式回归</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> fit2 <span class="hljs-operator">&lt;-</span> lm<span class="hljs-punctuation">(</span>weight <span class="hljs-operator">~</span> height <span class="hljs-operator">+</span> I<span class="hljs-punctuation">(</span>height<span class="hljs-operator">^</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> data<span class="hljs-operator">=</span>women<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> summary<span class="hljs-punctuation">(</span>fit2<span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> plot<span class="hljs-punctuation">(</span>women<span class="hljs-operator">$</span>height<span class="hljs-punctuation">,</span>women<span class="hljs-operator">$</span>weight<span class="hljs-punctuation">,</span> xlab<span class="hljs-operator">=</span><span class="hljs-string">&quot;Height (in inches)&quot;</span><span class="hljs-punctuation">,</span>  ylab<span class="hljs-operator">=</span><span class="hljs-string">&quot;Weight (in lbs)&quot;</span><span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> lines<span class="hljs-punctuation">(</span>women<span class="hljs-operator">$</span>height<span class="hljs-punctuation">,</span>fitted<span class="hljs-punctuation">(</span>fit2<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="代码清单8-4-多元线性回归"><a href="#代码清单8-4-多元线性回归" class="headerlink" title="代码清单8-4 多元线性回归"></a>代码清单8-4 多元线性回归</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> states <span class="hljs-operator">&lt;-</span> as.data.frame<span class="hljs-punctuation">(</span>state.x77<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Murder&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Population&quot;</span><span class="hljs-punctuation">,</span>  <span class="hljs-string">&quot;Illiteracy&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Income&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;Frost&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><br><span class="hljs-operator">&gt;</span> fit <span class="hljs-operator">&lt;-</span> lm<span class="hljs-punctuation">(</span>Murder <span class="hljs-operator">~</span> Population <span class="hljs-operator">+</span> Illiteracy <span class="hljs-operator">+</span> Income <span class="hljs-operator">+</span> Frost<span class="hljs-punctuation">,</span>  data<span class="hljs-operator">=</span>states<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> summary<span class="hljs-punctuation">(</span>fit<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="异常观测值"><a href="#异常观测值" class="headerlink" title="异常观测值"></a>异常观测值</h3><h4 id="离群点"><a href="#离群点" class="headerlink" title="离群点"></a>离群点</h4><p>离群点是指那些模型预测效果不佳的观测点。它们通常有很大的、或正或负的残差（<em>Y**i</em>–<em>Ŷ**i</em>）。正的残差说明模型低估了响应值，负的残差则说明高估了响应值。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> library<span class="hljs-punctuation">(</span>car<span class="hljs-punctuation">)</span> <br><span class="hljs-operator">&gt;</span> outlierTest<span class="hljs-punctuation">(</span>fit<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="高杠杆值点"><a href="#高杠杆值点" class="headerlink" title="高杠杆值点"></a>高杠杆值点</h4><p>高杠杆值观测点，即与其他预测变量有关的离群点。换句话说，它们是由许多异常的预测变量值组合起来的，与响应变量值没有关系。</p>
+<h4 id="强影响点"><a href="#强影响点" class="headerlink" title="强影响点"></a>强影响点</h4><p>强影响点，即对模型参数估计值影响有些比例失衡的点。例如，若移除模型的一个观测点时模型会发生巨大的改变，那么你就需要检测一下数据中是否存在强影响点了。</p>
+<h4 id="改进措施"><a href="#改进措施" class="headerlink" title="改进措施"></a>改进措施</h4><p>删除观测点； 变量变换；添加或删除变量；使用其他回归方法。</p>
+<h3 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h3><p>所谓交叉验证，即将一定比例的数据挑选出来作为训练样本，另外的样本作保留样本，先在训练样本上获取回归方程，然后在保留样本上做预测。由于保留样本不涉及模型参数的选择，该样本可获得比新数据更为精确的估计。在<em>k</em>重交叉验证中，样本被分为<em>k</em>个子样本，轮流将<em>k</em>–1个子样本组合作为训练集，另外1个子样本作为保留集。这样会获得<em>k</em>个预测方程，记录<em>k</em>个保留样本的预测表现结果，然后求其平均值。（当<em>n</em>是观测总数目，且<em>k</em>为<em>n</em>时，该方法又称作刀切法，jackknifing。）</p>
+<h2 id="课后作业"><a href="#课后作业" class="headerlink" title="课后作业"></a>课后作业</h2>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="category-chain-item">大学课程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%A4%8D%E4%B9%A0/">#复习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数据分析大总结</div>
+      <div>http://example.com/2022/07/21/collage/数据分析大总结/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>软软糯糯的汤圆</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月21日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/21/collage/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%80%83%E9%A2%98/" title="软件体系结构考题">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">软件体系结构考题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/21/collage/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BE%E5%90%8E%E4%BB%A3%E7%A0%81/" title="数据分析课后代码">
+                        <span class="hidden-mobile">数据分析课后代码</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
