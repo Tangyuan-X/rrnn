@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>面经学习 - 7/27 - 字节飞书提前批校招一面</title>
+    <link href="/2022/07/27/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-7-27-%E5%AD%97%E8%8A%82%E9%A3%9E%E4%B9%A6%E6%8F%90%E5%89%8D%E6%89%B9%E6%A0%A1%E6%8B%9B%E4%B8%80%E9%9D%A2/"/>
+    <url>/2022/07/27/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-7-27-%E5%AD%97%E8%8A%82%E9%A3%9E%E4%B9%A6%E6%8F%90%E5%89%8D%E6%89%B9%E6%A0%A1%E6%8B%9B%E4%B8%80%E9%9D%A2/</url>
+    
+    <content type="html"><![CDATA[<h4 id="跨域是什么？解决方案？（会）"><a href="#跨域是什么？解决方案？（会）" class="headerlink" title="跨域是什么？解决方案？（会）"></a>跨域是什么？解决方案？（会）</h4><p>跨域实际上是HTTP请求做的安全保护，它要求HTTP请求必须保证协议，域名，端口一致，否则视为跨域拒绝服务。</p><p>解决方法：客户端：proxy代理，使用JSONP绕过跨域。服务端：设置允许CROS跨域</p><p>JSONP的原理：在HTML中，JS，CSS标签的请求是可以跨域的，利用这个通过script标签得到数据即可避免跨域。</p><h4 id="选择器优先级？（会）"><a href="#选择器优先级？（会）" class="headerlink" title="选择器优先级？（会）"></a>选择器优先级？（会）</h4><p>id选择器&gt;class选择器&gt;标签选择器&gt;通配符选择器</p><h4 id="JS和ES的区别？（半会）"><a href="#JS和ES的区别？（半会）" class="headerlink" title="JS和ES的区别？（半会）"></a>JS和ES的区别？（半会）</h4><p>完整的JavaScript的实现包含以下几个部分</p><ul><li>核心(ECMAScript)：由ECMA-262定义并提供核心功能。</li><li>文档对象模型(DOM)：提供与网页内容交互的方法与接口。</li><li>浏览器对象模型(BOM)：提供与浏览器交互的方法与接口。</li></ul><p>ECMAScript 也是一门脚本语言，缩写为ES，通常看做JavaScript的标准化规范。</p><h4 id="说一些DOM方法？-说不全"><a href="#说一些DOM方法？-说不全" class="headerlink" title="说一些DOM方法？(说不全)"></a>说一些DOM方法？(说不全)</h4><p>详见个人博客DOM篇</p><p>选择节点：querySelector，getElement等</p><p>添加节点：createElement()添加节点，appendChild 添加子节点</p><h4 id="DOM0-DOM2-DOM3（没听说过）"><a href="#DOM0-DOM2-DOM3（没听说过）" class="headerlink" title="DOM0,DOM2,DOM3（没听说过）"></a>DOM0,DOM2,DOM3（没听说过）</h4><p>DOM级别一共可以分为四个级别：DOM0级、DOM1级、DOM2级和DOM3级。而DOM事件分为3个级别：DOM0级事件处理，DOM2级事件处理和DOM3级事件处理。</p><p>有人可能会疑惑，为什么没有DOM1级事件处理呢？因为1级DOM标准并没有定义事件相关的内容，所以没有所谓的1级DOM事件模型。</p><p>DOM0级处理事件就是将一个函数赋值给一个事件处理属性。（onclick）</p><p>DOM2级事件在DOM0级时间段额基础上弥补了一个处理处理程序（addEventListener）</p><p>DOM3级事件在DOM2级事件的基础上添加很多事件类型。（focus，blur等）</p><h4 id="讲一下实现对象拷贝的方法（会一半）"><a href="#讲一下实现对象拷贝的方法（会一半）" class="headerlink" title="讲一下实现对象拷贝的方法（会一半）"></a>讲一下实现对象拷贝的方法（会一半）</h4><p>一层拷贝</p><p>展开语法，Object.create() Object.assign</p><p>深拷贝</p><p>递归 JSON.stringify,</p><h4 id="JSON-stringify-拷贝有什么缺点"><a href="#JSON-stringify-拷贝有什么缺点" class="headerlink" title="JSON.stringify 拷贝有什么缺点"></a>JSON.stringify 拷贝有什么缺点</h4><p>不能拷贝函数，不能拷贝对象原型链上的属性和方法</p><h4 id="Proxy与Object-defineProperty-（昨天的面试也出现了）"><a href="#Proxy与Object-defineProperty-（昨天的面试也出现了）" class="headerlink" title="Proxy与Object.defineProperty()（昨天的面试也出现了）"></a>Proxy与Object.defineProperty()（昨天的面试也出现了）</h4><p>proxy：</p><p>1、直接监听对象而非属性<br>2、直接监听数组的变化<br>3、拦截的方式有很多种(有13种，set,get,has)<br>4、Proxy返回一个新对象，可以操作新对象达到目的</p><p>Object.defineProperty：</p><p>1、因为es5的object.defineProperty无法监听对象属性的删除和添加</p><p>2、不能监听数组的变化，除了push/pop/shift/unshift/splice/spObject.definert/reverse，其他都不行</p><p>3、Object.defineProperty只能遍历对象属性直接修改(需要深拷贝进行修改)</p><h4 id="前端安全？"><a href="#前端安全？" class="headerlink" title="前端安全？"></a>前端安全？</h4><p>所有发生在浏览器、单页面应用、Web页面当中的安全问题都算是算是“前端安全问题”。或者就是说所有需要前端开发人员去修复的问题都属于前端安全问题。</p><p>这部分内容很多，有时间另起一篇博客整理。</p><h4 id="实现Promise-allSettled"><a href="#实现Promise-allSettled" class="headerlink" title="实现Promise.allSettled"></a>实现Promise.allSettled</h4><p>手写Promise考出的频率好高，最近总结一篇博客。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">allsettle</span> (promises) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title function_">promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> resArray = []<br>    <span class="hljs-keyword">let</span> completeCount = <span class="hljs-number">0</span><br>    promises.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">p, i</span>) =&gt;</span> &#123;<br>      p.<span class="hljs-title function_">then</span>(<br>        <span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> &#123;<br>          resArray[i] = result;<br>          completeCount += <span class="hljs-number">1</span><br>          <span class="hljs-keyword">if</span> (resArray.<span class="hljs-property">length</span> === completeCount) &#123;<br>            <span class="hljs-title function_">resolve</span>(resArray)<br>          &#125;<br>        &#125;,<br>        <span class="hljs-function"><span class="hljs-params">reject</span> =&gt;</span> <span class="hljs-title function_">reject</span>(reject)<br>      )<br>    &#125;)<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>面经</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>面经学习 - 7/26 - 美团一面</title>
     <link href="/2022/07/26/js/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-7-26-%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/"/>
     <url>/2022/07/26/js/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-7-26-%E7%BE%8E%E5%9B%A2%E4%B8%80%E9%9D%A2/</url>
