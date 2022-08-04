@@ -1,0 +1,747 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/images/titleIcon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="软软糯糯的汤圆">
+  <meta name="keywords" content="个人博客,JS笔记">
+  
+    <meta name="description" content="面经学习 - 8&#x2F;3 -滴滴春招一面地址：https:&#x2F;&#x2F;www.nowcoder.com&#x2F;discuss&#x2F;943077?source_id&#x3D;discuss_experience_nctrack&amp;channel&#x3D;-1 一面（45min）：一、说一下你对jwt认证机制的理解，它的优缺点1.客户端浏览器提交账号和密码后 2.服务器就进行验证账号密码 验证通过后 将用户的信息对象，经过加密之后生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面经学习 - 8&#x2F;3 -滴滴春招一面">
+<meta property="og:url" content="http://rrnn.gitee.io/2022/08/04/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-8-3-%E6%BB%B4%E6%BB%B4%E6%98%A5%E6%8B%9B%E4%B8%80%E9%9D%A2/index.html">
+<meta property="og:site_name" content="Tangyuan的博客">
+<meta property="og:description" content="面经学习 - 8&#x2F;3 -滴滴春招一面地址：https:&#x2F;&#x2F;www.nowcoder.com&#x2F;discuss&#x2F;943077?source_id&#x3D;discuss_experience_nctrack&amp;channel&#x3D;-1 一面（45min）：一、说一下你对jwt认证机制的理解，它的优缺点1.客户端浏览器提交账号和密码后 2.服务器就进行验证账号密码 验证通过后 将用户的信息对象，经过加密之后生">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://th.wallhaven.cc/lg/6o/6oxgp6.jpg">
+<meta property="article:published_time" content="2022-08-04T03:03:39.000Z">
+<meta property="article:modified_time" content="2022-08-04T03:06:02.908Z">
+<meta property="article:author" content="软软糯糯的汤圆">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="面经">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://th.wallhaven.cc/lg/6o/6oxgp6.jpg">
+  
+  
+  
+  <title>面经学习 - 8/3 -滴滴春招一面 - Tangyuan的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rrnn.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>TangyuanBlog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://w.wallhaven.cc/full/6o/wallhaven-6oxgp6.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="面经学习 - 8/3 -滴滴春招一面"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-04 11:03" pubdate>
+          2022年8月4日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">面经学习 - 8/3 -滴滴春招一面</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="面经学习-8-3-滴滴春招一面"><a href="#面经学习-8-3-滴滴春招一面" class="headerlink" title="面经学习 - 8/3 -滴滴春招一面"></a>面经学习 - 8/3 -滴滴春招一面</h1><p>地址：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/943077?source_id=discuss_experience_nctrack&amp;channel=-1">https://www.nowcoder.com/discuss/943077?source_id=discuss_experience_nctrack&amp;channel=-1</a></p>
+<h3 id="一面（45min）："><a href="#一面（45min）：" class="headerlink" title="一面（45min）："></a>一面（45min）：</h3><h4 id="一、说一下你对jwt认证机制的理解，它的优缺点"><a href="#一、说一下你对jwt认证机制的理解，它的优缺点" class="headerlink" title="一、说一下你对jwt认证机制的理解，它的优缺点"></a>一、说一下你对jwt认证机制的理解，它的优缺点</h4><p>1.客户端浏览器提交账号和密码后</p>
+<p>2.服务器就进行验证账号密码 验证通过后 将用户的信息对象，经过加密之后生成Token字符串，然后发送给客户端</p>
+<p>3.客户端将Token字符串存储到localstorage或sessionstorage。</p>
+<p>4.客户端再次发起请求时，通过请求头的Authorization字段，将Token发给服务器</p>
+<p>5.服务器把token字符串还原成用户的信息对象，用户身份认证成功后，服务器把当前用户对应的页面响应给浏览器。  </p>
+<h4 id="二、说一下你对闭包的理解"><a href="#二、说一下你对闭包的理解" class="headerlink" title="二、说一下你对闭包的理解"></a>二、说一下你对闭包的理解</h4><p>当函数作为返回值被返回时，他的作用域不取决于被调用时的作用域，而取决于被定义时的作用域，且这些作用域的内容不会被清除（垃圾回收），可以用它实现一个私有的getter（只读）。</p>
+<h4 id="三、说一下new创建实例的时候都做了什么"><a href="#三、说一下new创建实例的时候都做了什么" class="headerlink" title="三、说一下new创建实例的时候都做了什么"></a>三、说一下new创建实例的时候都做了什么</h4><ol>
+<li>创建空对象 object.create()</li>
+<li>绑定原型 obj.<strong>proto</strong> = Fn.prototype</li>
+<li>改变fn实例指向 fn.call</li>
+</ol>
+<h4 id="四、说一下判断数据类型的方式"><a href="#四、说一下判断数据类型的方式" class="headerlink" title="四、说一下判断数据类型的方式"></a>四、说一下判断数据类型的方式</h4><ol>
+<li>typeof 判断值类型和function</li>
+<li>Array.isArray 判断数组</li>
+<li>instanceof 可以判断原型链上是否存在该类型，不太准确</li>
+<li>Object.prototype.toString.call(‘’ ‘) 可以精确判断</li>
+</ol>
+<h4 id="五、说一下你知道的纯函数（即不会修改入参的函数）"><a href="#五、说一下你知道的纯函数（即不会修改入参的函数）" class="headerlink" title="五、说一下你知道的纯函数（即不会修改入参的函数）"></a>五、说一下你知道的纯函数（即不会修改入参的函数）</h4><p>concat  join slice map filter</p>
+<h4 id="六、说一下你对BFC的了解"><a href="#六、说一下你对BFC的了解" class="headerlink" title="六、说一下你对BFC的了解"></a>六、说一下你对BFC的了解</h4><p> BFC块级格式化上下文，其是一片独立渲染的区域，区域内元素的变化不会影响到区域外元素的变化。</p>
+<p>生成BFC：设置浮动，设置定位，overflow为hidden auto等 弹性布局</p>
+<h4 id="七、说一下vue的生命周期"><a href="#七、说一下vue的生命周期" class="headerlink" title="七、说一下vue的生命周期"></a>七、说一下vue的生命周期</h4><p>beforeCreate</p>
+<p>生成数据</p>
+<p>created</p>
+<p>beforeMounted</p>
+<p>生成DOM</p>
+<p>Mounted</p>
+<p>beforeUpdate</p>
+<p>Uptated</p>
+<p>BeforeUnmounted</p>
+<p>Unmounted</p>
+<h4 id="八、说一下虚拟DOM的原理"><a href="#八、说一下虚拟DOM的原理" class="headerlink" title="八、说一下虚拟DOM的原理"></a>八、说一下虚拟DOM的原理</h4><p>虚拟DOM：<strong>在 js 和真实 dom 中间加了一个缓存</strong>，利用 dom diff 算法避免了没有必要 的 dom 操作，从而提高性能。具体实现步骤如下：</p>
+<ol>
+<li>用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树， 插到文档当中；</li>
+<li>当状态变更的时候，重新构造一棵新的对象树。通过diff 算法，比较新旧虚拟 DOM 树的差异。</li>
+<li>根据差异，对真正的 DOM 树进行增、删、改。</li>
+</ol>
+<p>diff算法：</p>
+<p>在进行DOM更新时，判断是否有key，如果有key对key进行对比，相同则跳过修改，不同则进行替换，在vue3中提升了性能，不同会从后往前对比。diff算法是深度优先的递归运算，先判断children是否相同。</p>
+<h4 id="九、-说一下keep-alive的原理，以及如果超出缓存长度，如何处理"><a href="#九、-说一下keep-alive的原理，以及如果超出缓存长度，如何处理" class="headerlink" title="九、 说一下keep -alive的原理，以及如果超出缓存长度，如何处理"></a>九、 说一下<a href="">keep</a> -alive的原理，以及如果超出缓存长度，如何处理</h4><p>在 created钩子函数调用时将需要缓存的 VNode 节点保存在 this.cache 中／在 render（页面渲染） 时，如果 VNode 的 name 符合缓存条件（可以用 include 以及 exclude 控制），则会从 this.cache 中取出之前缓存的 VNode实例进行渲染。</p>
+<h4 id="十、说一下vuex的原理"><a href="#十、说一下vuex的原理" class="headerlink" title="十、说一下vuex的原理"></a>十、说一下vuex的原理</h4><p>其实，Vuex.Store是个类，使用他的时候，你给他传入了参数（state，mutations，actions）并让他实例化。你把这个实例配置给了Vue，Vuex帮你把他给了Vue原型上的$store。</p>
+<p>Vuex还送给你个commit和dispatch方法让你能有办法改s t o r e . s t a t e ， 当 然 你 也 能 通 过 store.state，当然你也能通过store.state，当然你也能通过store.state方法到你要的状态。</p>
+<h4 id="十一、说一下如何解决跨域问题"><a href="#十一、说一下如何解决跨域问题" class="headerlink" title="十一、说一下如何解决跨域问题"></a>十一、说一下如何解决跨域问题</h4><p>JSOP CROS</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+      
+        <a href="/tags/%E9%9D%A2%E7%BB%8F/">#面经</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>面经学习 - 8/3 -滴滴春招一面</div>
+      <div>http://rrnn.gitee.io/2022/08/04/面经学习-8-3-滴滴春招一面/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>软软糯糯的汤圆</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年8月4日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/01/Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/" title="Vue响应式数据原理">
+                        <span class="hidden-mobile">Vue响应式数据原理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","appKey":"TAgYePm1cLAy3Bgn2XqE5pTG","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://mp25fckb.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
