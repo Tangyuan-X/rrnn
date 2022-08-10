@@ -16,25 +16,25 @@
   <meta name="author" content="软软糯糯的汤圆">
   <meta name="keywords" content="个人博客,JS笔记">
   
-    <meta name="description" content="面试题 - HTTP相关状态码分类 1xx 服务器收到请求 2xx请求成功 3xx重定向 301 永久重定向（更换域名等等） 302 临时重定向 （临时更改，应用很多） 304 资源未被修改 请求缓存   4xx客户端错误 403 没有权限 404 资源未找到   5xx服务端错误  请求类型 GET POST PUT DELETE  RESTFUL语法 请求头的属性（不包括缓存相关）  Acce">
+    <meta name="description" content="建立TCP连接 先建立连接（确保双方都有收发消息的能力） 再传输内容（如发送给一个get请求） 网络连接是TCP协议，传输内容是HTTP协议  为什么要进行三次握手？举个例子：你要去你的朋友家，首先要发消息询问朋友在家吗？朋友回复：在家，你回复：好，我现在去你家。 三次握手本质是保证双方都有收发消息的能力，第一次握手保证客户端可以发送消息，服务端可以接受消息，第二次握手保证服务端可以发送消息，第三">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面试题 - HTTP相关">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/07/28/js/%E9%9D%A2%E8%AF%95%E9%A2%98-HTTP%E7%9B%B8%E5%85%B3/index.html">
+<meta property="og:title" content="TCP的三次握手和四次挥手">
+<meta property="og:url" content="http://rrnn.gitee.io/2022/08/07/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
-<meta property="og:description" content="面试题 - HTTP相关状态码分类 1xx 服务器收到请求 2xx请求成功 3xx重定向 301 永久重定向（更换域名等等） 302 临时重定向 （临时更改，应用很多） 304 资源未被修改 请求缓存   4xx客户端错误 403 没有权限 404 资源未找到   5xx服务端错误  请求类型 GET POST PUT DELETE  RESTFUL语法 请求头的属性（不包括缓存相关）  Acce">
+<meta property="og:description" content="建立TCP连接 先建立连接（确保双方都有收发消息的能力） 再传输内容（如发送给一个get请求） 网络连接是TCP协议，传输内容是HTTP协议  为什么要进行三次握手？举个例子：你要去你的朋友家，首先要发消息询问朋友在家吗？朋友回复：在家，你回复：好，我现在去你家。 三次握手本质是保证双方都有收发消息的能力，第一次握手保证客户端可以发送消息，服务端可以接受消息，第二次握手保证服务端可以发送消息，第三">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://th.wallhaven.cc/small/2e/2eovqy.jpg">
-<meta property="article:published_time" content="2022-07-28T02:44:36.000Z">
-<meta property="article:modified_time" content="2022-07-28T02:45:46.405Z">
+<meta property="og:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
+<meta property="article:published_time" content="2022-08-07T10:15:46.000Z">
+<meta property="article:modified_time" content="2022-08-07T10:29:22.933Z">
 <meta property="article:author" content="软软糯糯的汤圆">
-<meta property="article:tag" content="面试">
 <meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="技术分析">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://th.wallhaven.cc/small/2e/2eovqy.jpg">
+<meta name="twitter:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
   
   
   
-  <title>面试题 - HTTP相关 - Tangyuan的博客</title>
+  <title>TCP的三次握手和四次挥手 - Tangyuan的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,13 +222,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://w.wallhaven.cc/full/2e/wallhaven-2eovqy.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://w.wallhaven.cc/full/72/wallhaven-72por3.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="面试题 - HTTP相关"></span>
+            <span id="subtitle" data-typed-text="TCP的三次握手和四次挥手"></span>
           
         </div>
 
@@ -239,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-28 10:44" pubdate>
-          2022年7月28日 上午
+        <time datetime="2022-08-07 18:15" pubdate>
+          2022年8月7日 晚上
         </time>
       </span>
     
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          870 字
+          396 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          8 分钟
+          4 分钟
         
       </span>
     
@@ -308,95 +308,30 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">面试题 - HTTP相关</h1>
+            <h1 style="display: none">TCP的三次握手和四次挥手</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="面试题-HTTP相关"><a href="#面试题-HTTP相关" class="headerlink" title="面试题 - HTTP相关"></a>面试题 - HTTP相关</h1><h4 id="状态码分类"><a href="#状态码分类" class="headerlink" title="状态码分类"></a>状态码分类</h4><ul>
-<li>1xx 服务器收到请求</li>
-<li>2xx请求成功</li>
-<li>3xx重定向<ul>
-<li>301 永久重定向（更换域名等等）</li>
-<li>302 临时重定向 （临时更改，应用很多）</li>
-<li>304 资源未被修改 请求缓存</li>
+                <h4 id="建立TCP连接"><a href="#建立TCP连接" class="headerlink" title="建立TCP连接"></a>建立TCP连接</h4><ul>
+<li>先建立连接（确保双方都有收发消息的能力）</li>
+<li>再传输内容（如发送给一个get请求）</li>
+<li>网络连接是TCP协议，传输内容是HTTP协议</li>
 </ul>
-</li>
-<li>4xx客户端错误<ul>
-<li>403 没有权限</li>
-<li>404 资源未找到</li>
-</ul>
-</li>
-<li>5xx服务端错误</li>
-</ul>
-<h4 id="请求类型"><a href="#请求类型" class="headerlink" title="请求类型"></a>请求类型</h4><ul>
-<li>GET</li>
-<li>POST</li>
-<li>PUT</li>
-<li>DELETE</li>
-</ul>
-<p>RESTFUL语法</p>
-<h4 id="请求头的属性（不包括缓存相关）"><a href="#请求头的属性（不包括缓存相关）" class="headerlink" title="请求头的属性（不包括缓存相关）"></a>请求头的属性（不包括缓存相关）</h4><ul>
-<li> Accept：浏览器可接受的数据格式</li>
-<li>Accept-Encoding： 浏览器可接受的压缩算法，如gzip</li>
-<li>Accept- Language：浏览器接受的语言</li>
-<li>Connection：keep-alive 一次TCP连接重复利用</li>
-<li>cookie</li>
-<li>host</li>
-<li>User-Agent：浏览器的信息</li>
-<li>Content-type：发送数据的格式</li>
-</ul>
-<h4 id="返回头的属性"><a href="#返回头的属性" class="headerlink" title="返回头的属性"></a>返回头的属性</h4><ul>
-<li>Content-type：返回数据的格式</li>
-<li>Content-length：返回数据的大小</li>
-<li>Content-Encoding：返回数据的压缩算法</li>
-</ul>
-<h4 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP 缓存"></a>HTTP 缓存</h4><ul>
-<li>什么是缓存？</li>
-</ul>
-<p>缓存就是有些资源在一定时间内不会进行更改，加载一次后下次再次加载时就不必再去发起请求，而是调用以前加载的数据。</p>
+<h4 id="为什么要进行三次握手？"><a href="#为什么要进行三次握手？" class="headerlink" title="为什么要进行三次握手？"></a>为什么要进行三次握手？</h4><p>举个例子：你要去你的朋友家，首先要发消息询问朋友在家吗？朋友回复：在家，你回复：好，我现在去你家。</p>
+<p>三次握手本质是保证双方都有收发消息的能力，第一次握手保证客户端可以发送消息，服务端可以接受消息，第二次握手保证服务端可以发送消息，第三次握手保证客户端可以接受消息。</p>
 <ul>
-<li>哪些资源会被缓存？</li>
+<li>第一次握手：发送SYN</li>
+<li>第二次握手：返回SYN和ACK</li>
+<li>第三次握手：发送ACK</li>
 </ul>
-<p>静态资源（JS，CSS，img）</p>
-<h4 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h4><ul>
-<li><p>Reponse Header中</p>
+<h4 id="为什么要进行四次挥手？"><a href="#为什么要进行四次挥手？" class="headerlink" title="为什么要进行四次挥手？"></a>为什么要进行四次挥手？</h4><p> 客户端向服务端发送：我想要结束会话。服务端回复：收到请求，但我要把我的信息发完，发完再通知你。服务端回复：发完了，可以断开。客户端：收到，断开吧。</p>
+<p>四次挥手保证了双方的所有传输都结束才会断开。</p>
 <ul>
-<li>Cache-Control：控制强制缓存，单位是秒<ul>
-<li>max-age：最大过期时间</li>
-<li>no-catch：不使用本地缓存，交给服务器处理</li>
-<li>no-store：不使用本地缓存，也不使用服务端的缓存</li>
-</ul>
-</li>
-</ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mf32wx79j214x0u041p.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728101016970" style="zoom:50%;" /></li>
-</ul>
-<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><ul>
-<li>服务器缓存策略</li>
-<li>服务器判断客户端资源是否和服务端资源一致</li>
-<li>一致返回304 否则返回200和最新资源</li>
-</ul>
-<ul>
-<li>在 Response Headers 中，有两种</li>
-<li> Last-Modified 资源的最后修改时间 </li>
-</ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfvxm9m9j20rg0gf400.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728103803638" style="zoom:50%;" />
-
-<ul>
-<li>Etag 资源的唯一标识（一个字符串，类似人类的指纹）</li>
-</ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfwkeqhlj20s20gvjsx.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728103839305" style="zoom:50%;" />
-
-<ul>
-<li>会优先使用 Etag </li>
-<li>Last-Modified 只能精确到秒级</li>
-<li>如果资源被重复生成，而内容不变，则 Etag 更精确</li>
-</ul>
-<h4 id="缓存的流程综述"><a href="#缓存的流程综述" class="headerlink" title="缓存的流程综述"></a>缓存的流程综述</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfxymq5yj20nm0fvq3s.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728104000521"></p>
-<h4 id="三种浏览器的刷新操作"><a href="#三种浏览器的刷新操作" class="headerlink" title="三种浏览器的刷新操作"></a>三种浏览器的刷新操作</h4><ul>
-<li>正常操作：地址栏输入 url，跳转链接，前进后退等（强制缓存，协商缓存有效）</li>
-<li>手动刷新：F5，点击刷新按钮，右击菜单刷新 （强制缓存失效，协商缓存有效）</li>
-<li> 强制刷新：ctrl + F5（不使用缓存）</li>
+<li>第一次挥手：发送FIN</li>
+<li>第二次挥手：返回ACK</li>
+<li>第三次挥手：返回FIN</li>
+<li>第四次挥手：返回ACK</li>
 </ul>
 
                 
@@ -431,9 +366,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
-      
         <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">#技术分析</a>
       
     </div>
   
@@ -445,8 +380,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>面试题 - HTTP相关</div>
-      <div>http://rrnn.gitee.io/2022/07/28/js/面试题-HTTP相关/</div>
+      <div>TCP的三次握手和四次挥手</div>
+      <div>http://rrnn.gitee.io/2022/08/07/TCP的三次握手和四次挥手/</div>
     </div>
     <div class="license-meta">
       
@@ -458,7 +393,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月28日</div>
+          <div>2022年8月7日</div>
         </div>
       
       
@@ -488,9 +423,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/28/Interview/JS%E9%9D%A2%E8%AF%95%E9%A2%98-JS%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" title="JS面试题 - JS的数据存储">
+                      <a href="/2022/08/10/VUE/VUE3%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E8%AE%AF%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/" title="VUE3组件间通讯的7种方式">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS面试题 - JS的数据存储</span>
+                        <span class="hidden-mobile">VUE3组件间通讯的7种方式</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -498,8 +433,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/27/js/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-7-27-%E5%AD%97%E8%8A%82%E9%A3%9E%E4%B9%A6%E6%8F%90%E5%89%8D%E6%89%B9%E6%A0%A1%E6%8B%9B%E4%B8%80%E9%9D%A2/" title="面经学习 - 7/27 - 字节飞书提前批校招一面">
-                        <span class="hidden-mobile">面经学习 - 7/27 - 字节飞书提前批校招一面</span>
+                      <a href="/2022/08/07/%E6%B5%85%E6%9E%90%E4%BD%BF%E7%94%A8%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="浅析使用箭头函数的注意事项">
+                        <span class="hidden-mobile">浅析使用箭头函数的注意事项</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

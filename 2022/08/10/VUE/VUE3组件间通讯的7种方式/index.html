@@ -16,25 +16,25 @@
   <meta name="author" content="软软糯糯的汤圆">
   <meta name="keywords" content="个人博客,JS笔记">
   
-    <meta name="description" content="面试题 - HTTP相关状态码分类 1xx 服务器收到请求 2xx请求成功 3xx重定向 301 永久重定向（更换域名等等） 302 临时重定向 （临时更改，应用很多） 304 资源未被修改 请求缓存   4xx客户端错误 403 没有权限 404 资源未找到   5xx服务端错误  请求类型 GET POST PUT DELETE  RESTFUL语法 请求头的属性（不包括缓存相关）  Acce">
+    <meta name="description" content="VUE3组件间通讯的7种方式本文总结了vue3中常见的七种组件间通讯方式  props emit v-model refs Provide&#x2F;inject enentBus Vuex4&#x2F;pinia  propsprops用于父组件向子组件传值 父组件以数据绑定的形式声明要传递的数据，子组件通过defineProperty()方法创建props对象，即可拿到父组件传来的数据。 父组件： 1&lt;Pr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面试题 - HTTP相关">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/07/28/js/%E9%9D%A2%E8%AF%95%E9%A2%98-HTTP%E7%9B%B8%E5%85%B3/index.html">
+<meta property="og:title" content="VUE3组件间通讯的7种方式">
+<meta property="og:url" content="http://rrnn.gitee.io/2022/08/10/VUE/VUE3%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E8%AE%AF%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
-<meta property="og:description" content="面试题 - HTTP相关状态码分类 1xx 服务器收到请求 2xx请求成功 3xx重定向 301 永久重定向（更换域名等等） 302 临时重定向 （临时更改，应用很多） 304 资源未被修改 请求缓存   4xx客户端错误 403 没有权限 404 资源未找到   5xx服务端错误  请求类型 GET POST PUT DELETE  RESTFUL语法 请求头的属性（不包括缓存相关）  Acce">
+<meta property="og:description" content="VUE3组件间通讯的7种方式本文总结了vue3中常见的七种组件间通讯方式  props emit v-model refs Provide&#x2F;inject enentBus Vuex4&#x2F;pinia  propsprops用于父组件向子组件传值 父组件以数据绑定的形式声明要传递的数据，子组件通过defineProperty()方法创建props对象，即可拿到父组件传来的数据。 父组件： 1&lt;Pr">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://th.wallhaven.cc/small/2e/2eovqy.jpg">
-<meta property="article:published_time" content="2022-07-28T02:44:36.000Z">
-<meta property="article:modified_time" content="2022-07-28T02:45:46.405Z">
+<meta property="og:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
+<meta property="article:published_time" content="2022-08-10T04:15:46.000Z">
+<meta property="article:modified_time" content="2022-08-10T04:52:07.092Z">
 <meta property="article:author" content="软软糯糯的汤圆">
-<meta property="article:tag" content="面试">
-<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="VUE">
+<meta property="article:tag" content="技术分析">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://th.wallhaven.cc/small/2e/2eovqy.jpg">
+<meta name="twitter:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
   
   
   
-  <title>面试题 - HTTP相关 - Tangyuan的博客</title>
+  <title>VUE3组件间通讯的7种方式 - Tangyuan的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,13 +222,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://w.wallhaven.cc/full/2e/wallhaven-2eovqy.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://w.wallhaven.cc/full/72/wallhaven-72por3.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="面试题 - HTTP相关"></span>
+            <span id="subtitle" data-typed-text="VUE3组件间通讯的7种方式"></span>
           
         </div>
 
@@ -239,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-28 10:44" pubdate>
-          2022年7月28日 上午
+        <time datetime="2022-08-10 12:15" pubdate>
+          2022年8月10日 中午
         </time>
       </span>
     
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          870 字
+          3k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          8 分钟
+          25 分钟
         
       </span>
     
@@ -308,96 +308,77 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">面试题 - HTTP相关</h1>
+            <h1 style="display: none">VUE3组件间通讯的7种方式</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="面试题-HTTP相关"><a href="#面试题-HTTP相关" class="headerlink" title="面试题 - HTTP相关"></a>面试题 - HTTP相关</h1><h4 id="状态码分类"><a href="#状态码分类" class="headerlink" title="状态码分类"></a>状态码分类</h4><ul>
-<li>1xx 服务器收到请求</li>
-<li>2xx请求成功</li>
-<li>3xx重定向<ul>
-<li>301 永久重定向（更换域名等等）</li>
-<li>302 临时重定向 （临时更改，应用很多）</li>
-<li>304 资源未被修改 请求缓存</li>
-</ul>
-</li>
-<li>4xx客户端错误<ul>
-<li>403 没有权限</li>
-<li>404 资源未找到</li>
-</ul>
-</li>
-<li>5xx服务端错误</li>
-</ul>
-<h4 id="请求类型"><a href="#请求类型" class="headerlink" title="请求类型"></a>请求类型</h4><ul>
-<li>GET</li>
-<li>POST</li>
-<li>PUT</li>
-<li>DELETE</li>
-</ul>
-<p>RESTFUL语法</p>
-<h4 id="请求头的属性（不包括缓存相关）"><a href="#请求头的属性（不包括缓存相关）" class="headerlink" title="请求头的属性（不包括缓存相关）"></a>请求头的属性（不包括缓存相关）</h4><ul>
-<li> Accept：浏览器可接受的数据格式</li>
-<li>Accept-Encoding： 浏览器可接受的压缩算法，如gzip</li>
-<li>Accept- Language：浏览器接受的语言</li>
-<li>Connection：keep-alive 一次TCP连接重复利用</li>
-<li>cookie</li>
-<li>host</li>
-<li>User-Agent：浏览器的信息</li>
-<li>Content-type：发送数据的格式</li>
-</ul>
-<h4 id="返回头的属性"><a href="#返回头的属性" class="headerlink" title="返回头的属性"></a>返回头的属性</h4><ul>
-<li>Content-type：返回数据的格式</li>
-<li>Content-length：返回数据的大小</li>
-<li>Content-Encoding：返回数据的压缩算法</li>
-</ul>
-<h4 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP 缓存"></a>HTTP 缓存</h4><ul>
-<li>什么是缓存？</li>
-</ul>
-<p>缓存就是有些资源在一定时间内不会进行更改，加载一次后下次再次加载时就不必再去发起请求，而是调用以前加载的数据。</p>
+                <h1 id="VUE3组件间通讯的7种方式"><a href="#VUE3组件间通讯的7种方式" class="headerlink" title="VUE3组件间通讯的7种方式"></a>VUE3组件间通讯的7种方式</h1><p>本文总结了vue3中常见的七种组件间通讯方式</p>
 <ul>
-<li>哪些资源会被缓存？</li>
+<li>props</li>
+<li>emit</li>
+<li>v-model</li>
+<li>refs</li>
+<li>Provide/inject</li>
+<li>enentBus</li>
+<li>Vuex4/pinia</li>
 </ul>
-<p>静态资源（JS，CSS，img）</p>
-<h4 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h4><ul>
-<li><p>Reponse Header中</p>
-<ul>
-<li>Cache-Control：控制强制缓存，单位是秒<ul>
-<li>max-age：最大过期时间</li>
-<li>no-catch：不使用本地缓存，交给服务器处理</li>
-<li>no-store：不使用本地缓存，也不使用服务端的缓存</li>
-</ul>
-</li>
-</ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mf32wx79j214x0u041p.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728101016970" style="zoom:50%;" /></li>
-</ul>
-<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><ul>
-<li>服务器缓存策略</li>
-<li>服务器判断客户端资源是否和服务端资源一致</li>
-<li>一致返回304 否则返回200和最新资源</li>
-</ul>
-<ul>
-<li>在 Response Headers 中，有两种</li>
-<li> Last-Modified 资源的最后修改时间 </li>
-</ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfvxm9m9j20rg0gf400.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728103803638" style="zoom:50%;" />
+<h4 id="props"><a href="#props" class="headerlink" title="props"></a>props</h4><p>props用于父组件向子组件传值</p>
+<p>父组件以数据绑定的形式声明要传递的数据，子组件通过defineProperty()方法创建props对象，即可拿到父组件传来的数据。</p>
+<p>父组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;Props :list=&quot;list&quot;&gt;&lt;/Props&gt;<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>Etag 资源的唯一标识（一个字符串，类似人类的指纹）</li>
-</ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfwkeqhlj20s20gvjsx.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728103839305" style="zoom:50%;" />
+<p>子组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup lang=&quot;ts&quot;&gt;<br>type props = &#123;<br>  list: &#123; name: string &#125;<br>&#125;<br>const props = defineProps&lt;props&gt;()<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>会优先使用 Etag </li>
-<li>Last-Modified 只能精确到秒级</li>
-<li>如果资源被重复生成，而内容不变，则 Etag 更精确</li>
-</ul>
-<h4 id="缓存的流程综述"><a href="#缓存的流程综述" class="headerlink" title="缓存的流程综述"></a>缓存的流程综述</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfxymq5yj20nm0fvq3s.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728104000521"></p>
-<h4 id="三种浏览器的刷新操作"><a href="#三种浏览器的刷新操作" class="headerlink" title="三种浏览器的刷新操作"></a>三种浏览器的刷新操作</h4><ul>
-<li>正常操作：地址栏输入 url，跳转链接，前进后退等（强制缓存，协商缓存有效）</li>
-<li>手动刷新：F5，点击刷新按钮，右击菜单刷新 （强制缓存失效，协商缓存有效）</li>
-<li> 强制刷新：ctrl + F5（不使用缓存）</li>
-</ul>
+<h4 id="emit"><a href="#emit" class="headerlink" title="emit"></a>emit</h4><p>emit用于子传父</p>
+<ol>
+<li>子组件定义emit</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> emit = <span class="hljs-title function_">defineEmits</span>([<span class="hljs-string">&#x27;on-click&#x27;</span>]) <span class="hljs-comment">//接收一个数组，放自定义名称,以便于定义多个emit</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>子组件定义触发函数</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">clickTap</span> = (<span class="hljs-params"></span>) =&gt;&#123;<br>  <span class="hljs-title function_">emit</span>(<span class="hljs-string">&#x27;on-click&#x27;</span>,list) <span class="hljs-comment">//第一个参数是定义的emit的名字</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;clickTap&quot;</span>&gt;</span>派发<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>父组件在子组件添加一个自定义事件(:on / @)</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">Children</span>  @<span class="hljs-attr">on-click</span>=<span class="hljs-string">&quot;getList&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Children</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">getList</span> = (<span class="hljs-params">list:number[]</span>)=&gt;&#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;list from children&#x27;</span>,list)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="v-model实现父子组件双向绑定"><a href="#v-model实现父子组件双向绑定" class="headerlink" title="v-model实现父子组件双向绑定"></a>v-model实现父子组件双向绑定</h4><ol>
+<li>子组件input 添加input事件 ，绑定modelValue</li>
+<li>声明input事件 props接受modelValue属性</li>
+<li>声明一个emit，在input事件 执行 emits(‘update:modelValue’, e.target.value)</li>
+<li>父组件v-model一个值即可</li>
+</ol>
+<p>子组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div&gt;&lt;input @input=&quot;changeUpdate&quot; :value=&quot;modelValue&quot; /&gt;&lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import &#123; reactive, ref, defineEmits &#125; from &#x27;vue&#x27;<br>type Props = &#123;<br>  modelValue: string<br>&#125;<br>const props = defineProps&lt;Props&gt;()<br>const emits = defineEmits()<br>const changeUpdate = (e) =&gt; &#123;<br>  console.log(e.target.value)<br>  emits(&#x27;update:modelValue&#x27;, e.target.value)<br>&#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p>父组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;div&gt;<br>    &lt;Emit v-model=&quot;content&quot;&gt;&lt;/Emit&gt;<br>    &#123;&#123; content &#125;&#125;<br>  &lt;/div&gt;<br></code></pre></td></tr></table></figure>
+
+<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>使用ref可以直接得到子组件的定义值，但要注意：在父组件要使用getCurrentInstance得到this，在子组件使用defineExpose暴露变量。</p>
+<p>子组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div&gt;<br>    &lt;h1&gt;&#123;&#123; message &#125;&#125;&lt;/h1&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import &#123; ref, watchEffect &#125; from &#x27;vue&#x27;;<br>let message = ref&lt;string&gt;(&#x27;test&#x27;)<br>const alertMessage = () =&gt; &#123;<br>  alert(message.value)<br>&#125;<br>defineExpose(&#123;<br>  alertMessage,<br>  message<br>&#125;)<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p>父组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div&gt;<br>    &lt;Ref1 ref=&quot;children&quot;&gt;&lt;/Ref1&gt;<br>    &lt;button @click=&quot;showMessage&quot;&gt;change&lt;/button&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import &#123; getCurrentInstance, ref, watchEffect &#125; from &#x27;vue&#x27;;<br>import Emit from &#x27;./components/Children/Emit.vue&#x27;;<br>import Ref1 from &#x27;./components/Children/Ref.vue&#x27;;<br>let content = ref&lt;string&gt;(&#x27;father&#x27;)<br>const currentInstance = getCurrentInstance()<br>const showMessage = () =&gt; &#123;<br>  // console.log(currentInstance.refs.children)<br>  currentInstance.refs.children.message = &#x27;testhahaha&#x27;<br>&#125;<br>watchEffect(() =&gt; &#123;<br>  console.log(content.value)<br>&#125;)<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h4 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide/inject"></a><strong>provide/inject</strong></h4><p>用于多重嵌套的组件，无论嵌套的多深，都可以得到。</p>
+<p>父组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">provide</span>(<span class="hljs-string">&#x27;info&#x27;</span>, info)<br></code></pre></td></tr></table></figure>
+
+<p>子组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> list = <span class="hljs-title function_">inject</span>(<span class="hljs-string">&#x27;info&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="eventBus"><a href="#eventBus" class="headerlink" title="eventBus"></a><strong>eventBus</strong></h4><p>Vue 3 中移除了 <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=eventBus&spm=1001.2101.3001.7020">eventBus</a>，但可以借助第三方工具来完成。Vue 官方推荐使用 mitt 或 tiny-emitter。</p>
+<h3 id="vuex-pinia"><a href="#vuex-pinia" class="headerlink" title="vuex/pinia"></a><strong>vuex/pinia</strong></h3><p>Vuex 和 Pinia 是 Vue 3 中的状态管理工具，使用这两个工具可以轻松实现组件通信。</p>
 
                 
               </div>
@@ -431,9 +412,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+        <a href="/tags/VUE/">#VUE</a>
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">#技术分析</a>
       
     </div>
   
@@ -445,8 +426,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>面试题 - HTTP相关</div>
-      <div>http://rrnn.gitee.io/2022/07/28/js/面试题-HTTP相关/</div>
+      <div>VUE3组件间通讯的7种方式</div>
+      <div>http://rrnn.gitee.io/2022/08/10/VUE/VUE3组件间通讯的7种方式/</div>
     </div>
     <div class="license-meta">
       
@@ -458,7 +439,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月28日</div>
+          <div>2022年8月10日</div>
         </div>
       
       
@@ -488,18 +469,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/28/Interview/JS%E9%9D%A2%E8%AF%95%E9%A2%98-JS%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" title="JS面试题 - JS的数据存储">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS面试题 - JS的数据存储</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/27/js/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-7-27-%E5%AD%97%E8%8A%82%E9%A3%9E%E4%B9%A6%E6%8F%90%E5%89%8D%E6%89%B9%E6%A0%A1%E6%8B%9B%E4%B8%80%E9%9D%A2/" title="面经学习 - 7/27 - 字节飞书提前批校招一面">
-                        <span class="hidden-mobile">面经学习 - 7/27 - 字节飞书提前批校招一面</span>
+                      <a href="/2022/08/07/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="TCP的三次握手和四次挥手">
+                        <span class="hidden-mobile">TCP的三次握手和四次挥手</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

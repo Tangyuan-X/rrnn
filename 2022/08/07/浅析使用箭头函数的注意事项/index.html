@@ -16,25 +16,25 @@
   <meta name="author" content="软软糯糯的汤圆">
   <meta name="keywords" content="个人博客,JS笔记">
   
-    <meta name="description" content="面经学习 - 8&#x2F;3 -滴滴春招一面地址：https:&#x2F;&#x2F;www.nowcoder.com&#x2F;discuss&#x2F;943077?source_id&#x3D;discuss_experience_nctrack&amp;channel&#x3D;-1 一面（45min）：一、说一下你对jwt认证机制的理解，它的优缺点1.客户端浏览器提交账号和密码后 2.服务器就进行验证账号密码 验证通过后 将用户的信息对象，经过加密之后生">
+    <meta name="description" content="箭头函数的缺点 没有arguments 无法通过apply call bing改变this（因为其本身就没有this，this指向父级） 某些箭头函数难以阅读  不适用的场景 对象中的属性定义为方法时使用箭头函数（不能使用this指向object） 原型方法中不要定义箭头函数 不要用箭头函数当构造函数  总之，慎重在需要使用this的函数中使用箭头函数 总结箭头函数虽然使得书写方便，但要注意 要熟">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面经学习 - 8&#x2F;3 -滴滴春招一面">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/08/04/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-8-3-%E6%BB%B4%E6%BB%B4%E6%98%A5%E6%8B%9B%E4%B8%80%E9%9D%A2/index.html">
+<meta property="og:title" content="浅析使用箭头函数的注意事项">
+<meta property="og:url" content="http://rrnn.gitee.io/2022/08/07/%E6%B5%85%E6%9E%90%E4%BD%BF%E7%94%A8%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
-<meta property="og:description" content="面经学习 - 8&#x2F;3 -滴滴春招一面地址：https:&#x2F;&#x2F;www.nowcoder.com&#x2F;discuss&#x2F;943077?source_id&#x3D;discuss_experience_nctrack&amp;channel&#x3D;-1 一面（45min）：一、说一下你对jwt认证机制的理解，它的优缺点1.客户端浏览器提交账号和密码后 2.服务器就进行验证账号密码 验证通过后 将用户的信息对象，经过加密之后生">
+<meta property="og:description" content="箭头函数的缺点 没有arguments 无法通过apply call bing改变this（因为其本身就没有this，this指向父级） 某些箭头函数难以阅读  不适用的场景 对象中的属性定义为方法时使用箭头函数（不能使用this指向object） 原型方法中不要定义箭头函数 不要用箭头函数当构造函数  总之，慎重在需要使用this的函数中使用箭头函数 总结箭头函数虽然使得书写方便，但要注意 要熟">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://th.wallhaven.cc/lg/6o/6oxgp6.jpg">
-<meta property="article:published_time" content="2022-08-04T03:03:39.000Z">
-<meta property="article:modified_time" content="2022-08-04T03:06:02.908Z">
+<meta property="og:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
+<meta property="article:published_time" content="2022-08-07T10:04:10.000Z">
+<meta property="article:modified_time" content="2022-08-07T10:12:42.438Z">
 <meta property="article:author" content="软软糯糯的汤圆">
-<meta property="article:tag" content="面试">
-<meta property="article:tag" content="面经">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="技术分析">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://th.wallhaven.cc/lg/6o/6oxgp6.jpg">
+<meta name="twitter:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
   
   
   
-  <title>面经学习 - 8/3 -滴滴春招一面 - Tangyuan的博客</title>
+  <title>浅析使用箭头函数的注意事项 - Tangyuan的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,13 +222,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://w.wallhaven.cc/full/6o/wallhaven-6oxgp6.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://w.wallhaven.cc/full/72/wallhaven-72por3.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="面经学习 - 8/3 -滴滴春招一面"></span>
+            <span id="subtitle" data-typed-text="浅析使用箭头函数的注意事项"></span>
           
         </div>
 
@@ -239,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-04 11:03" pubdate>
-          2022年8月4日 上午
+        <time datetime="2022-08-07 18:04" pubdate>
+          2022年8月7日 晚上
         </time>
       </span>
     
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          215 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          14 分钟
+          2 分钟
         
       </span>
     
@@ -308,54 +308,23 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">面经学习 - 8/3 -滴滴春招一面</h1>
+            <h1 style="display: none">浅析使用箭头函数的注意事项</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="面经学习-8-3-滴滴春招一面"><a href="#面经学习-8-3-滴滴春招一面" class="headerlink" title="面经学习 - 8/3 -滴滴春招一面"></a>面经学习 - 8/3 -滴滴春招一面</h1><p>地址：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/943077?source_id=discuss_experience_nctrack&amp;channel=-1">https://www.nowcoder.com/discuss/943077?source_id=discuss_experience_nctrack&amp;channel=-1</a></p>
-<h3 id="一面（45min）："><a href="#一面（45min）：" class="headerlink" title="一面（45min）："></a>一面（45min）：</h3><h4 id="一、说一下你对jwt认证机制的理解，它的优缺点"><a href="#一、说一下你对jwt认证机制的理解，它的优缺点" class="headerlink" title="一、说一下你对jwt认证机制的理解，它的优缺点"></a>一、说一下你对jwt认证机制的理解，它的优缺点</h4><p>1.客户端浏览器提交账号和密码后</p>
-<p>2.服务器就进行验证账号密码 验证通过后 将用户的信息对象，经过加密之后生成Token字符串，然后发送给客户端</p>
-<p>3.客户端将Token字符串存储到localstorage或sessionstorage。</p>
-<p>4.客户端再次发起请求时，通过请求头的Authorization字段，将Token发给服务器</p>
-<p>5.服务器把token字符串还原成用户的信息对象，用户身份认证成功后，服务器把当前用户对应的页面响应给浏览器。  </p>
-<h4 id="二、说一下你对闭包的理解"><a href="#二、说一下你对闭包的理解" class="headerlink" title="二、说一下你对闭包的理解"></a>二、说一下你对闭包的理解</h4><p>当函数作为返回值被返回时，他的作用域不取决于被调用时的作用域，而取决于被定义时的作用域，且这些作用域的内容不会被清除（垃圾回收），可以用它实现一个私有的getter（只读）。</p>
-<h4 id="三、说一下new创建实例的时候都做了什么"><a href="#三、说一下new创建实例的时候都做了什么" class="headerlink" title="三、说一下new创建实例的时候都做了什么"></a>三、说一下new创建实例的时候都做了什么</h4><ol>
-<li>创建空对象 object.create()</li>
-<li>绑定原型 obj.<strong>proto</strong> = Fn.prototype</li>
-<li>改变fn实例指向 fn.call</li>
-</ol>
-<h4 id="四、说一下判断数据类型的方式"><a href="#四、说一下判断数据类型的方式" class="headerlink" title="四、说一下判断数据类型的方式"></a>四、说一下判断数据类型的方式</h4><ol>
-<li>typeof 判断值类型和function</li>
-<li>Array.isArray 判断数组</li>
-<li>instanceof 可以判断原型链上是否存在该类型，不太准确</li>
-<li>Object.prototype.toString.call(‘’ ‘) 可以精确判断</li>
-</ol>
-<h4 id="五、说一下你知道的纯函数（即不会修改入参的函数）"><a href="#五、说一下你知道的纯函数（即不会修改入参的函数）" class="headerlink" title="五、说一下你知道的纯函数（即不会修改入参的函数）"></a>五、说一下你知道的纯函数（即不会修改入参的函数）</h4><p>concat  join slice map filter</p>
-<h4 id="六、说一下你对BFC的了解"><a href="#六、说一下你对BFC的了解" class="headerlink" title="六、说一下你对BFC的了解"></a>六、说一下你对BFC的了解</h4><p> BFC块级格式化上下文，其是一片独立渲染的区域，区域内元素的变化不会影响到区域外元素的变化。</p>
-<p>生成BFC：设置浮动，设置定位，overflow为hidden auto等 弹性布局</p>
-<h4 id="七、说一下vue的生命周期"><a href="#七、说一下vue的生命周期" class="headerlink" title="七、说一下vue的生命周期"></a>七、说一下vue的生命周期</h4><p>beforeCreate</p>
-<p>生成数据</p>
-<p>created</p>
-<p>beforeMounted</p>
-<p>生成DOM</p>
-<p>Mounted</p>
-<p>beforeUpdate</p>
-<p>Uptated</p>
-<p>BeforeUnmounted</p>
-<p>Unmounted</p>
-<h4 id="八、说一下虚拟DOM的原理"><a href="#八、说一下虚拟DOM的原理" class="headerlink" title="八、说一下虚拟DOM的原理"></a>八、说一下虚拟DOM的原理</h4><p>虚拟DOM：<strong>在 js 和真实 dom 中间加了一个缓存</strong>，利用 dom diff 算法避免了没有必要 的 dom 操作，从而提高性能。具体实现步骤如下：</p>
-<ol>
-<li>用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树， 插到文档当中；</li>
-<li>当状态变更的时候，重新构造一棵新的对象树。通过diff 算法，比较新旧虚拟 DOM 树的差异。</li>
-<li>根据差异，对真正的 DOM 树进行增、删、改。</li>
-</ol>
-<p>diff算法：</p>
-<p>在进行DOM更新时，判断是否有key，如果有key对key进行对比，相同则跳过修改，不同则进行替换，在vue3中提升了性能，不同会从后往前对比。diff算法是深度优先的递归运算，先判断children是否相同。</p>
-<h4 id="九、-说一下keep-alive的原理，以及如果超出缓存长度，如何处理"><a href="#九、-说一下keep-alive的原理，以及如果超出缓存长度，如何处理" class="headerlink" title="九、 说一下keep -alive的原理，以及如果超出缓存长度，如何处理"></a>九、 说一下<a href="">keep</a> -alive的原理，以及如果超出缓存长度，如何处理</h4><p>在 created钩子函数调用时将需要缓存的 VNode 节点保存在 this.cache 中／在 render（页面渲染） 时，如果 VNode 的 name 符合缓存条件（可以用 include 以及 exclude 控制），则会从 this.cache 中取出之前缓存的 VNode实例进行渲染。</p>
-<h4 id="十、说一下vuex的原理"><a href="#十、说一下vuex的原理" class="headerlink" title="十、说一下vuex的原理"></a>十、说一下vuex的原理</h4><p>其实，Vuex.Store是个类，使用他的时候，你给他传入了参数（state，mutations，actions）并让他实例化。你把这个实例配置给了Vue，Vuex帮你把他给了Vue原型上的$store。</p>
-<p>Vuex还送给你个commit和dispatch方法让你能有办法改s t o r e . s t a t e ， 当 然 你 也 能 通 过 store.state，当然你也能通过store.state，当然你也能通过store.state方法到你要的状态。</p>
-<h4 id="十一、说一下如何解决跨域问题"><a href="#十一、说一下如何解决跨域问题" class="headerlink" title="十一、说一下如何解决跨域问题"></a>十一、说一下如何解决跨域问题</h4><p>JSOP CROS</p>
+                <h4 id="箭头函数的缺点"><a href="#箭头函数的缺点" class="headerlink" title="箭头函数的缺点"></a>箭头函数的缺点</h4><ul>
+<li>没有arguments</li>
+<li>无法通过apply call bing改变this（因为其本身就没有this，this指向父级）</li>
+<li>某些箭头函数难以阅读</li>
+</ul>
+<h4 id="不适用的场景"><a href="#不适用的场景" class="headerlink" title="不适用的场景"></a>不适用的场景</h4><ul>
+<li>对象中的属性定义为方法时使用箭头函数（不能使用this指向object）</li>
+<li>原型方法中不要定义箭头函数</li>
+<li>不要用箭头函数当构造函数</li>
+</ul>
+<p>总之，慎重在需要使用this的函数中使用箭头函数</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>箭头函数虽然使得书写方便，但要注意 要熟练应用箭头函数，也要对函数 this arguments 敏感。</p>
 
                 
               </div>
@@ -389,9 +358,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+        <a href="/tags/Javascript/">#Javascript</a>
       
-        <a href="/tags/%E9%9D%A2%E7%BB%8F/">#面经</a>
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">#技术分析</a>
       
     </div>
   
@@ -403,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>面经学习 - 8/3 -滴滴春招一面</div>
-      <div>http://rrnn.gitee.io/2022/08/04/面经学习-8-3-滴滴春招一面/</div>
+      <div>浅析使用箭头函数的注意事项</div>
+      <div>http://rrnn.gitee.io/2022/08/07/浅析使用箭头函数的注意事项/</div>
     </div>
     <div class="license-meta">
       
@@ -416,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月4日</div>
+          <div>2022年8月7日</div>
         </div>
       
       
@@ -446,12 +415,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/08/07/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="TCP的三次握手和四次挥手">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TCP的三次握手和四次挥手</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/01/Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%8E%9F%E7%90%86/" title="Vue响应式数据原理">
-                        <span class="hidden-mobile">Vue响应式数据原理</span>
+                      <a href="/2022/08/07/css/px-em-rem-vw-vh%E7%9A%84%E5%8C%BA%E5%88%AB/" title="px % em rem vw.vh的区别">
+                        <span class="hidden-mobile">px % em rem vw.vh的区别</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
