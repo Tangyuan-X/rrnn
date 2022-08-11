@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Webpack知识整理</title>
+    <link href="/2022/08/11/Webpack%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
+    <url>/2022/08/11/Webpack%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h4 id="对webpack的理解"><a href="#对webpack的理解" class="headerlink" title="对webpack的理解"></a>对webpack的理解</h4><p>webpack是一个静态模块打包器，当webpack处理应用程序时，会递归构建一个依赖关系图，然后将这些模块打包成一个或多个bundle。</p><p>webpack将应用中所用的JS脚本分析使用到的依赖并打包在一起，并且可以实现JS，css的压缩。</p><h4 id="Webpack中loader的作用-loader是什么？"><a href="#Webpack中loader的作用-loader是什么？" class="headerlink" title="Webpack中loader的作用/ loader是什么？"></a>Webpack中loader的作用/ loader是什么？</h4><p>在webpack中，只认识JS和JSON，所以loader相当于翻译官，对其他类型的资源进行预处理，最终变为JS代码。</p><h4 id="常见的less-loader"><a href="#常见的less-loader" class="headerlink" title="常见的less loader"></a>常见的less loader</h4><ul><li>less-loader</li><li>Css-loader</li><li>Style-loader</li><li>ts-loader</li></ul><h4 id="Plugin有什么用？是什么？"><a href="#Plugin有什么用？是什么？" class="headerlink" title="Plugin有什么用？是什么？"></a>Plugin有什么用？是什么？</h4><p>plugin是额外插件，拓展webpack自身的功能，比如打包优化，代码压缩</p><p>plugin加载后，在webpack构建的某个特定的时间节点就会触发plugin定义的功能</p><h4 id="常见的plugin？"><a href="#常见的plugin？" class="headerlink" title="常见的plugin？"></a>常见的plugin？</h4><ul><li>Html-webpack-plugin 处理html资源，默认创建一个空的html资源，自动引入打包输出所有的资源</li><li>min-css-extract-plugin 打包过后的css在js文件里，该插件可以把css单独抽出来</li><li>clean-webpack-plugin 每次打包，会自动清除上一次的打包文件</li></ul><h4 id="webpack-loader和plugin的区别？"><a href="#webpack-loader和plugin的区别？" class="headerlink" title="webpack loader和plugin的区别？"></a>webpack loader和plugin的区别？</h4><p>loader只运行在编译阶段，而plugin在整个周期都可能出现</p><p>loader不需要引用，下载使用即可，plugin需要引用</p><h4 id="tree-shaking是什么？"><a href="#tree-shaking是什么？" class="headerlink" title="tree-shaking是什么？"></a>tree-shaking是什么？</h4><p>tree-shaking是一种基于ES Module规范的Dead Code Elimination 技术打包，在打包过程中检测没有被引用到的模块并进行标记，删除没有引用过的模块，提高构建速度，减少程序运行时间</p><h4 id="使用tree-shaking要注意什么？"><a href="#使用tree-shaking要注意什么？" class="headerlink" title="使用tree-shaking要注意什么？"></a>使用tree-shaking要注意什么？</h4><ul><li>默认mode = production 在生产环境开启</li><li>需要用ES6的模块化开发</li><li>尽量不要写带有副作用的代码，如立即执行函数，函数中使用外部变量等</li></ul><h4 id="如何使用webpack优化前端性能"><a href="#如何使用webpack优化前端性能" class="headerlink" title="如何使用webpack优化前端性能"></a>如何使用webpack优化前端性能</h4><ul><li>代码压缩</li><li>使用DLL技术进行分包：将node_module进行单独打包，对于不常调用的JS库可以减少请求</li><li>使用路由懒加载</li></ul><h4 id="Webpack如何配置压缩代码？压缩了什么？"><a href="#Webpack如何配置压缩代码？压缩了什么？" class="headerlink" title="Webpack如何配置压缩代码？压缩了什么？"></a>Webpack如何配置压缩代码？压缩了什么？</h4><p>如何配置？</p><ol><li>在optimization配置项中配置插件为压缩器进行压缩</li><li>在plugin使用插件进行压缩</li></ol><p>JS压缩：<strong>利用terser-webpack-plugin</strong></p><p>CSS压缩：<strong>optimize-css-assets-webpack-plugin 插件</strong></p><p>压缩删除了console、注释、空格、换行、没有使用的css代码等</p><h4 id="如何提高webpack构建速度？"><a href="#如何提高webpack构建速度？" class="headerlink" title="如何提高webpack构建速度？"></a>如何提高webpack构建速度？</h4><ul><li><p>缩小处理范围:合理利用这两个属性exclude：不需要处理的文件 和 include：需要处理的文件</p></li><li><p>HMR(Hot Module Replacement) 模块热替换只重新构建发生变化的模块 – 开发环境中</p></li><li><p>babel缓存 第二次构建时，会读取之前的缓存，只重新构建变化的文件</p></li><li><p>使用Dll进行分包 –&gt; 分包方便按需加载</p></li><li><p>多进程打包 thread-loader,将其放在费时的loader之前</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>技术分析</tag>
+      
+      <tag>Webpack</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>VUE3组件间通讯的7种方式</title>
     <link href="/2022/08/10/VUE/VUE3%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E8%AE%AF%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
     <url>/2022/08/10/VUE/VUE3%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E8%AE%AF%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
