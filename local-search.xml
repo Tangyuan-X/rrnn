@@ -4,13 +4,29 @@
   
   
   <entry>
-    <title></title>
+    <title>Webpack知识整理</title>
     <link href="/2022/08/11/Webpack%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
     <url>/2022/08/11/Webpack%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h4 id="对webpack的理解"><a href="#对webpack的理解" class="headerlink" title="对webpack的理解"></a>对webpack的理解</h4><p>webpack是一个静态模块打包器，当webpack处理应用程序时，会递归构建一个依赖关系图，然后将这些模块打包成一个或多个bundle。</p><p>webpack将应用中所用的JS脚本分析使用到的依赖并打包在一起，并且可以实现JS，css的压缩。</p><h4 id="Webpack中loader的作用-loader是什么？"><a href="#Webpack中loader的作用-loader是什么？" class="headerlink" title="Webpack中loader的作用/ loader是什么？"></a>Webpack中loader的作用/ loader是什么？</h4><p>在webpack中，只认识JS和JSON，所以loader相当于翻译官，对其他类型的资源进行预处理，最终变为JS代码。</p><h4 id="常见的less-loader"><a href="#常见的less-loader" class="headerlink" title="常见的less loader"></a>常见的less loader</h4><ul><li>less-loader</li><li>Css-loader</li><li>Style-loader</li><li>ts-loader</li></ul><h4 id="Plugin有什么用？是什么？"><a href="#Plugin有什么用？是什么？" class="headerlink" title="Plugin有什么用？是什么？"></a>Plugin有什么用？是什么？</h4><p>plugin是额外插件，拓展webpack自身的功能，比如打包优化，代码压缩</p><p>plugin加载后，在webpack构建的某个特定的时间节点就会触发plugin定义的功能</p><h4 id="常见的plugin？"><a href="#常见的plugin？" class="headerlink" title="常见的plugin？"></a>常见的plugin？</h4><ul><li>Html-webpack-plugin 处理html资源，默认创建一个空的html资源，自动引入打包输出所有的资源</li><li>min-css-extract-plugin 打包过后的css在js文件里，该插件可以把css单独抽出来</li><li>clean-webpack-plugin 每次打包，会自动清除上一次的打包文件</li></ul><h4 id="webpack-loader和plugin的区别？"><a href="#webpack-loader和plugin的区别？" class="headerlink" title="webpack loader和plugin的区别？"></a>webpack loader和plugin的区别？</h4><p>loader只运行在编译阶段，而plugin在整个周期都可能出现</p><p>loader不需要引用，下载使用即可，plugin需要引用</p><h4 id="tree-shaking是什么？"><a href="#tree-shaking是什么？" class="headerlink" title="tree-shaking是什么？"></a>tree-shaking是什么？</h4><p>tree-shaking是一种基于ES Module规范的Dead Code Elimination 技术打包，在打包过程中检测没有被引用到的模块并进行标记，删除没有引用过的模块，提高构建速度，减少程序运行时间</p><h4 id="使用tree-shaking要注意什么？"><a href="#使用tree-shaking要注意什么？" class="headerlink" title="使用tree-shaking要注意什么？"></a>使用tree-shaking要注意什么？</h4><ul><li>默认mode = production 在生产环境开启</li><li>需要用ES6的模块化开发</li><li>尽量不要写带有副作用的代码，如立即执行函数，函数中使用外部变量等</li></ul><h4 id="如何使用webpack优化前端性能"><a href="#如何使用webpack优化前端性能" class="headerlink" title="如何使用webpack优化前端性能"></a>如何使用webpack优化前端性能</h4><ul><li>代码压缩</li><li>使用DLL技术进行分包：将node_module进行单独打包，对于不常调用的JS库可以减少请求</li><li>使用路由懒加载</li></ul><h4 id="Webpack如何配置压缩代码？压缩了什么？"><a href="#Webpack如何配置压缩代码？压缩了什么？" class="headerlink" title="Webpack如何配置压缩代码？压缩了什么？"></a>Webpack如何配置压缩代码？压缩了什么？</h4><p>如何配置？</p><ol><li>在optimization配置项中配置插件为压缩器进行压缩</li><li>在plugin使用插件进行压缩</li></ol><p>JS压缩：<strong>利用terser-webpack-plugin</strong></p><p>CSS压缩：<strong>optimize-css-assets-webpack-plugin 插件</strong></p><p>压缩删除了console、注释、空格、换行、没有使用的css代码等</p><h4 id="如何提高webpack构建速度？"><a href="#如何提高webpack构建速度？" class="headerlink" title="如何提高webpack构建速度？"></a>如何提高webpack构建速度？</h4><ul><li><p>缩小处理范围:合理利用这两个属性exclude：不需要处理的文件 和 include：需要处理的文件</p></li><li><p>HMR(Hot Module Replacement) 模块热替换只重新构建发生变化的模块 – 开发环境中</p></li><li><p>babel缓存 第二次构建时，会读取之前的缓存，只重新构建变化的文件</p></li><li><p>使用Dll进行分包 –&gt; 分包方便按需加载</p></li><li><p>多进程打包 thread-loader,将其放在费时的loader之前</p></li></ul>]]></content>
     
     
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>技术分析</tag>
+      
+      <tag>Webpack</tag>
+      
+      <tag>面试</tag>
+      
+    </tags>
     
   </entry>
   
@@ -87,9 +103,9 @@
     
     <tags>
       
-      <tag>技术分析</tag>
-      
       <tag>Javascript</tag>
+      
+      <tag>技术分析</tag>
       
     </tags>
     
@@ -222,9 +238,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>Javascript</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -249,9 +265,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>Javascript</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -357,9 +373,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>Javascript</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -384,9 +400,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>Javascript</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -411,9 +427,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>Javascript</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -438,9 +454,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>Javascript</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -465,9 +481,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>Javascript</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -492,9 +508,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>Javascript</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -705,11 +721,11 @@
   
   
   <entry>
-    <title>企业管理复习</title>
-    <link href="/2022/07/21/collage/%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86%E5%A4%8D%E4%B9%A0/"/>
-    <url>/2022/07/21/collage/%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86%E5%A4%8D%E4%B9%A0/</url>
+    <title>移动开发大总结</title>
+    <link href="/2022/07/21/collage/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%A4%A7%E6%80%BB%E7%BB%93/"/>
+    <url>/2022/07/21/collage/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%A4%A7%E6%80%BB%E7%BB%93/</url>
     
-    <content type="html"><![CDATA[<h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><ul><li><p>管理的科学性和艺术性</p></li><li><p>管理的职能：计划 组织 指挥 协调 控制</p></li></ul><p>答题带上理解描述</p><ul><li>管理的原理和原则</li></ul><p>人本管理原则：行为激励原则。。。</p><p>动态管理原理</p><ul><li>组织及组织结构（重点）</li></ul><ol><li><p>类型（5种）</p></li><li><p>控制跨度（重点）</p></li><li><p>结构的图和名称记住</p></li><li><p>特点 优缺点</p></li><li><p>事业部制（重点）</p></li></ol><ul><li>泰勒科学管理主要内容，贡献（77，78）</li><li>法约尔经营管理原则（14条82页）理解</li><li>什么是企业</li><li>企业的基本类型</li><li>合伙制企业</li><li>公司三种类型（股份有限公司和有限责任公司的区别）</li><li>什么是企业管理</li></ul><h4 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h4><ul><li><p>什么是霍桑实验（两个阶段，得到的结论）</p></li><li><p>马塞洛需求层次理论（重点）要知道内容</p></li><li><p>双因素理论（赫兹伯格）激励因素 保健因素</p></li><li><p>强化理论（三种类型）</p></li><li><p>领导品质理论（大体记住）（（领导方格理论）</p></li><li><p>权变管理</p></li></ul><h4 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h4><ul><li>什么是预测 预测的分类</li><li>预测的方法（德尔菲法）</li><li>平均预测法（正态分布）</li><li>加权平均法（ 移动平均法不考）</li><li>季节系数（重点）（回归分析不考）</li><li>什么是决策 决策的类型（按照确定性分类重点） 决策的方法（德尔菲法 格顿法）</li><li>线性规划不考</li><li>风险型决策必考（83页开始）</li></ul><h4 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h4><ul><li>量本利分析法 计算经营安全率 填表格（14页例题）</li><li>短期经营决策分析</li><li>单利法，复利法（例题掌握）</li><li>现金流量图 六个公式</li><li>评价指标（重点）</li><li>动态投资回收期</li><li>价值性指标（会算NPV）</li></ul><h4 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h4><ul><li>什么是市场营销 观念</li><li>什么是市场（物理 关系）</li><li>构成市场三要素</li><li>市场营销过程（22页）</li><li>市场营销组合</li><li>产品包括哪三类</li><li>不同阶段的营销策略</li><li>产品组合策略</li><li>定价方法（125，126页）</li></ul><h4 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h4><ul><li>不考 说不准 随便看看</li><li>企业的一般环境</li><li>15 16 18 24 页</li><li>业务层战略（3个）</li><li>公司层战略（4个）</li></ul><h4 id="大作业"><a href="#大作业" class="headerlink" title="大作业"></a>大作业</h4><ol><li>中国邮政的发展历程（经历的困难磨难）</li><li>中国邮政的愿景使命 战略目标</li><li>战略环境分析</li><li>战略选择</li><li>战略的执行与控制</li><li>SWOT分析优势两两组合</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="移动开发大总结"><a href="#移动开发大总结" class="headerlink" title="移动开发大总结"></a>移动开发大总结</h1><h2 id="安卓四层架构"><a href="#安卓四层架构" class="headerlink" title="安卓四层架构"></a>安卓四层架构</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj04n7qrj20uh0fr40e.jpg" alt="image-20220706212646054"></p><p>应用层：应用层包括手机上的所有APP，无论是系统自带的还是用户开发的。他们都是基于第二层应用<a href="https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&spm=1001.2101.3001.7020">框架</a>层开发的。</p><p> 应用框架层：该层提供了各种各样的系统<a href="https://so.csdn.net/so/search?q=API&spm=1001.2101.3001.7020">API</a>，开发人员通过使用这些API来构建上一层的各种各样的APP。</p><p>库层：  第一部分是Native C\C++系统库层，主要提供一系列第三方类库  第二部分是运行环境，包括Dalvik虚拟机和Java核心库。</p><p>内核层：Android系统底层是基于Linux系统的，主要提供各种硬件驱动。</p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj0h6s2dj20ti0c9gn8.jpg" alt="image-20220706212706203"></p><h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj3xwf3ej20tn0h3wgz.jpg" alt="image-20220706213025888"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj45mjj6j20ti0bo75u.jpg" alt="image-20220706213038107"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4fk6cmj20t40gmtaw.jpg" alt="image-20220706213053887"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4nf5anj20uv0fo41w.jpg" alt="image-20220706213107229"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4yufqjj20t4066jsm.jpg" alt="image-20220706213124594"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj624k30j20ty0ecmzj.jpg" alt="image-20220706213228137"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj6cf0z0j20sm0ejdhs.jpg" alt="image-20220706213244518"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj76gawtj20kp08pjsd.jpg" alt="image-20220706213332238"></p><h2 id="安卓的主题"><a href="#安卓的主题" class="headerlink" title="安卓的主题"></a>安卓的主题</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh4hejtjj20vh0egq5x.jpg" alt="image-20220706202145256"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgvgp9e0j20vw0i9775.jpg" alt="image-20220706201302672"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgw4cp4uj20sc08i0ty.jpg" alt="image-20220706201343381"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh55s1fkj20ko06jjrz.jpg" alt="image-20220706202224688"></p><h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgz88dgnj20lq0g3wgi.jpg" alt="image-20220706201642471"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgziz0maj20m90ee0uu.jpg" alt="image-20220706201659831"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh00t729j20v30fvq5s.jpg" alt="image-20220706201728515"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhc6lq4tj20uf04xt96.jpg" alt="image-20220706202909225"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xheoymrgj20rx0bntaa.jpg" alt="image-20220706203134293"></p><h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhkf1dz5j20ui0fcq52.jpg" alt="image-20220706203703921"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhknbtatj20v40hvmz7.jpg" alt="image-20220706203717470"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhlc78n3j20v20hvmzz.jpg" alt="image-20220706203757695"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhljzqr3j20qz0d00ut.jpg" alt="image-20220706203809830"></p><h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhz3bwf9j20v40endh1.jpg" alt="image-20220706205109496"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzbfrhbj20ux0dljtz.jpg" alt="image-20220706205123475"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzig2jcj20ti0c2gna.jpg" alt="image-20220706205135172"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzv5x5uj20l10b575e.jpg" alt="image-20220706205154931"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi03ionaj20ly0aedgv.jpg" alt="image-20220706205208448"></p><h2 id="配置文件作用-解释-mainfest"><a href="#配置文件作用-解释-mainfest" class="headerlink" title="配置文件作用 解释 mainfest"></a>配置文件作用 解释 mainfest</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi6gq72pj20mm0f9abk.jpg" alt="image-20220706205814713"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi6rebqrj20uz0cumzc.jpg" alt="image-20220706205832836"></p><h2 id="Android生命周期"><a href="#Android生命周期" class="headerlink" title="Android生命周期"></a>Android生命周期</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi780glfj20vm0d1q53.jpg" alt="image-20220706205858587"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi7dphxkj20u20f0gnr.jpg" alt="image-20220706205908369"></p><h2 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixap1r9j20o309ddgu.jpg" alt="image-20220706212402378"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixf3rchj20st0a6q46.jpg" alt="image-20220706212409676"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixlmay7j20uc0fignb.jpg" alt="image-20220706212420355"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixxzl49j20sp0ifwhn.jpg" alt="image-20220706212440297"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xiz3kg0dj20mb0gjtbb.jpg" alt="image-20220706212547102"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xiz9jse4j20m00dz0uu.jpg" alt="image-20220706212556850"></p><h2 id="Application类"><a href="#Application类" class="headerlink" title="Application类"></a>Application类</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3y5kshahnj20uz0hpgo9.jpg" alt="image-20220707102748113"></p><p>![image-20220707102802572](/Users/tangyuan/Library/Application Support/typora-user-images/image-20220707102802572.png)</p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3y5l969rnj20gh09u752.jpg" alt="image-20220707102815635"></p>]]></content>
     
     
     <categories>
@@ -730,11 +746,11 @@
   
   
   <entry>
-    <title>移动开发大总结</title>
-    <link href="/2022/07/21/collage/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%A4%A7%E6%80%BB%E7%BB%93/"/>
-    <url>/2022/07/21/collage/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%A4%A7%E6%80%BB%E7%BB%93/</url>
+    <title>企业管理复习</title>
+    <link href="/2022/07/21/collage/%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86%E5%A4%8D%E4%B9%A0/"/>
+    <url>/2022/07/21/collage/%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86%E5%A4%8D%E4%B9%A0/</url>
     
-    <content type="html"><![CDATA[<h1 id="移动开发大总结"><a href="#移动开发大总结" class="headerlink" title="移动开发大总结"></a>移动开发大总结</h1><h2 id="安卓四层架构"><a href="#安卓四层架构" class="headerlink" title="安卓四层架构"></a>安卓四层架构</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj04n7qrj20uh0fr40e.jpg" alt="image-20220706212646054"></p><p>应用层：应用层包括手机上的所有APP，无论是系统自带的还是用户开发的。他们都是基于第二层应用<a href="https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&spm=1001.2101.3001.7020">框架</a>层开发的。</p><p> 应用框架层：该层提供了各种各样的系统<a href="https://so.csdn.net/so/search?q=API&spm=1001.2101.3001.7020">API</a>，开发人员通过使用这些API来构建上一层的各种各样的APP。</p><p>库层：  第一部分是Native C\C++系统库层，主要提供一系列第三方类库  第二部分是运行环境，包括Dalvik虚拟机和Java核心库。</p><p>内核层：Android系统底层是基于Linux系统的，主要提供各种硬件驱动。</p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj0h6s2dj20ti0c9gn8.jpg" alt="image-20220706212706203"></p><h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj3xwf3ej20tn0h3wgz.jpg" alt="image-20220706213025888"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj45mjj6j20ti0bo75u.jpg" alt="image-20220706213038107"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4fk6cmj20t40gmtaw.jpg" alt="image-20220706213053887"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4nf5anj20uv0fo41w.jpg" alt="image-20220706213107229"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4yufqjj20t4066jsm.jpg" alt="image-20220706213124594"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj624k30j20ty0ecmzj.jpg" alt="image-20220706213228137"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj6cf0z0j20sm0ejdhs.jpg" alt="image-20220706213244518"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj76gawtj20kp08pjsd.jpg" alt="image-20220706213332238"></p><h2 id="安卓的主题"><a href="#安卓的主题" class="headerlink" title="安卓的主题"></a>安卓的主题</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh4hejtjj20vh0egq5x.jpg" alt="image-20220706202145256"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgvgp9e0j20vw0i9775.jpg" alt="image-20220706201302672"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgw4cp4uj20sc08i0ty.jpg" alt="image-20220706201343381"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh55s1fkj20ko06jjrz.jpg" alt="image-20220706202224688"></p><h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgz88dgnj20lq0g3wgi.jpg" alt="image-20220706201642471"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgziz0maj20m90ee0uu.jpg" alt="image-20220706201659831"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh00t729j20v30fvq5s.jpg" alt="image-20220706201728515"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhc6lq4tj20uf04xt96.jpg" alt="image-20220706202909225"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xheoymrgj20rx0bntaa.jpg" alt="image-20220706203134293"></p><h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhkf1dz5j20ui0fcq52.jpg" alt="image-20220706203703921"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhknbtatj20v40hvmz7.jpg" alt="image-20220706203717470"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhlc78n3j20v20hvmzz.jpg" alt="image-20220706203757695"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhljzqr3j20qz0d00ut.jpg" alt="image-20220706203809830"></p><h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhz3bwf9j20v40endh1.jpg" alt="image-20220706205109496"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzbfrhbj20ux0dljtz.jpg" alt="image-20220706205123475"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzig2jcj20ti0c2gna.jpg" alt="image-20220706205135172"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzv5x5uj20l10b575e.jpg" alt="image-20220706205154931"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi03ionaj20ly0aedgv.jpg" alt="image-20220706205208448"></p><h2 id="配置文件作用-解释-mainfest"><a href="#配置文件作用-解释-mainfest" class="headerlink" title="配置文件作用 解释 mainfest"></a>配置文件作用 解释 mainfest</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi6gq72pj20mm0f9abk.jpg" alt="image-20220706205814713"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi6rebqrj20uz0cumzc.jpg" alt="image-20220706205832836"></p><h2 id="Android生命周期"><a href="#Android生命周期" class="headerlink" title="Android生命周期"></a>Android生命周期</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi780glfj20vm0d1q53.jpg" alt="image-20220706205858587"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi7dphxkj20u20f0gnr.jpg" alt="image-20220706205908369"></p><h2 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixap1r9j20o309ddgu.jpg" alt="image-20220706212402378"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixf3rchj20st0a6q46.jpg" alt="image-20220706212409676"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixlmay7j20uc0fignb.jpg" alt="image-20220706212420355"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixxzl49j20sp0ifwhn.jpg" alt="image-20220706212440297"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xiz3kg0dj20mb0gjtbb.jpg" alt="image-20220706212547102"></p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xiz9jse4j20m00dz0uu.jpg" alt="image-20220706212556850"></p><h2 id="Application类"><a href="#Application类" class="headerlink" title="Application类"></a>Application类</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3y5kshahnj20uz0hpgo9.jpg" alt="image-20220707102748113"></p><p>![image-20220707102802572](/Users/tangyuan/Library/Application Support/typora-user-images/image-20220707102802572.png)</p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3y5l969rnj20gh09u752.jpg" alt="image-20220707102815635"></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><ul><li><p>管理的科学性和艺术性</p></li><li><p>管理的职能：计划 组织 指挥 协调 控制</p></li></ul><p>答题带上理解描述</p><ul><li>管理的原理和原则</li></ul><p>人本管理原则：行为激励原则。。。</p><p>动态管理原理</p><ul><li>组织及组织结构（重点）</li></ul><ol><li><p>类型（5种）</p></li><li><p>控制跨度（重点）</p></li><li><p>结构的图和名称记住</p></li><li><p>特点 优缺点</p></li><li><p>事业部制（重点）</p></li></ol><ul><li>泰勒科学管理主要内容，贡献（77，78）</li><li>法约尔经营管理原则（14条82页）理解</li><li>什么是企业</li><li>企业的基本类型</li><li>合伙制企业</li><li>公司三种类型（股份有限公司和有限责任公司的区别）</li><li>什么是企业管理</li></ul><h4 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h4><ul><li><p>什么是霍桑实验（两个阶段，得到的结论）</p></li><li><p>马塞洛需求层次理论（重点）要知道内容</p></li><li><p>双因素理论（赫兹伯格）激励因素 保健因素</p></li><li><p>强化理论（三种类型）</p></li><li><p>领导品质理论（大体记住）（（领导方格理论）</p></li><li><p>权变管理</p></li></ul><h4 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h4><ul><li>什么是预测 预测的分类</li><li>预测的方法（德尔菲法）</li><li>平均预测法（正态分布）</li><li>加权平均法（ 移动平均法不考）</li><li>季节系数（重点）（回归分析不考）</li><li>什么是决策 决策的类型（按照确定性分类重点） 决策的方法（德尔菲法 格顿法）</li><li>线性规划不考</li><li>风险型决策必考（83页开始）</li></ul><h4 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h4><ul><li>量本利分析法 计算经营安全率 填表格（14页例题）</li><li>短期经营决策分析</li><li>单利法，复利法（例题掌握）</li><li>现金流量图 六个公式</li><li>评价指标（重点）</li><li>动态投资回收期</li><li>价值性指标（会算NPV）</li></ul><h4 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h4><ul><li>什么是市场营销 观念</li><li>什么是市场（物理 关系）</li><li>构成市场三要素</li><li>市场营销过程（22页）</li><li>市场营销组合</li><li>产品包括哪三类</li><li>不同阶段的营销策略</li><li>产品组合策略</li><li>定价方法（125，126页）</li></ul><h4 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h4><ul><li>不考 说不准 随便看看</li><li>企业的一般环境</li><li>15 16 18 24 页</li><li>业务层战略（3个）</li><li>公司层战略（4个）</li></ul><h4 id="大作业"><a href="#大作业" class="headerlink" title="大作业"></a>大作业</h4><ol><li>中国邮政的发展历程（经历的困难磨难）</li><li>中国邮政的愿景使命 战略目标</li><li>战略环境分析</li><li>战略选择</li><li>战略的执行与控制</li><li>SWOT分析优势两两组合</li></ol>]]></content>
     
     
     <categories>
