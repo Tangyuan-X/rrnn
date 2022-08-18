@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>技术总结-HTTP缓存</title>
+    <link href="/2022/08/18/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93-HTTP%E7%BC%93%E5%AD%98/"/>
+    <url>/2022/08/18/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93-HTTP%E7%BC%93%E5%AD%98/</url>
+    
+    <content type="html"><![CDATA[<h1 id="技术总结-HTTP缓存"><a href="#技术总结-HTTP缓存" class="headerlink" title="技术总结 - HTTP缓存"></a>技术总结 - HTTP缓存</h1><h2 id="参考视频"><a href="#参考视频" class="headerlink" title="参考视频"></a>参考视频</h2><p><a href="https://www.bilibili.com/video/BV1Jr4y1v7Nc">https://www.bilibili.com/video/BV1Jr4y1v7Nc</a></p><h2 id="缓存的重要性"><a href="#缓存的重要性" class="headerlink" title="缓存的重要性"></a>缓存的重要性</h2><p>缓存就是在申请资源时缓存提供方保存一份副本，当再次请求时若符合条件（通过缓存判断）即将保存的副本直接返回给请求资源方。利用缓存我们可以减少不必要请求，减少服务端的压力，减少资源占用。</p><p>缓存的技术有很多，如<code>代理缓存</code>，<code>浏览器缓存</code>，<code>网关缓存</code>，<code>负载均衡器</code>以及<code>分发网络</code>等。</p><p>HTTP缓存是我们前端人员最多接触的缓存了，也是面试官问的最多的，它可以分为<code>强制缓存</code>和<code>协商缓存</code>，二者的区别是判断缓存命中时，浏览器是否需要向服务器端进行询问。</p><h2 id="HTTP的强制缓存"><a href="#HTTP的强制缓存" class="headerlink" title="HTTP的强制缓存"></a>HTTP的强制缓存</h2><p>首先客户端请求服务器拿到资源，服务器通知你可以进行强制缓存，如果下次再次请求，客户端可以在不通知服务端的情况下直接使用客户端的缓存。一般用于不会改变的静态资源。</p><h3 id="强制缓存的使用方式"><a href="#强制缓存的使用方式" class="headerlink" title="强制缓存的使用方式"></a>强制缓存的使用方式</h3><h4 id="expires"><a href="#expires" class="headerlink" title="expires"></a>expires</h4><p>在服务端添加响应头：Expires: ‘过期时间’即可。</p><p>如果未超过过期时间，就会从浏览器拿缓存。</p><p>它是HTTP1.0的缓存策略，如果客户端和服务端事件不一致，就会造成无法控制的情况</p><h4 id="cache-control"><a href="#cache-control" class="headerlink" title="cache-control"></a>cache-control</h4><p>为了解决expire的局限性，HTTP1.1新增cache-control字段</p><p>max-age字段：设置缓存的有效时间</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>  <span class="hljs-string">&#x27;cache-control&#x27;</span> : <span class="hljs-string">&#x27;max-age-5&#x27;</span> <span class="hljs-comment">//5s后过期，滑动时间</span><br>&#125;<br></code></pre></td></tr></table></figure><p>no-store：告诫浏览器不要缓存，浏览器收到消息后会清除自身的这条缓存。</p><p>no-catch:  强制进行协商缓存。</p><p>private/public：是否使用公共缓存，如果private，一些公共缓存服务器就不会缓存这条信息。默认为private，建议一些图片，css，js等静态信息改为public。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>  <span class="hljs-string">&#x27;cache-control&#x27;</span> : <span class="hljs-string">&#x27;public,max-age-5&#x27;</span> <span class="hljs-comment">//5s后过期，滑动时间</span><br>&#125;<br></code></pre></td></tr></table></figure><p>S-maxage:单独设置代理缓存的过期时间</p><h3 id="协商缓存的使用方式"><a href="#协商缓存的使用方式" class="headerlink" title="协商缓存的使用方式"></a>协商缓存的使用方式</h3><h4 id="last-modified"><a href="#last-modified" class="headerlink" title="last-modified"></a>last-modified</h4><p>服务端返回资源携带返回头‘last-modified’ 和UTC时间戳（绝对时间）代表最后修改资源的时间。需要配合cache-control：no-cache使用。客户端返回时携带’if-Midified-Since’和绝对时间，服务端收到请求回复判断，如果资源有效，返回304即可，如果无效返回新资源。</p><p>他有两个比较明显的问题：只是根据修改的时间戳改变的，有可能资源被修改了但内容没改变（如修改文件名）此时也不会触发缓存。并且它只能精确到秒级，当出现毫秒级的修改操作有可能更新不及时。</p><h4 id="E-tag"><a href="#E-tag" class="headerlink" title="E-tag"></a>E-tag</h4><p>运行哈希运算为资源生成一个特殊的字符串，设置header ‘etag’,，以后客户端发送都会携带if-None-Match，只要哈希值不变，就会返回304缓存</p><p>缺点：Etag需要付出额外的计算开销。如果文件非常大就会产生较大的性能影响。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>技术分析</tag>
+      
+      <tag>计算机网络</tag>
+      
+      <tag>HTTP协议</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数据结构 --- 二叉树的遍历</title>
     <link href="/2022/08/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%20%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <url>/2022/08/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%20%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
