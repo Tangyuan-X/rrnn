@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>面经分享 - 8/20 - 猿辅导前端二面</title>
+    <link href="/2022/08/21/%E9%9D%A2%E7%BB%8F%E5%88%86%E4%BA%AB-8-20-%E7%8C%BF%E8%BE%85%E5%AF%BC%E5%89%8D%E7%AB%AF%E4%BA%8C%E9%9D%A2/"/>
+    <url>/2022/08/21/%E9%9D%A2%E7%BB%8F%E5%88%86%E4%BA%AB-8-20-%E7%8C%BF%E8%BE%85%E5%AF%BC%E5%89%8D%E7%AB%AF%E4%BA%8C%E9%9D%A2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="面经分享-8-20-猿辅导前端二面"><a href="#面经分享-8-20-猿辅导前端二面" class="headerlink" title="面经分享 - 8/20 - 猿辅导前端二面"></a>面经分享 - 8/20 - 猿辅导前端二面</h1><h2 id="问项目"><a href="#问项目" class="headerlink" title="问项目"></a>问项目</h2><h4 id="权限验证怎么做的"><a href="#权限验证怎么做的" class="headerlink" title="权限验证怎么做的"></a>权限验证怎么做的</h4><h4 id="TVU的工作流程，前后端怎么对接的"><a href="#TVU的工作流程，前后端怎么对接的" class="headerlink" title="TVU的工作流程，前后端怎么对接的"></a>TVU的工作流程，前后端怎么对接的</h4><h4 id="跨域相关"><a href="#跨域相关" class="headerlink" title="跨域相关"></a>跨域相关</h4><h5 id="项目中遇到过跨域么？"><a href="#项目中遇到过跨域么？" class="headerlink" title="项目中遇到过跨域么？"></a>项目中遇到过跨域么？</h5><h5 id="是GET请求还是POST请求？"><a href="#是GET请求还是POST请求？" class="headerlink" title="是GET请求还是POST请求？"></a>是GET请求还是POST请求？</h5><h5 id="GET请求和POST请求的跨域有什么区别？"><a href="#GET请求和POST请求的跨域有什么区别？" class="headerlink" title="GET请求和POST请求的跨域有什么区别？"></a>GET请求和POST请求的跨域有什么区别？</h5><h5 id="知道OPTION请求么？"><a href="#知道OPTION请求么？" class="headerlink" title="知道OPTION请求么？"></a>知道OPTION请求么？</h5><h4 id="ElementUI怎么实现引入部分资源的？"><a href="#ElementUI怎么实现引入部分资源的？" class="headerlink" title="ElementUI怎么实现引入部分资源的？"></a>ElementUI怎么实现引入部分资源的？</h4><p>（其实是想让我回答Element用babel做了什么babel）</p><h2 id="八股文"><a href="#八股文" class="headerlink" title="八股文"></a>八股文</h2><h4 id="箭头函数与普通函数的区别"><a href="#箭头函数与普通函数的区别" class="headerlink" title="箭头函数与普通函数的区别"></a>箭头函数与普通函数的区别</h4><h4 id="连环问-new操作符做了什么，手写new操作符"><a href="#连环问-new操作符做了什么，手写new操作符" class="headerlink" title="连环问 new操作符做了什么，手写new操作符"></a>连环问 new操作符做了什么，手写new操作符</h4><h4 id="移动端-1px边框仍然很粗，怎么优化？"><a href="#移动端-1px边框仍然很粗，怎么优化？" class="headerlink" title="移动端 1px边框仍然很粗，怎么优化？"></a>移动端 1px边框仍然很粗，怎么优化？</h4><h4 id="说说常见的HTTP请求状态码"><a href="#说说常见的HTTP请求状态码" class="headerlink" title="说说常见的HTTP请求状态码"></a>说说常见的HTTP请求状态码</h4><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h4 id="二叉树的右视图"><a href="#二叉树的右视图" class="headerlink" title="二叉树的右视图"></a>二叉树的右视图</h4><h4 id="封装一个fetch请求函数，请求失败重试count次"><a href="#封装一个fetch请求函数，请求失败重试count次" class="headerlink" title="封装一个fetch请求函数，请求失败重试count次"></a>封装一个fetch请求函数，请求失败重试count次</h4><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总的来说答的不是很好，问的很深入很多都没有答到点子上，好在手写代码都写上了，面试官很好，所有问题都给出了答案，大概率凉凉。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>面经</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>浅析前端技术项目问题</title>
     <link href="/2022/08/19/%E6%B5%85%E6%9E%90%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/"/>
     <url>/2022/08/19/%E6%B5%85%E6%9E%90%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/</url>

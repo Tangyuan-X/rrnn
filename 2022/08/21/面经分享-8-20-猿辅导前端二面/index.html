@@ -16,24 +16,25 @@
   <meta name="author" content="软软糯糯的汤圆">
   <meta name="keywords" content="个人博客,JS笔记">
   
-    <meta name="description" content="浅析前端技术项目问题H5页面怎么实现首屏优化路由懒加载 适用于SPA 路由拆分，保证有限加载首页 使用inport或request  服务端渲染SSR SSr成本较高，是性能优化的终极方案 Nuxt.js Next.js  App预取 如果H5在webview中展示，可以直接用App预取。 用户访问列表时，预加载文章首屏内容 用户进入H5，直接获取预加载的内容，瞬间展示首屏 如微信公众号文章的列表">
+    <meta name="description" content="面经分享 - 8&#x2F;20 - 猿辅导前端二面问项目权限验证怎么做的TVU的工作流程，前后端怎么对接的跨域相关项目中遇到过跨域么？是GET请求还是POST请求？GET请求和POST请求的跨域有什么区别？知道OPTION请求么？ElementUI怎么实现引入部分资源的？（其实是想让我回答Element用babel做了什么babel） 八股文箭头函数与普通函数的区别连环问 new操作符做了什么，手写new">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅析前端技术项目问题">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/08/19/%E6%B5%85%E6%9E%90%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="面经分享 - 8&#x2F;20 - 猿辅导前端二面">
+<meta property="og:url" content="http://rrnn.gitee.io/2022/08/21/%E9%9D%A2%E7%BB%8F%E5%88%86%E4%BA%AB-8-20-%E7%8C%BF%E8%BE%85%E5%AF%BC%E5%89%8D%E7%AB%AF%E4%BA%8C%E9%9D%A2/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
-<meta property="og:description" content="浅析前端技术项目问题H5页面怎么实现首屏优化路由懒加载 适用于SPA 路由拆分，保证有限加载首页 使用inport或request  服务端渲染SSR SSr成本较高，是性能优化的终极方案 Nuxt.js Next.js  App预取 如果H5在webview中展示，可以直接用App预取。 用户访问列表时，预加载文章首屏内容 用户进入H5，直接获取预加载的内容，瞬间展示首屏 如微信公众号文章的列表">
+<meta property="og:description" content="面经分享 - 8&#x2F;20 - 猿辅导前端二面问项目权限验证怎么做的TVU的工作流程，前后端怎么对接的跨域相关项目中遇到过跨域么？是GET请求还是POST请求？GET请求和POST请求的跨域有什么区别？知道OPTION请求么？ElementUI怎么实现引入部分资源的？（其实是想让我回答Element用babel做了什么babel） 八股文箭头函数与普通函数的区别连环问 new操作符做了什么，手写new">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://th.wallhaven.cc/small/9m/9mkydk.jpg">
-<meta property="article:published_time" content="2022-08-19T11:58:49.000Z">
-<meta property="article:modified_time" content="2022-08-19T12:00:01.976Z">
+<meta property="og:image" content="https://th.wallhaven.cc/small/j3/j3l7ow.jpg">
+<meta property="article:published_time" content="2022-08-21T11:05:09.000Z">
+<meta property="article:modified_time" content="2022-08-21T11:05:47.649Z">
 <meta property="article:author" content="软软糯糯的汤圆">
-<meta property="article:tag" content="技术分析">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="面经">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://th.wallhaven.cc/small/9m/9mkydk.jpg">
+<meta name="twitter:image" content="https://th.wallhaven.cc/small/j3/j3l7ow.jpg">
   
   
   
-  <title>浅析前端技术项目问题 - Tangyuan的博客</title>
+  <title>面经分享 - 8/20 - 猿辅导前端二面 - Tangyuan的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -221,13 +222,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://w.wallhaven.cc/full/9m/wallhaven-9mkydk.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://w.wallhaven.cc/full/j3/wallhaven-j3l7ow.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="浅析前端技术项目问题"></span>
+            <span id="subtitle" data-typed-text="面经分享 - 8/20 - 猿辅导前端二面"></span>
           
         </div>
 
@@ -238,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-19 19:58" pubdate>
-          2022年8月19日 晚上
+        <time datetime="2022-08-21 19:05" pubdate>
+          2022年8月21日 晚上
         </time>
       </span>
     
@@ -250,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          327 字
         
       </span>
     
@@ -261,7 +262,7 @@
         
         
         
-          10 分钟
+          3 分钟
         
       </span>
     
@@ -307,109 +308,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">浅析前端技术项目问题</h1>
+            <h1 style="display: none">面经分享 - 8/20 - 猿辅导前端二面</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="浅析前端技术项目问题"><a href="#浅析前端技术项目问题" class="headerlink" title="浅析前端技术项目问题"></a>浅析前端技术项目问题</h1><h3 id="H5页面怎么实现首屏优化"><a href="#H5页面怎么实现首屏优化" class="headerlink" title="H5页面怎么实现首屏优化"></a>H5页面怎么实现首屏优化</h3><h4 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h4><ul>
-<li>适用于SPA</li>
-<li>路由拆分，保证有限加载首页</li>
-<li>使用inport或request</li>
-</ul>
-<h4 id="服务端渲染SSR"><a href="#服务端渲染SSR" class="headerlink" title="服务端渲染SSR"></a>服务端渲染SSR</h4><ul>
-<li>SSr成本较高，是性能优化的终极方案</li>
-<li>Nuxt.js Next.js</li>
-</ul>
-<h4 id="App预取"><a href="#App预取" class="headerlink" title="App预取"></a>App预取</h4><ul>
-<li>如果H5在webview中展示，可以直接用App预取。</li>
-<li>用户访问列表时，预加载文章首屏内容</li>
-<li>用户进入H5，直接获取预加载的内容，瞬间展示首屏</li>
-<li>如微信公众号文章的列表，在浏览列表的时候就已经预加载首屏了。</li>
-</ul>
-<h4 id="图片懒加载LazyLoad"><a href="#图片懒加载LazyLoad" class="headerlink" title="图片懒加载LazyLoad"></a>图片懒加载LazyLoad</h4><ul>
-<li>针对详情页</li>
-<li>默认只展示文本内容，然后触发图片</li>
-<li>懒加载注意：提前设置图片尺寸，尽量只重绘不重排</li>
-</ul>
-<h3 id="后端一次性返回10w条数据，你该如何渲染？"><a href="#后端一次性返回10w条数据，你该如何渲染？" class="headerlink" title="后端一次性返回10w条数据，你该如何渲染？"></a>后端一次性返回10w条数据，你该如何渲染？</h3><h4 id="设计不合理"><a href="#设计不合理" class="headerlink" title="设计不合理"></a>设计不合理</h4><ul>
-<li>后端返回 10w 条数据，本身技术方案设计就不合理</li>
-<li>主动和面试官沟通此事（这也许是面试官所期待的</li>
-</ul>
-<h4 id="浏览器能否处理10w条数据？"><a href="#浏览器能否处理10w条数据？" class="headerlink" title="浏览器能否处理10w条数据？"></a>浏览器能否处理10w条数据？</h4><ul>
-<li>JS没问题</li>
-<li>渲染到DOM会非常卡顿</li>
-</ul>
-<h4 id="自定义中间层"><a href="#自定义中间层" class="headerlink" title="自定义中间层"></a>自定义中间层</h4><ul>
-<li>自定义 nodejs中间层，获取并拆分这10w条数据</li>
-<li>前端对接nodejs中间层，而不是服务端</li>
-<li>成本比较高</li>
-</ul>
-<h4 id="虚拟列表"><a href="#虚拟列表" class="headerlink" title="虚拟列表"></a>虚拟列表</h4><ul>
-<li>只渲染可视区域DOM</li>
-<li>其他隐藏区域不显示，只用DIV撑起高度</li>
-<li>随着浏览器滚动，创建和销毁DOM</li>
-<li>实现可以借助第三方lib vue-virtual-scroll-list</li>
-</ul>
-<h3 id="前端常用的设计模式？说明使用场景"><a href="#前端常用的设计模式？说明使用场景" class="headerlink" title="前端常用的设计模式？说明使用场景"></a>前端常用的设计模式？说明使用场景</h3><h4 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h4><ul>
-<li>最重要的思想：开闭原则</li>
-<li>对扩展开放</li>
-<li>对修改封闭</li>
-</ul>
-<h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><ul>
-<li>用一个工厂函数，来创建实例，隐藏new</li>
-</ul>
-<h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><ul>
-<li>全局唯一的实例</li>
-<li>如Vuex Redux的store</li>
-</ul>
-<h4 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h4><ul>
-<li>使用者不能直接访问对象，而是访问一个代理层</li>
-<li>在代理层可以监听 get set 做很多事情</li>
-<li>如 ES6 Proxy 实现 Vue3 响应式</li>
-</ul>
-<h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><ul>
-<li>addEventListener</li>
-</ul>
-<h4 id="监听者模式"><a href="#监听者模式" class="headerlink" title="监听者模式"></a>监听者模式</h4><h4 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h4><ul>
-<li>原功能不变，增加新功能（AOP面向切面）</li>
-</ul>
-<h3 id="观察者模式和发布订阅的区别"><a href="#观察者模式和发布订阅的区别" class="headerlink" title="观察者模式和发布订阅的区别"></a>观察者模式和发布订阅的区别</h3><h4 id="观察者模式-1"><a href="#观察者模式-1" class="headerlink" title="观察者模式"></a>观察者模式</h4><ul>
-<li>Subject 和 Observer 直接绑定，没有中间媒介</li>
-<li> 如 addEventlistener 绑定事件</li>
-</ul>
-<h4 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h4><ul>
-<li>Publisher 和 Observer 互不相识，需要中间媒介</li>
-<li> Event channel 如 EventBus 自定义事件</li>
-</ul>
-<h3 id="Vue的性能优化"><a href="#Vue的性能优化" class="headerlink" title="Vue的性能优化"></a>Vue的性能优化</h3><ul>
-<li>v-if和v-show</li>
-<li>v-for key使用id，不使用index</li>
-<li>使用computed缓存大量使用的数据</li>
-<li>keep-alive缓存频繁切换组件</li>
-<li>异步加载体积比较大的组件</li>
-<li>SSR服务端渲染</li>
-</ul>
-<h3 id="前端的性能指标"><a href="#前端的性能指标" class="headerlink" title="前端的性能指标"></a>前端的性能指标</h3><ul>
-<li>FP first print 页面开始渲染</li>
-<li>FCP first content print 页面第一次有内容的渲染</li>
-<li>FMP first meanful print 页面第一次有意义的渲染（有用户体验）不是一个具体的标准</li>
-<li>DCL DomContentLoaded DOM事件，页面的DOM渲染</li>
-<li>LCP</li>
-</ul>
-<h4 id="lighthouse"><a href="#lighthouse" class="headerlink" title="lighthouse"></a>lighthouse</h4><ul>
-<li>流行的第三方性能分析工具</li>
-<li>给出性能指标，内存快照，优化建议</li>
-</ul>
-<h4 id="如果是网页加载慢"><a href="#如果是网页加载慢" class="headerlink" title="如果是网页加载慢"></a>如果是网页加载慢</h4><ul>
-<li>优化服务端硬件，使用CDN</li>
-<li>路由懒加载，大组件异步加载，减少主包体积</li>
-<li>优化HTTP策略</li>
-</ul>
-<h4 id="如果是网页渲染慢"><a href="#如果是网页渲染慢" class="headerlink" title="如果是网页渲染慢"></a>如果是网页渲染慢</h4><ul>
-<li>优化服务端接口</li>
-<li>优化前端组件内部逻辑</li>
-</ul>
+                <h1 id="面经分享-8-20-猿辅导前端二面"><a href="#面经分享-8-20-猿辅导前端二面" class="headerlink" title="面经分享 - 8/20 - 猿辅导前端二面"></a>面经分享 - 8/20 - 猿辅导前端二面</h1><h2 id="问项目"><a href="#问项目" class="headerlink" title="问项目"></a>问项目</h2><h4 id="权限验证怎么做的"><a href="#权限验证怎么做的" class="headerlink" title="权限验证怎么做的"></a>权限验证怎么做的</h4><h4 id="TVU的工作流程，前后端怎么对接的"><a href="#TVU的工作流程，前后端怎么对接的" class="headerlink" title="TVU的工作流程，前后端怎么对接的"></a>TVU的工作流程，前后端怎么对接的</h4><h4 id="跨域相关"><a href="#跨域相关" class="headerlink" title="跨域相关"></a>跨域相关</h4><h5 id="项目中遇到过跨域么？"><a href="#项目中遇到过跨域么？" class="headerlink" title="项目中遇到过跨域么？"></a>项目中遇到过跨域么？</h5><h5 id="是GET请求还是POST请求？"><a href="#是GET请求还是POST请求？" class="headerlink" title="是GET请求还是POST请求？"></a>是GET请求还是POST请求？</h5><h5 id="GET请求和POST请求的跨域有什么区别？"><a href="#GET请求和POST请求的跨域有什么区别？" class="headerlink" title="GET请求和POST请求的跨域有什么区别？"></a>GET请求和POST请求的跨域有什么区别？</h5><h5 id="知道OPTION请求么？"><a href="#知道OPTION请求么？" class="headerlink" title="知道OPTION请求么？"></a>知道OPTION请求么？</h5><h4 id="ElementUI怎么实现引入部分资源的？"><a href="#ElementUI怎么实现引入部分资源的？" class="headerlink" title="ElementUI怎么实现引入部分资源的？"></a>ElementUI怎么实现引入部分资源的？</h4><p>（其实是想让我回答Element用babel做了什么babel）</p>
+<h2 id="八股文"><a href="#八股文" class="headerlink" title="八股文"></a>八股文</h2><h4 id="箭头函数与普通函数的区别"><a href="#箭头函数与普通函数的区别" class="headerlink" title="箭头函数与普通函数的区别"></a>箭头函数与普通函数的区别</h4><h4 id="连环问-new操作符做了什么，手写new操作符"><a href="#连环问-new操作符做了什么，手写new操作符" class="headerlink" title="连环问 new操作符做了什么，手写new操作符"></a>连环问 new操作符做了什么，手写new操作符</h4><h4 id="移动端-1px边框仍然很粗，怎么优化？"><a href="#移动端-1px边框仍然很粗，怎么优化？" class="headerlink" title="移动端 1px边框仍然很粗，怎么优化？"></a>移动端 1px边框仍然很粗，怎么优化？</h4><h4 id="说说常见的HTTP请求状态码"><a href="#说说常见的HTTP请求状态码" class="headerlink" title="说说常见的HTTP请求状态码"></a>说说常见的HTTP请求状态码</h4><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h4 id="二叉树的右视图"><a href="#二叉树的右视图" class="headerlink" title="二叉树的右视图"></a>二叉树的右视图</h4><h4 id="封装一个fetch请求函数，请求失败重试count次"><a href="#封装一个fetch请求函数，请求失败重试count次" class="headerlink" title="封装一个fetch请求函数，请求失败重试count次"></a>封装一个fetch请求函数，请求失败重试count次</h4><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总的来说答的不是很好，问的很深入很多都没有答到点子上，好在手写代码都写上了，面试官很好，所有问题都给出了答案，大概率凉凉。</p>
 
                 
               </div>
@@ -443,7 +348,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">#技术分析</a>
+        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+      
+        <a href="/tags/%E9%9D%A2%E7%BB%8F/">#面经</a>
       
     </div>
   
@@ -455,8 +362,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>浅析前端技术项目问题</div>
-      <div>http://rrnn.gitee.io/2022/08/19/浅析前端技术项目问题/</div>
+      <div>面经分享 - 8/20 - 猿辅导前端二面</div>
+      <div>http://rrnn.gitee.io/2022/08/21/面经分享-8-20-猿辅导前端二面/</div>
     </div>
     <div class="license-meta">
       
@@ -468,7 +375,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月19日</div>
+          <div>2022年8月21日</div>
         </div>
       
       
@@ -498,18 +405,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/21/%E9%9D%A2%E7%BB%8F%E5%88%86%E4%BA%AB-8-20-%E7%8C%BF%E8%BE%85%E5%AF%BC%E5%89%8D%E7%AB%AF%E4%BA%8C%E9%9D%A2/" title="面经分享 - 8/20 - 猿辅导前端二面">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">面经分享 - 8/20 - 猿辅导前端二面</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/18/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93-HTTP%E7%BC%93%E5%AD%98/" title="技术总结-HTTP缓存">
-                        <span class="hidden-mobile">技术总结-HTTP缓存</span>
+                      <a href="/2022/08/19/%E6%B5%85%E6%9E%90%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/" title="浅析前端技术项目问题">
+                        <span class="hidden-mobile">浅析前端技术项目问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
