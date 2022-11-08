@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>JavaScript高级程序设计-第二章-HTML中的Javascript</title>
+    <link href="/2022/11/08/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E7%AB%A0-HTML%E4%B8%AD%E7%9A%84Javascript/"/>
+    <url>/2022/11/08/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E7%AB%A0-HTML%E4%B8%AD%E7%9A%84Javascript/</url>
+    
+    <content type="html"><![CDATA[<p>因为某些原因，好久没更新了，今天开个新坑！精读一本书《JavaScript高级程序设计》。江湖人称红宝石，我以后会将每一章的读书笔记都放到自己的博客里。🤗<br>第一章由于都是一些JS的历史，没有什么重要的内容，所以就跳过了，感兴趣的朋友可以自己翻阅。</p><p><img src="https://tva1.sinaimg.cn/large/008vxvgGly1h7xrd1qyy7j30ky0o6aci.jpg" alt="image-20221108153719306"></p><h2 id="第二章-HTML中的Javascript"><a href="#第二章-HTML中的Javascript" class="headerlink" title="第二章 HTML中的Javascript"></a>第二章 HTML中的Javascript</h2><h3 id="script标签"><a href="#script标签" class="headerlink" title="script标签"></a>script标签</h3><h4 id="script标签的属性"><a href="#script标签的属性" class="headerlink" title="script标签的属性"></a>script标签的属性</h4><ul><li>async：立即开始下载脚本，但不能阻止其他页面动作，比如下载资源或等待其他脚本加载，只对外部脚本有效</li><li>charset：指定src属性使用的字符集</li><li>Crossorigin：配置跨域设置，默认不设置</li><li>defer：表示脚本可以延迟到文档被完全解析和显示后执行，只对外部脚本有效。</li><li>Src：外部文件的地址</li><li>type：代表代码块中语言的类型</li></ul><h5 id="⚠️需要注意的点"><a href="#⚠️需要注意的点" class="headerlink" title="⚠️需要注意的点"></a>⚠️需要注意的点</h5><ul><li>不要再包含src属性的script标签中再包含其他JS代码，否则标签内代码会被忽略。</li><li>当使用外部src，浏览器会向目标发送一个get请求获取资源，且此请求不受跨域限制。</li><li>如果没有async和defer属性，script会被依次解释执行。只有上一个js被下载且解析后才会执行下一个。</li></ul><h4 id="async和defer的区别"><a href="#async和defer的区别" class="headerlink" title="async和defer的区别"></a>async和defer的区别</h4><ul><li>defer属性表示把脚本立即下载，但推迟到文档渲染完毕后再执行，使用defer时最好保证在页面中出现顺序也在最后方。</li><li>async表示脚本不需要等待其他脚本，同时也不会阻塞文档渲染，不保证其执行顺序。</li></ul><p><img src="https://tva1.sinaimg.cn/large/008vxvgGly1h7xpvm8vylj30kf03zmxe.jpg" alt="img"></p><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Javascript</tag>
+      
+      <tag>技术分析</tag>
+      
+      <tag>JavaScript高级程序设计</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>在vite+vue3中快速使用Tailwindcss</title>
     <link href="/2022/10/08/%E5%9C%A8vite-vue3%E4%B8%AD%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8Tailwindcss/"/>
     <url>/2022/10/08/%E5%9C%A8vite-vue3%E4%B8%AD%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8Tailwindcss/</url>
