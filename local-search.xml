@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>使用PigGO和Github做图床，使用cdn加速和obsdian自动上传</title>
+    <link href="/2024/03/31/soft/%E4%BD%BF%E7%94%A8PigGO%E5%92%8CGithub%E5%81%9A%E5%9B%BE%E5%BA%8A%EF%BC%8C%E4%BD%BF%E7%94%A8cdn%E5%8A%A0%E9%80%9F%E5%92%8Cobsdian%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/"/>
+    <url>/2024/03/31/soft/%E4%BD%BF%E7%94%A8PigGO%E5%92%8CGithub%E5%81%9A%E5%9B%BE%E5%BA%8A%EF%BC%8C%E4%BD%BF%E7%94%A8cdn%E5%8A%A0%E9%80%9F%E5%92%8Cobsdian%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="使用PigGO和Github做图床，使用cdn加速和obsdian自动上传"><a href="#使用PigGO和Github做图床，使用cdn加速和obsdian自动上传" class="headerlink" title="使用PigGO和Github做图床，使用cdn加速和obsdian自动上传"></a>使用PigGO和Github做图床，使用cdn加速和obsdian自动上传</h1><h2 id="下载picgo"><a href="#下载picgo" class="headerlink" title="下载picgo"></a>下载picgo</h2><p>下载地址 <a href="https://molunerfinn.com/PicGo/[PicGo](https://molunerfinn.com/PicGo/)">https://molunerfinn.com/PicGo/[PicGo](https://molunerfinn.com/PicGo/)</a></p><h2 id="github创建仓库"><a href="#github创建仓库" class="headerlink" title="github创建仓库"></a>github创建仓库</h2><p>新建一个仓库用于保存我们的图片。</p><p><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240331195213.png" alt="image.png"></p><h3 id="获取githubToken"><a href="#获取githubToken" class="headerlink" title="获取githubToken"></a>获取githubToken</h3><p>在上传图片时，需要核验我们的身份，我们需要新建一个密钥token。</p><p>Setting -&gt; <a href="https://github.com/settings/apps">Developer Settings</a> </p><p><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240331195413.png" alt="image.png"></p><p>一定要勾选repo权限。<br><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240331195458.png" alt="image.png"></p><p>请及时保存密钥，它只会出现一次。</p><h3 id="配置picgo"><a href="#配置picgo" class="headerlink" title="配置picgo"></a>配置picgo</h3><p>我们打开Picgo<br><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240331195550.png" alt="image.png"></p><p><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240331195751.png" alt="image.png"></p><p>github国内不稳定，可以用cdn加速，地址为 <a href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80">https://cdn.jsdelivr.net/gh/用户名/仓库地址</a></p><p>配置好，可以上传试试，记得更改图床</p><p><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240331195926.png" alt="image.png"></p><p>成功后即可！，可以打开github仓库看看，可以打开picgo开机自启。<br><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240331200037.png" alt="image.png"></p><h3 id="在obsdian设置自动上传"><a href="#在obsdian设置自动上传" class="headerlink" title="在obsdian设置自动上传"></a>在obsdian设置自动上传</h3><p>安装image-auto-upload插件，启用即可。<br><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240331200215.png" alt="image.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>软件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>软件工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JavaScript高级程序设计-第二章-HTML中的Javascript</title>
     <link href="/2022/11/08/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E7%AB%A0-HTML%E4%B8%AD%E7%9A%84Javascript/"/>
     <url>/2022/11/08/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E7%AB%A0-HTML%E4%B8%AD%E7%9A%84Javascript/</url>
