@@ -1,0 +1,840 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/images/titleIcon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="软软糯糯的汤圆">
+  <meta name="keywords" content="个人博客,JS笔记">
+  
+    <meta name="description" content="Node的内置模块Node基本内置模块OSEOLend of line 一行结束后的分隔符 12const os &#x3D; require(&quot;os&quot;);console.log(os.EOL);  在wiondws中就是个’\n” arch()获取CPU的架构类型 1console.log(os.arch()); &#x2F;&#x2F;x64  cpus()获取cpu的核心数组 123456789101">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node的内置模块">
+<meta property="og:url" content="http://rrnn.gitee.io/2024/04/09/node/Node%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97%E3%80%81%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+<meta property="og:site_name" content="Tangyuan的博客">
+<meta property="og:description" content="Node的内置模块Node基本内置模块OSEOLend of line 一行结束后的分隔符 12const os &#x3D; require(&quot;os&quot;);console.log(os.EOL);  在wiondws中就是个’\n” arch()获取CPU的架构类型 1console.log(os.arch()); &#x2F;&#x2F;x64  cpus()获取cpu的核心数组 123456789101">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://th.wallhaven.cc/small/l8/l8v3ey.jpg">
+<meta property="article:published_time" content="2024-04-09T08:54:11.000Z">
+<meta property="article:modified_time" content="2024-04-09T13:12:24.575Z">
+<meta property="article:author" content="软软糯糯的汤圆">
+<meta property="article:tag" content="Node">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://th.wallhaven.cc/small/l8/l8v3ey.jpg">
+  
+  
+  
+  <title>Node的内置模块 - Tangyuan的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rrnn.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>TangyuanBlog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://w.wallhaven.cc/full/l8/wallhaven-l8v3ey.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Node的内置模块"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-09 16:54" pubdate>
+          2024年4月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          89 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Node的内置模块</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Node的内置模块"><a href="#Node的内置模块" class="headerlink" title="Node的内置模块"></a>Node的内置模块</h1><h1 id="Node基本内置模块"><a href="#Node基本内置模块" class="headerlink" title="Node基本内置模块"></a>Node基本内置模块</h1><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><h3 id="EOL"><a href="#EOL" class="headerlink" title="EOL"></a>EOL</h3><p>end of line 一行结束后的分隔符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> os = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;os&quot;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(os.<span class="hljs-property">EOL</span>);<br></code></pre></td></tr></table></figure>
+
+<p>在wiondws中就是个’\n”</p>
+<h3 id="arch"><a href="#arch" class="headerlink" title="arch()"></a>arch()</h3><p>获取CPU的架构类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(os.<span class="hljs-title function_">arch</span>()); <span class="hljs-comment">//x64</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="cpus"><a href="#cpus" class="headerlink" title="cpus()"></a>cpus()</h3><p>获取cpu的核心数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(os.<span class="hljs-title function_">cpus</span>());<br>[<br>  &#123;<br>    <span class="hljs-attr">model</span>: <span class="hljs-string">&#x27;13th Gen Intel(R) Core(TM) i9-13900HX&#x27;</span>,<br>    <span class="hljs-attr">speed</span>: <span class="hljs-number">2419</span>,<br>    <span class="hljs-attr">times</span>: &#123; <span class="hljs-attr">user</span>: <span class="hljs-number">16796</span>, <span class="hljs-attr">nice</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">sys</span>: <span class="hljs-number">26078</span>, <span class="hljs-attr">idle</span>: <span class="hljs-number">6533140</span>, <span class="hljs-attr">irq</span>: <span class="hljs-number">1656</span> &#125;<br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">model</span>: <span class="hljs-string">&#x27;13th Gen Intel(R) Core(TM) i9-13900HX&#x27;</span>,<br>    <span class="hljs-attr">speed</span>: <span class="hljs-number">2419</span>,<br>    <span class="hljs-attr">times</span>: &#123; <span class="hljs-attr">user</span>: <span class="hljs-number">4890</span>, <span class="hljs-attr">nice</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">sys</span>: <span class="hljs-number">12390</span>, <span class="hljs-attr">idle</span>: <span class="hljs-number">6558390</span>, <span class="hljs-attr">irq</span>: <span class="hljs-number">2578</span> &#125;<br>  &#125;]<br></code></pre></td></tr></table></figure>
+
+<h3 id="freemem"><a href="#freemem" class="headerlink" title="freemem()"></a>freemem()</h3><p>获取剩余内存</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(os.<span class="hljs-title function_">freemem</span>() / <span class="hljs-number">2</span>** <span class="hljs-number">30</span>); <span class="hljs-comment">//6.187412261962891</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="homedir"><a href="#homedir" class="headerlink" title="homedir()"></a>homedir()</h3><p>返回主机路径</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> os = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;os&quot;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(os.<span class="hljs-title function_">homedir</span>()); <span class="hljs-comment">// C:\Users\10371</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="hostname"><a href="#hostname" class="headerlink" title="hostname()"></a>hostname()</h3><p>返回主机名</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(os.<span class="hljs-title function_">hostname</span>()); <span class="hljs-comment">// TangYuan</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="tmpdir"><a href="#tmpdir" class="headerlink" title="tmpdir()"></a>tmpdir()</h3><p>获取缓存目录</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(os.<span class="hljs-title function_">tmpdir</span>()); <span class="hljs-comment">// C:\Users\10371\AppData\Local\Temp</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//  path内置对象</span><br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;path&quot;</span>);<br><br><span class="hljs-comment">// basename: 返回路径的最后一部分</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">basename</span>(<span class="hljs-string">&quot;C:\\temp\\myfile.html&quot;</span>)); <span class="hljs-comment">// myfile.html</span><br><br><span class="hljs-comment">// dirname: 返回路径的目录名</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">dirname</span>(<span class="hljs-string">&quot;C:\\temp\\myfile.html&quot;</span>)); <span class="hljs-comment">// C:\temp</span><br><br><span class="hljs-comment">// extname: 返回路径的扩展名</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">extname</span>(<span class="hljs-string">&quot;C:\\temp\\myfile.html&quot;</span>)); <span class="hljs-comment">// .html</span><br><br><span class="hljs-comment">// format: 从对象返回路径字符串</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<br>  path.<span class="hljs-title function_">format</span>(&#123;<br>    <span class="hljs-attr">root</span>: <span class="hljs-string">&quot;C:\\&quot;</span>,<br>    <span class="hljs-attr">dir</span>: <span class="hljs-string">&quot;C:\\temp&quot;</span>,<br>    <span class="hljs-attr">base</span>: <span class="hljs-string">&quot;myfile.html&quot;</span>,<br>  &#125;)<br>); <span class="hljs-comment">// C:\temp\myfile.html</span><br><br><span class="hljs-comment">// isAbsolute: 判断路径是否是绝对路径</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">isAbsolute</span>(<span class="hljs-string">&quot;C:\\temp\\myfile.html&quot;</span>)); <span class="hljs-comment">// true</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">isAbsolute</span>(<span class="hljs-string">&quot;temp\\myfile.html&quot;</span>)); <span class="hljs-comment">// false</span><br><br><span class="hljs-comment">// join: 连接路径</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;C:\\temp&quot;</span>, <span class="hljs-string">&quot;myfile.html&quot;</span>)); <span class="hljs-comment">// C:\temp\myfile.html</span><br><span class="hljs-comment">// 也可以传入../</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;C:\\temp&quot;</span>, <span class="hljs-string">&quot;../myfile.html&quot;</span>)); <span class="hljs-comment">// C:\myfile.html</span><br><br><span class="hljs-comment">// normalize: 规范化路径</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">normalize</span>(<span class="hljs-string">&quot;C:\\temp\\..\\myfile.html&quot;</span>)); <span class="hljs-comment">// C:\myfile.html</span><br><br><span class="hljs-comment">// parse: 返回路径的对象</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">parse</span>(<span class="hljs-string">&quot;C:\\temp\\myfile.html&quot;</span>));<br><br><span class="hljs-comment">// resolve: 返回绝对路径</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">&quot;temp&quot;</span>, <span class="hljs-string">&quot;myfile.html&quot;</span>)); <span class="hljs-comment">// C:\Users\zhang\Desktop\nodejs\temp\myfile.html</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">&quot;/temp&quot;</span>, <span class="hljs-string">&quot;myfile.html&quot;</span>)); <span class="hljs-comment">// C:\temp\myfile.html</span><br><br><span class="hljs-comment">// sep: 返回平台特定的路径分隔符</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-property">sep</span>); <span class="hljs-comment">// \</span><br><br><span class="hljs-comment">// delimiter: 返回平台特定的路径定界符</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-property">delimiter</span>); <span class="hljs-comment">// ;</span><br><br><span class="hljs-comment">// win32: 返回path模块的win32特定实现</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(path.<span class="hljs-property">win32</span>);<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><p>将链接转换为对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// URL内置对象</span><br><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">URL</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;url&quot;</span>);<br><span class="hljs-keyword">const</span> myURL = <span class="hljs-keyword">new</span> <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">URL</span>(<br>  <span class="hljs-string">&quot;https://www.baidu.com:8080/path/index.html?id=1&amp;name=2#tag&quot;</span><br>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myURL);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable constant_">URL</span> &#123;<br>  <span class="hljs-attr">href</span>: <span class="hljs-string">&#x27;https://www.baidu.com:8080/path/index.html?id=1&amp;name=2#tag&#x27;</span>,<br>  <span class="hljs-attr">origin</span>: <span class="hljs-string">&#x27;https://www.baidu.com:8080&#x27;</span>,<br>  <span class="hljs-attr">protocol</span>: <span class="hljs-string">&#x27;https:&#x27;</span>,<br>  <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-attr">password</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-attr">host</span>: <span class="hljs-string">&#x27;www.baidu.com:8080&#x27;</span>,<br>  <span class="hljs-attr">hostname</span>: <span class="hljs-string">&#x27;www.baidu.com&#x27;</span>,<br>  <span class="hljs-attr">port</span>: <span class="hljs-string">&#x27;8080&#x27;</span>,<br>  <span class="hljs-attr">pathname</span>: <span class="hljs-string">&#x27;/path/index.html&#x27;</span>,<br>  <span class="hljs-attr">search</span>: <span class="hljs-string">&#x27;?id=1&amp;name=2&#x27;</span>,<br>  <span class="hljs-attr">searchParams</span>: <span class="hljs-title class_">URLSearchParams</span> &#123; <span class="hljs-string">&#x27;id&#x27;</span> =&gt; <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;2&#x27;</span> &#125;,<br>  <span class="hljs-attr">hash</span>: <span class="hljs-string">&#x27;#tag&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Node的EventEmitter模块"><a href="#Node的EventEmitter模块" class="headerlink" title="Node的EventEmitter模块"></a>Node的EventEmitter模块</h1><h1 id="Node的EventEmitter模块-1"><a href="#Node的EventEmitter模块-1" class="headerlink" title="Node的EventEmitter模块"></a>Node的EventEmitter模块</h1><p>我们虽然很少接触EventEmitter，但很多常见的代码都调用了它，如.on等代码触发器。</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; <span class="hljs-title class_">EventEmitter</span> &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;events&quot;</span>);<br><br><span class="hljs-comment">// 创建一个事件处理对象</span><br><br><span class="hljs-comment">// 可以注册事件，触发事件</span><br><br><span class="hljs-keyword">const</span> ee = <span class="hljs-keyword">new</span> <span class="hljs-title class_">EventEmitter</span>();<br></code></pre></td></tr></table></figure>
+
+<h3 id="注册事件"><a href="#注册事件" class="headerlink" title="注册事件"></a>注册事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 注册事件</span><br><br>ee.<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;event&quot;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;触发了event事件1&quot;</span>);<br><br>&#125;);<br><br>ee.<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;event&quot;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;触发了event事件2&quot;</span>);<br><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="触发事件"><a href="#触发事件" class="headerlink" title="触发事件"></a>触发事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 触发事件</span><br><br>ee.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&quot;event&quot;</span>); <span class="hljs-comment">// 触发了event事件</span><br><br><span class="hljs-comment">//可以多次触发</span><br><br>ee.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&quot;event&quot;</span>); <span class="hljs-comment">// 触发了event事 件</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="只触发一次的事件"><a href="#只触发一次的事件" class="headerlink" title="只触发一次的事件"></a>只触发一次的事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 只触发一次</span><br><br>ee.<span class="hljs-title function_">once</span>(<span class="hljs-string">&quot;event&quot;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;触发了event事件3&quot;</span>);<br><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="手写一个request类"><a href="#手写一个request类" class="headerlink" title="手写一个request类"></a>手写一个request类</h3><h4 id="MyRequest"><a href="#MyRequest" class="headerlink" title="MyRequest"></a>MyRequest</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;http&quot;</span>);<br><br><span class="hljs-keyword">const</span> &#123; <span class="hljs-title class_">EventEmitter</span> &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;events&quot;</span>);<br><br><span class="hljs-comment">// 通过继承 EventEmitter 类，使 Request 类具有事件监听的能力</span><br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-keyword">class</span> <span class="hljs-title class_">Request</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">EventEmitter</span> &#123;<br><br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">url, options</span>) &#123;<br><br>    <span class="hljs-variable language_">super</span>();<br><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">url</span> = url;<br><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span> = options;<br><br>  &#125;<br><br>  <span class="hljs-comment">// send 方法用于发送请求，并在请求结束后触发 res 事件</span><br><br>  <span class="hljs-title function_">send</span>(<span class="hljs-params">body = <span class="hljs-string">&quot;&quot;</span></span>) &#123;<br><br>    <span class="hljs-comment">// 发送请求，request 是一个 http.ClientRequest 类</span><br><br>    <span class="hljs-keyword">const</span> request = http.<span class="hljs-title function_">request</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">url</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span>, <span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br><br>      <span class="hljs-comment">// res是请求的响应对象，包含了响应的头部信息</span><br><br>      <span class="hljs-keyword">const</span> headers = res.<span class="hljs-property">headers</span>;<br><br>      <span class="hljs-keyword">let</span> result = <span class="hljs-string">&quot;&quot;</span>;<br><br>      <span class="hljs-comment">// 监听 data 事件，收集返回的数据</span><br><br>      res.<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-function">(<span class="hljs-params">chunk</span>) =&gt;</span> &#123;<br><br>        result += chunk.<span class="hljs-title function_">toString</span>(<span class="hljs-string">&quot;utf-8&quot;</span>);<br><br>      &#125;);<br><br>      <span class="hljs-comment">// 监听 end 事件，请求结束后触发 res 事件</span><br><br>      res.<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;end&quot;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&quot;res&quot;</span>, &#123;<br><br>          headers,<br><br>          <span class="hljs-attr">body</span>: result,<br><br>        &#125;);<br><br>      &#125;);<br><br>    &#125;);<br><br>    <span class="hljs-comment">// 发送请求体</span><br><br>    request.<span class="hljs-title function_">write</span>(body);<br><br>    <span class="hljs-comment">// 结束请求</span><br><br>    request.<span class="hljs-title function_">end</span>();<br><br>  &#125;<br><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title class_">MyRequest</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./myRequest&quot;</span>);<br><br>  <br><br><span class="hljs-keyword">const</span> request = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyRequest</span>(<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>);<br><br><span class="hljs-comment">// 触发 send 方法</span><br><br>request.<span class="hljs-title function_">send</span>();<br><br><span class="hljs-comment">// 监听 res 事件</span><br><br>request.<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;res&quot;</span>, <span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);<br><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h1 id="Node中的内置函数与模块"><a href="#Node中的内置函数与模块" class="headerlink" title="Node中的内置函数与模块"></a>Node中的内置函数与模块</h1><h2 id="概念相关"><a href="#概念相关" class="headerlink" title="概念相关"></a>概念相关</h2><h4 id="Node定位"><a href="#Node定位" class="headerlink" title="Node定位"></a>Node定位</h4><p>摆脱浏览器的环境，直接作为JS的运行环境操作，实现对整个操作系统的控制。</p>
+<h4 id="Node的特点"><a href="#Node的特点" class="headerlink" title="Node的特点"></a>Node的特点</h4><ul>
+<li>单线程，避免了线程的竞争，但也失去了多线程的特性。（但NodeJS有优化，可以调用多核。）不适合复杂的运算，但IO读写速度非常快。</li>
+</ul>
+<h4 id="Node可以做什么"><a href="#Node可以做什么" class="headerlink" title="Node可以做什么"></a>Node可以做什么</h4><ul>
+<li>开发桌面应用程序</li>
+<li>开发服务器应用程序<ul>
+<li>直接做Server（除非是小型系统，否则业务太复杂，不好维护）</li>
+<li>做中间件与前端交互，但业务都还在后端（得益于Node的IO速度）</li>
+</ul>
+</li>
+</ul>
+<h2 id="关键API"><a href="#关键API" class="headerlink" title="关键API"></a>关键API</h2><h3 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h3><p>与window对象相同，在Node环境中也有一个全局对象global。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  <span class="hljs-attr">global</span>: [<span class="hljs-title class_">Circular</span> *<span class="hljs-number">1</span>],<br>  <span class="hljs-attr">clearInterval</span>: [<span class="hljs-title class_">Function</span>: <span class="hljs-built_in">clearInterval</span>],<br>  <span class="hljs-attr">clearTimeout</span>: [<span class="hljs-title class_">Function</span>: <span class="hljs-built_in">clearTimeout</span>],<br>  <span class="hljs-attr">setInterval</span>: [<span class="hljs-title class_">Function</span>: <span class="hljs-built_in">setInterval</span>],<br>  <span class="hljs-attr">setTimeout</span>: [<span class="hljs-title class_">Function</span>: <span class="hljs-built_in">setTimeout</span>] &#123;<br>    [<span class="hljs-title class_">Symbol</span>(nodejs.<span class="hljs-property">util</span>.<span class="hljs-property">promisify</span>.<span class="hljs-property">custom</span>)]: [<span class="hljs-title class_">Getter</span>]<br>  &#125;,<br>  <span class="hljs-attr">queueMicrotask</span>: [<span class="hljs-title class_">Function</span>: queueMicrotask],<br>  <span class="hljs-attr">performance</span>: <span class="hljs-title class_">Performance</span> &#123;<br>    <span class="hljs-attr">nodeTiming</span>: <span class="hljs-title class_">PerformanceNodeTiming</span> &#123;<br>      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;node&#x27;</span>,<br>      <span class="hljs-attr">entryType</span>: <span class="hljs-string">&#x27;node&#x27;</span>,<br>      <span class="hljs-attr">startTime</span>: <span class="hljs-number">0</span>,<br>      <span class="hljs-attr">duration</span>: <span class="hljs-number">23.961899999529123</span>,<br>      <span class="hljs-attr">nodeStart</span>: <span class="hljs-number">0.3304999992251396</span>,<br>      <span class="hljs-attr">v8Start</span>: <span class="hljs-number">1.9582999981939793</span>,<br>      <span class="hljs-attr">bootstrapComplete</span>: <span class="hljs-number">17.192799996584654</span>,<br>      <span class="hljs-attr">environment</span>: <span class="hljs-number">9.023899998515844</span>,<br>      <span class="hljs-attr">loopStart</span>: -<span class="hljs-number">1</span>,<br>      <span class="hljs-attr">loopExit</span>: -<span class="hljs-number">1</span>,<br>      <span class="hljs-attr">idleTime</span>: <span class="hljs-number">0</span><br>    &#125;,<br>    <span class="hljs-attr">timeOrigin</span>: <span class="hljs-number">1710671988299.135</span><br>  &#125;,<br>  <span class="hljs-attr">clearImmediate</span>: [<span class="hljs-title class_">Function</span>: clearImmediate],<br>  <span class="hljs-attr">setImmediate</span>: [<span class="hljs-title class_">Function</span>: setImmediate] &#123;<br>    [<span class="hljs-title class_">Symbol</span>(nodejs.<span class="hljs-property">util</span>.<span class="hljs-property">promisify</span>.<span class="hljs-property">custom</span>)]: [<span class="hljs-title class_">Getter</span>]<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>global指向的就是自己，为的就是可以在全局使用（不写自己的对象名）</p>
+<p>setInterval，setTimeout 与浏览器基本相同，但实现方法和输出有所不同。</p>
+<p>__dirname 环境所在路径</p>
+<p>__filename 执行文件所在路径</p>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><h4 id="require"><a href="#require" class="headerlink" title="require"></a>require</h4><h4 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;E:\\source_code\\Node\\Node_study\\a.js&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./a&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="导入的顺序"><a href="#导入的顺序" class="headerlink" title="导入的顺序"></a>导入的顺序</h4><p>内置模块，如fs，path等 &gt; 当前目录node_modules &gt; 上级目录node_modules &gt; 转化为绝对路径加载</p>
+<h4 id="省略后缀名"><a href="#省略后缀名" class="headerlink" title="省略后缀名"></a>省略后缀名</h4><p>如果不提供后缀，会自动不全，顺序为js &gt; json &gt; node &gt; mjs</p>
+<h4 id="module对象"><a href="#module对象" class="headerlink" title="module对象"></a>module对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs JS"><span class="hljs-title class_">Module</span> &#123;<br><span class="hljs-string">&#x27;9&#x27;</span>: [<span class="hljs-title class_">Function</span>: internalRequire],<br><span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;.&#x27;</span>,<br><span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;E:\source_code\Node\Node_study&#x27;</span>,<br><span class="hljs-attr">exports</span>: &#123;&#125;,<br><span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;E:\source_code\Node\Node_study\index.js&#x27;</span>,<br><span class="hljs-attr">loaded</span>: <span class="hljs-literal">false</span>,<br><span class="hljs-attr">children</span>: [<br><span class="hljs-title class_">Module</span> &#123;<br><span class="hljs-string">&#x27;9&#x27;</span>: [<span class="hljs-title class_">Function</span>: internalRequire],<br><span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;E:\source_code\Node\Node_study\a.js&#x27;</span>,<br><span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;E:\source_code\Node\Node_study&#x27;</span>,<br><span class="hljs-attr">exports</span>: [<span class="hljs-title class_">Object</span>],<br><span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;E:\source_code\Node\Node_study\a.js&#x27;</span>,<br><span class="hljs-attr">loaded</span>: <span class="hljs-literal">true</span>,<br><span class="hljs-attr">children</span>: [],<br><span class="hljs-attr">paths</span>: [<span class="hljs-title class_">Array</span>]<br>&#125;<br>],<br><span class="hljs-attr">paths</span>: [<br><span class="hljs-string">&#x27;E:\source_code\Node\Node_study\node_modules&#x27;</span>,<br><span class="hljs-string">&#x27;E:\source_code\Node\node_modules&#x27;</span>,<br><span class="hljs-string">&#x27;E:\source_code\node_modules&#x27;</span>,<br><span class="hljs-string">&#x27;E:\node_modules&#x27;</span><br>]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>下面是每个属性的注释说明：</p>
+<ul>
+<li><code>9</code>: 这是一个内部函数的引用，用于执行内部的模块加载逻辑。</li>
+<li><code>id</code>: 模块的标识符，表示模块的唯一标识。对于根模块，通常是<code>.</code>。</li>
+<li><code>path</code>: 模块的绝对路径，指示模块所在的文件夹路径。</li>
+<li><code>exports</code>: 用于导出模块的公共接口。在模块内部，可以将需要导出的变量、函数等添加到该对象上。</li>
+<li><code>filename</code>: 模块的文件名，指示模块所在的完整文件路径。</li>
+<li><code>loaded</code>: 一个布尔值，表示模块是否已加载完毕。</li>
+<li><code>children</code>: 一个包含其他模块的数组，表示当前模块所引入的其他模块。</li>
+<li><code>paths</code>: 一个字符串数组，表示模块解析时的搜索路径。当需要加载其他模块时，Node.js会按照这些路径的顺序进行搜索。</li>
+</ul>
+<p>对于嵌套的<code>Module</code>对象（例如<code>children</code>数组中的元素），具有相同的属性，其中<code>exports</code>属性表示相应模块导出的公共接口对象。</p>
+<h4 id="require函数（15分）"><a href="#require函数（15分）" class="headerlink" title="require函数（15分）"></a>require函数（15分）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs js">[<span class="hljs-title class_">Function</span>: <span class="hljs-built_in">require</span>] &#123;<br>  <span class="hljs-attr">resolve</span>: [<span class="hljs-title class_">Function</span>: resolve] &#123; <span class="hljs-attr">paths</span>: [<span class="hljs-title class_">Function</span>: paths] &#125;,<br>  <span class="hljs-attr">main</span>: <span class="hljs-title class_">Module</span> &#123;<br>    <span class="hljs-string">&#x27;9&#x27;</span>: [<span class="hljs-title class_">Function</span>: internalRequire],<br>    <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;.&#x27;</span>,<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;E:\\source_code\\Node\\Node_study&#x27;</span>,<br>    <span class="hljs-attr">exports</span>: &#123;&#125;,<br>    <span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;E:\\source_code\\Node\\Node_study\\index.js&#x27;</span>,<br>    <span class="hljs-attr">loaded</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">children</span>: [],<br>    <span class="hljs-attr">paths</span>: [<br>      <span class="hljs-string">&#x27;E:\\source_code\\Node\\Node_study\\node_modules&#x27;</span>,<br>      <span class="hljs-string">&#x27;E:\\source_code\\Node\\node_modules&#x27;</span>,<br>      <span class="hljs-string">&#x27;E:\\source_code\\node_modules&#x27;</span>,<br>      <span class="hljs-string">&#x27;E:\\node_modules&#x27;</span><br>    ]<br>  &#125;,<br>  <span class="hljs-attr">extensions</span>: [<span class="hljs-title class_">Object</span>: <span class="hljs-literal">null</span> prototype] &#123;<br>    <span class="hljs-string">&#x27;.js&#x27;</span>: [<span class="hljs-title class_">Function</span> (anonymous)],<br>    <span class="hljs-string">&#x27;.json&#x27;</span>: [<span class="hljs-title class_">Function</span> (anonymous)],<br>    <span class="hljs-string">&#x27;.node&#x27;</span>: [<span class="hljs-title class_">Function</span> (anonymous)]<br>  &#125;,<br>  <span class="hljs-attr">cache</span>: [<span class="hljs-title class_">Object</span>: <span class="hljs-literal">null</span> prototype] &#123;<br>    <span class="hljs-string">&#x27;E:\\source_code\\Node\\Node_study\\index.js&#x27;</span>: <span class="hljs-title class_">Module</span> &#123;<br>      <span class="hljs-string">&#x27;9&#x27;</span>: [<span class="hljs-title class_">Function</span>: internalRequire],<br>      <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;.&#x27;</span>,<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;E:\\source_code\\Node\\Node_study&#x27;</span>,<br>      <span class="hljs-attr">exports</span>: &#123;&#125;,<br>      <span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;E:\\source_code\\Node\\Node_study\\index.js&#x27;</span>,<br>      <span class="hljs-attr">loaded</span>: <span class="hljs-literal">false</span>,<br>      <span class="hljs-attr">children</span>: [],<br>      <span class="hljs-attr">paths</span>: [<span class="hljs-title class_">Array</span>]<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>resolve函数：返回计算出绝对路径</li>
+<li>main：入口模块</li>
+<li>extensions：扩展名处理函数</li>
+<li>cache：目前已经缓存的模块</li>
+</ul>
+<h5 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h5><h6 id="情况1"><a href="#情况1" class="headerlink" title="情况1"></a>情况1</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;当前模块路径&quot;</span>, __dirname);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;当前模块文件&quot;</span>, __filename);<br><br><span class="hljs-built_in">exports</span>.<span class="hljs-property">c</span> = <span class="hljs-number">3</span>;<br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>,<br>&#125;;<br><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">d</span> = <span class="hljs-number">4</span>;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> res = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./a&quot;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">当前模块路径 <span class="hljs-attr">E</span>:\source_code\<span class="hljs-title class_">Node</span>\<span class="hljs-title class_">Node</span>_study<br>当前模块文件 <span class="hljs-attr">E</span>:\source_code\<span class="hljs-title class_">Node</span>\<span class="hljs-title class_">Node</span>_study\a.<span class="hljs-property">js</span><br>&#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> &#125;<br></code></pre></td></tr></table></figure>
+
+<h6 id="情况2"><a href="#情况2" class="headerlink" title="情况2"></a>情况2</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;当前模块路径&quot;</span>, __dirname);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;当前模块文件&quot;</span>, __filename);<br><br><span class="hljs-built_in">exports</span>.<span class="hljs-property">c</span> = <span class="hljs-number">3</span>;<br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span>.<span class="hljs-property">a</span> = <span class="hljs-number">1</span>;<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span>.<span class="hljs-property">b</span> = <span class="hljs-number">2</span>;<br><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">d</span> = <span class="hljs-number">4</span>;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> res = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./a&quot;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">当前模块路径 <span class="hljs-attr">E</span>:\source_code\<span class="hljs-title class_">Node</span>\<span class="hljs-title class_">Node</span>_study<br>当前模块文件 <span class="hljs-attr">E</span>:\source_code\<span class="hljs-title class_">Node</span>\<span class="hljs-title class_">Node</span>_study\a.<span class="hljs-property">js</span><br>&#123; <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">d</span>: <span class="hljs-number">4</span> &#125;<br></code></pre></td></tr></table></figure>
+
+<p>为什么exports多个，情况变的如此不同？</p>
+<blockquote>
+<p>当我们运行require函数</p>
+<ul>
+<li>首先将module Path转换为绝对路径E:\source_code\Node\Node_study\a.js</li>
+<li>判断是否该模块已有缓存</li>
+<li>有：读取文件内容，包裹到一个函数中</li>
+<li>将被require的module的this绑定到exports中，所以如果你直接改变exports对象的指向，就会失去this和原exports中的所有属性。</li>
+</ul>
+</blockquote>
+<h4 id="NodeJS的ES模块化"><a href="#NodeJS的ES模块化" class="headerlink" title="NodeJS的ES模块化"></a>NodeJS的ES模块化</h4><p>若要使用ES模块，需要将后缀改为mjs，或再package中改type。</p>
+<p>二者目前暂不兼容，只能同时使用一种。</p>
+<p>但你可以使用module导出，import导入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;当前模块路径&quot;</span>, __dirname);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;当前模块文件&quot;</span>, __filename);<br><br><span class="hljs-built_in">exports</span>.<span class="hljs-property">c</span> = <span class="hljs-number">3</span>;<br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span>.<span class="hljs-property">a</span> = <span class="hljs-number">1</span>;<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span>.<span class="hljs-property">b</span> = <span class="hljs-number">2</span>;<br><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">d</span> = <span class="hljs-number">4</span>;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> obj <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./a.js&quot;</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj);<br></code></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">当前模块路径 <span class="hljs-attr">E</span>:\source_code\<span class="hljs-title class_">Node</span>\<span class="hljs-title class_">Node</span>_study<br>当前模块文件 <span class="hljs-attr">E</span>:\source_code\<span class="hljs-title class_">Node</span>\<span class="hljs-title class_">Node</span>_study\a.<span class="hljs-property">js</span><br>[<span class="hljs-title class_">Module</span>: <span class="hljs-literal">null</span> prototype] &#123;<br>  <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>,<br>  <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>,<br>  <span class="hljs-attr">default</span>: &#123; <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">d</span>: <span class="hljs-number">4</span> &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>不要在真实开发中这样操作！</p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="loading-ag-1042"></p>
+<h1 id="Node的生命周期"><a href="#Node的生命周期" class="headerlink" title="Node的生命周期"></a>Node的生命周期</h1><h1 id="Node的生命周期-1"><a href="#Node的生命周期-1" class="headerlink" title="Node的生命周期"></a>Node的生命周期</h1><p>main函数 -&gt; 事件循环 -&gt;结束</p>
+<p><img src="https://s2.loli.net/2024/03/28/xtonmf9MRe5XCNj.png" srcset="/img/loading.gif" lazyload alt="image-20240328210425371"></p>
+<h2 id="timers"><a href="#timers" class="headerlink" title="timers"></a>timers</h2><p>存放计时器的回调函数，在底层上，Node维护的不是一个队列，而是判断定时与现在时间是否达到。</p>
+<h3 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h3><p>除了==timers，checks== 绝大部分回调都会放入该队列，如文件的读取，监听用户请求等。</p>
+<p>如果poll中有回调，依次执行回调，直到清空队列。</p>
+<p>如果poll中</p>
+<h3 id="Ckeck"><a href="#Ckeck" class="headerlink" title="Ckeck"></a>Ckeck</h3><p>单纯的就是一个队列，检查就全部运行，因此效率很高。表面上看和SetTimeOut(0)相同，但实际执行速度很快。</p>
+<p>SetImmindent</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;timeout&quot;</span>);<br><br>&#125;, <span class="hljs-number">0</span>);<br><br><span class="hljs-title function_">setImmediate</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;immediate&quot;</span>);<br><br>&#125;);<br><span class="hljs-comment">// Output: immediate timeout</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>从运行图上看setTimeout是早于setImmediate的，但实际上放入setTimeout和计算是需要时间的，第一次轮询的时候还没有检测到setTimeOut。</p>
+</blockquote>
+<h3 id="nextTick和Promise"><a href="#nextTick和Promise" class="headerlink" title="nextTick和Promise"></a>nextTick和Promise</h3><p>在推进loop每一步，都会检查nextTick和promise队列是否有内容，他俩优先级非常高。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">setImmediate</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);<br><br>&#125;);<br><br><br>process.<span class="hljs-title function_">nextTick</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);<br><br>  process.<span class="hljs-title function_">nextTick</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">6</span>);<br><br>  &#125;);<br><br>&#125;);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>);<br><br><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>);<br><br>  process.<span class="hljs-title function_">nextTick</span>(<span class="hljs-function">() =&gt;</span> &#123;<br><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>);<br><br>  &#125;);<br><br>&#125;);<br><br>  <br><span class="hljs-comment">// 3 2 6 4 5 1</span><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Node/">#Node</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Node的内置模块</div>
+      <div>http://rrnn.gitee.io/2024/04/09/node/Node中的内置模块、基本函数与生命周期/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>软软糯糯的汤圆</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月9日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/03/31/soft/%E4%BD%BF%E7%94%A8PigGO%E5%92%8CGithub%E5%81%9A%E5%9B%BE%E5%BA%8A%EF%BC%8C%E4%BD%BF%E7%94%A8cdn%E5%8A%A0%E9%80%9F%E5%92%8Cobsdian%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/" title="使用PigGO和Github做图床，使用cdn加速和obsdian自动上传">
+                        <span class="hidden-mobile">使用PigGO和Github做图床，使用cdn加速和obsdian自动上传</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","appKey":"TAgYePm1cLAy3Bgn2XqE5pTG","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://mp25fckb.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
