@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/images/titleIcon.svg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/rrnn/img/fluid.png">
+  <link rel="icon" href="/rrnn/images/titleIcon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="Node 日志 log4j 的简单使用官网https:&#x2F;&#x2F;log4js-node.github.io&#x2F;log4js-node&#x2F; 日志级别如调试日志，信息日志，错误日志等  安装npm i log4js 使用123456789const log4js &#x3D; require(&quot;log4js&quot;);const logger &#x3D; log4js.getLogger();logger.info">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node日志log4j的简单使用">
-<meta property="og:url" content="http://rrnn.gitee.io/2024/04/13/node/Node%E6%97%A5%E5%BF%97log4js-node%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:url" content="https://tangyuan-x.github.io/rrnn/2024/04/13/node/Node%E6%97%A5%E5%BF%97log4js-node%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
 <meta property="og:description" content="Node 日志 log4j 的简单使用官网https:&#x2F;&#x2F;log4js-node.github.io&#x2F;log4js-node&#x2F; 日志级别如调试日志，信息日志，错误日志等  安装npm i log4js 使用123456789const log4js &#x3D; require(&quot;log4js&quot;);const logger &#x3D; log4js.getLogger();logger.info">
 <meta property="og:locale" content="zh_CN">
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/rrnn/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/rrnn/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/rrnn/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"rrnn.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"tangyuan-x.github.io","root":"/rrnn/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/rrnn/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/rrnn/js/utils.js" ></script>
+  <script  src="/rrnn/js/color-schema.js" ></script>
   
 
   
@@ -113,7 +113,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/rrnn/">
       <strong>TangyuanBlog</strong>
     </a>
 
@@ -132,7 +132,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/rrnn/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -144,7 +144,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/rrnn/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -156,7 +156,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/rrnn/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -168,7 +168,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/rrnn/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -180,7 +180,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/rrnn/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -192,7 +192,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/rrnn/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -314,7 +314,7 @@
                 
                 <h1 id="Node-日志-log4j-的简单使用"><a href="#Node-日志-log4j-的简单使用" class="headerlink" title="Node 日志 log4j 的简单使用"></a>Node 日志 log4j 的简单使用</h1><h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p><a target="_blank" rel="noopener" href="https://log4js-node.github.io/log4js-node/">https://log4js-node.github.io/log4js-node/</a></p>
 <h3 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h3><p>如调试日志，信息日志，错误日志等</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240413095932.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Tangyuan-X/ImgCloud/img/20240413095932.png" srcset="/rrnn/img/loading.gif" lazyload></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>npm i log4js</p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> log4js = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;log4js&quot;</span>);<br><span class="hljs-keyword">const</span> logger = log4js.<span class="hljs-title function_">getLogger</span>();<br>logger.<span class="hljs-title function_">info</span>(<span class="hljs-string">&quot;abc&quot;</span>); <span class="hljs-comment">// 默认级别是off，所以不会输出任何日志</span><br><span class="hljs-comment">// 设置日志级别为info</span><br>logger.<span class="hljs-property">level</span> = <span class="hljs-string">&quot;info&quot;</span>;<br>logger.<span class="hljs-title function_">info</span>(<span class="hljs-string">&quot;abc&quot;</span>); <span class="hljs-comment">// 输出日志</span><br><span class="hljs-comment">// 设置日志级别为error</span><br>logger.<span class="hljs-property">level</span> = <span class="hljs-string">&quot;error&quot;</span>;<br>logger.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;abc&quot;</span>); <span class="hljs-comment">// 输出日志</span><br></code></pre></td></tr></table></figure>
 
@@ -343,7 +343,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/rrnn/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
   
   
 
@@ -358,7 +358,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Node/">#Node</a>
+        <a href="/rrnn/tags/Node/">#Node</a>
       
     </div>
   
@@ -371,7 +371,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Node日志log4j的简单使用</div>
-      <div>http://rrnn.gitee.io/2024/04/13/node/Node日志log4js-node的简单使用/</div>
+      <div>https://tangyuan-x.github.io/rrnn/2024/04/13/node/Node日志log4js-node的简单使用/</div>
     </div>
     <div class="license-meta">
       
@@ -417,7 +417,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/09/node/Node%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97%E3%80%81%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Node的内置模块">
+                      <a href="/rrnn/2024/04/09/node/Node%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97%E3%80%81%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Node的内置模块">
                         <span class="hidden-mobile">Node的内置模块</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -597,8 +597,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/rrnn/js/events.js" ></script>
+<script  src="/rrnn/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -620,7 +620,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/rrnn/js/img-lazyload.js" ></script>
   
 
 
@@ -692,9 +692,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/js/leancloud.js" ></script>
+  <script defer src="/rrnn/js/leancloud.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/rrnn/js/local-search.js" ></script>
 
 
 
@@ -702,7 +702,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/rrnn/js/boot.js" ></script>
 
 
   

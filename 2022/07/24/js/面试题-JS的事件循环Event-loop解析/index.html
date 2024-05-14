@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/images/titleIcon.svg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/rrnn/img/fluid.png">
+  <link rel="icon" href="/rrnn/images/titleIcon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="JS的事件循环Event loop解析普通EvenLoop一个简单的🌰先看一个代码 1234567console.log(&amp;#x27;Hi&amp;#x27;)setTimeout(function cb1 () &amp;#123;  console.log(&amp;#x27;cb1&amp;#x27;)&amp;#125;, 5000)console.log(&amp;#x27;Bye&amp;#x27;)&#x2F;&#x2F;猜猜结果？  执行步骤： cons">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试题-JS的事件循环Event loop解析">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/07/24/js/%E9%9D%A2%E8%AF%95%E9%A2%98-JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AFEvent-loop%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:url" content="https://tangyuan-x.github.io/rrnn/2022/07/24/js/%E9%9D%A2%E8%AF%95%E9%A2%98-JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AFEvent-loop%E8%A7%A3%E6%9E%90/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
 <meta property="og:description" content="JS的事件循环Event loop解析普通EvenLoop一个简单的🌰先看一个代码 1234567console.log(&amp;#x27;Hi&amp;#x27;)setTimeout(function cb1 () &amp;#123;  console.log(&amp;#x27;cb1&amp;#x27;)&amp;#125;, 5000)console.log(&amp;#x27;Bye&amp;#x27;)&#x2F;&#x2F;猜猜结果？  执行步骤： cons">
 <meta property="og:locale" content="zh_CN">
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/rrnn/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/rrnn/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/rrnn/css/highlight-dark.css" />
   
 
 
@@ -72,15 +72,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"rrnn.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"tangyuan-x.github.io","root":"/rrnn/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/rrnn/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/rrnn/js/utils.js" ></script>
+  <script  src="/rrnn/js/color-schema.js" ></script>
   
 
   
@@ -114,7 +114,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/rrnn/">
       <strong>TangyuanBlog</strong>
     </a>
 
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/rrnn/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/rrnn/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/rrnn/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/rrnn/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -181,7 +181,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/rrnn/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -193,7 +193,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/rrnn/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -344,7 +344,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">   <span class="hljs-keyword">const</span> $p1 = $(<span class="hljs-string">&#x27;&lt;p&gt;这是一段文字&lt;/p&gt;&#x27;</span>);</span><br><span class="language-javascript">   <span class="hljs-keyword">const</span> $p2 = $(<span class="hljs-string">&#x27;&lt;p&gt;这是一段文字&lt;/p&gt;&#x27;</span>);</span><br><span class="language-javascript">   <span class="hljs-keyword">const</span> $p3 = $(<span class="hljs-string">&#x27;&lt;p&gt;这是一段文字&lt;/p&gt;&#x27;</span>);</span><br><span class="language-javascript">   $(<span class="hljs-string">&#x27;#container&#x27;</span>).<span class="hljs-title function_">append</span>($p1, $p2, $p3);</span><br><span class="language-javascript"></span><br><span class="language-javascript">   <span class="hljs-comment">// alert(&quot;执行结束，但未渲染&quot;);</span></span><br><span class="language-javascript">   <span class="hljs-comment">// 微任务，DOM渲染前触发</span></span><br><span class="language-javascript">   <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;length1&#x27;</span>, $(<span class="hljs-string">&#x27;#container&#x27;</span>).<span class="hljs-title function_">children</span>().<span class="hljs-property">length</span>);</span><br><span class="language-javascript">     <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;微任务，DOM渲染前触发&quot;</span>)</span><br><span class="language-javascript">   &#125;)</span><br><span class="language-javascript"></span><br><span class="language-javascript">   <span class="hljs-comment">// 宏任务，DOM渲染后触发</span></span><br><span class="language-javascript">   <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;length2&#x27;</span>, $(<span class="hljs-string">&#x27;#container&#x27;</span>).<span class="hljs-title function_">children</span>().<span class="hljs-property">length</span>);</span><br><span class="language-javascript">     <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;宏任务，DOM渲染后触发&quot;</span>)</span><br><span class="language-javascript">   &#125;, <span class="hljs-number">0</span>)</span><br><span class="language-javascript"> </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="为何微任务的执行时机更早？"><a href="#为何微任务的执行时机更早？" class="headerlink" title="为何微任务的执行时机更早？"></a>为何微任务的执行时机更早？</h4><p>与本文中宏任务（上面的异步任务）不同的是，微任务在被扫描到后不会被放到WEB API（宏任务队列）中，而是会被放到一个叫做micro task queue（微任务队列）的队列中。</p>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4i5yniebmj20qe0rkmz3.jpg" srcset="/img/loading.gif" lazyload alt="image-20220724175225622" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4i5yniebmj20qe0rkmz3.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220724175225622" style="zoom:50%;" />
 
 <h5 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h5><ul>
 <li>微任务是ES6规定的语法</li>
@@ -381,7 +381,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/rrnn/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
   
   
 
@@ -396,9 +396,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Javascript/">#Javascript</a>
+        <a href="/rrnn/tags/Javascript/">#Javascript</a>
       
-        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+        <a href="/rrnn/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
       
     </div>
   
@@ -411,7 +411,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>面试题-JS的事件循环Event loop解析</div>
-      <div>http://rrnn.gitee.io/2022/07/24/js/面试题-JS的事件循环Event-loop解析/</div>
+      <div>https://tangyuan-x.github.io/rrnn/2022/07/24/js/面试题-JS的事件循环Event-loop解析/</div>
     </div>
     <div class="license-meta">
       
@@ -453,7 +453,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/26/js/%E9%9D%A2%E8%AF%95%E9%A2%98-for-of-%E7%89%B9%E6%AE%8A%E7%9A%84%E5%BC%82%E6%AD%A5%E9%81%8D%E5%8E%86%E5%BE%AA%E7%8E%AF/" title="面试题 - for of 特殊的异步遍历循环">
+                      <a href="/rrnn/2022/07/26/js/%E9%9D%A2%E8%AF%95%E9%A2%98-for-of-%E7%89%B9%E6%AE%8A%E7%9A%84%E5%BC%82%E6%AD%A5%E9%81%8D%E5%8E%86%E5%BE%AA%E7%8E%AF/" title="面试题 - for of 特殊的异步遍历循环">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">面试题 - for of 特殊的异步遍历循环</span>
                         <span class="visible-mobile">上一篇</span>
@@ -463,7 +463,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/23/js/JS%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/" title="JS面试题-作用域和闭包">
+                      <a href="/rrnn/2022/07/23/js/JS%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/" title="JS面试题-作用域和闭包">
                         <span class="hidden-mobile">JS面试题-作用域和闭包</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -643,8 +643,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/rrnn/js/events.js" ></script>
+<script  src="/rrnn/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -666,7 +666,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/rrnn/js/img-lazyload.js" ></script>
   
 
 
@@ -738,9 +738,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/js/leancloud.js" ></script>
+  <script defer src="/rrnn/js/leancloud.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/rrnn/js/local-search.js" ></script>
 
 
 
@@ -748,7 +748,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/rrnn/js/boot.js" ></script>
 
 
   

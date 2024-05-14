@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/images/titleIcon.svg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/rrnn/img/fluid.png">
+  <link rel="icon" href="/rrnn/images/titleIcon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="5 种常用布局的 flex 实现原文地址：https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6844903517241491463 Sticky Footer经典的上-中-下布局。 当页面内容高度小于可视区域高度时，footer 吸附在底部；当页面内容高度大于可视区域高度时，footer 被撑开排在 content 下方   12345&lt;body&gt;  &lt;header&gt;HEADE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5 种常用布局的 flex 实现">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/08/14/css/5-%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80%E7%9A%84-flex-%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:url" content="https://tangyuan-x.github.io/rrnn/2022/08/14/css/5-%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80%E7%9A%84-flex-%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
 <meta property="og:description" content="5 种常用布局的 flex 实现原文地址：https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6844903517241491463 Sticky Footer经典的上-中-下布局。 当页面内容高度小于可视区域高度时，footer 吸附在底部；当页面内容高度大于可视区域高度时，footer 被撑开排在 content 下方   12345&lt;body&gt;  &lt;header&gt;HEADE">
 <meta property="og:locale" content="zh_CN">
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/rrnn/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/rrnn/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/rrnn/css/highlight-dark.css" />
   
 
 
@@ -72,15 +72,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"rrnn.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"tangyuan-x.github.io","root":"/rrnn/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/rrnn/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/rrnn/js/utils.js" ></script>
+  <script  src="/rrnn/js/color-schema.js" ></script>
   
 
   
@@ -114,7 +114,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/rrnn/">
       <strong>TangyuanBlog</strong>
     </a>
 
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/rrnn/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/rrnn/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/rrnn/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/rrnn/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -181,7 +181,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/rrnn/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -193,7 +193,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/rrnn/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -316,7 +316,7 @@
                 <h1 id="5-种常用布局的-flex-实现"><a href="#5-种常用布局的-flex-实现" class="headerlink" title="5 种常用布局的 flex 实现"></a>5 种常用布局的 flex 实现</h1><p>原文地址：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903517241491463">https://juejin.cn/post/6844903517241491463</a></p>
 <h2 id="Sticky-Footer"><a href="#Sticky-Footer" class="headerlink" title="Sticky Footer"></a>Sticky Footer</h2><p>经典的上-中-下布局。</p>
 <p>当页面内容高度小于可视区域高度时，footer 吸附在底部；当页面内容高度大于可视区域高度时，footer 被撑开排在 content 下方</p>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h54aat49uej20oz0q9jrn.jpg" srcset="/img/loading.gif" lazyload alt="image-20220812210453021" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h54aat49uej20oz0q9jrn.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220812210453021" style="zoom:50%;" />
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>HEADER<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>CONTENT<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>FOOTER<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -324,7 +324,7 @@
 
 <p>解析：body使用flex纵向排列分成三块，中间部分添加flex auto使得宽度自适应为剩余宽度。</p>
 <h2 id="Fixed-Width-Sidebar"><a href="#Fixed-Width-Sidebar" class="headerlink" title="Fixed-Width Sidebar"></a>Fixed-Width Sidebar</h2><p>在上-中-下布局的基础上，加了左侧定宽 sidebar。</p>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h564mbpdhoj20nm0q2glz.jpg" srcset="/img/loading.gif" lazyload alt="image-20220814111929589" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h564mbpdhoj20nm0q2glz.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220814111929589" style="zoom:50%;" />
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>HEADER<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>ASIDE<span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>CONTENT<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>FOOTER<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -332,7 +332,7 @@
 
 <p>解析：在上一个布局的基础上，content分解为asisde和content，aside定宽，content设为auto吸收剩余高度。</p>
 <h2 id="Sidebar"><a href="#Sidebar" class="headerlink" title="Sidebar"></a>Sidebar</h2><p>左边是定宽 sidebar，右边是上-中-下布局。</p>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h564t3yid0j20ov0pw74i.jpg" srcset="/img/loading.gif" lazyload alt="image-20220814112603694" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h564t3yid0j20ov0pw74i.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220814112603694" style="zoom:50%;" />
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>ASIDE<span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>HEADER<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>CONTENT<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>FOOTER<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -340,7 +340,7 @@
 
 <p>解析：body设为flex布局，将aside和container横向排列，老套路，contaner设为auto吸收多余宽度，contaner为纵向flex，container吸收高度。</p>
 <h2 id="Sticky-Header"><a href="#Sticky-Header" class="headerlink" title="Sticky Header"></a>Sticky Header</h2><p>还是上-中-下布局，区别是 header 固定在顶部，不会随着页面滚动。</p>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h5651ubardj20oc0q2dfx.jpg" srcset="/img/loading.gif" lazyload alt="image-20220814113426630" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h5651ubardj20oc0q2dfx.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220814113426630" style="zoom:50%;" />
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>HEADER<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>CONTENT<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>FOOTER<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -348,7 +348,7 @@
 
 <p>解析：在第一个布局的基础上，给header添加position: fixed; header脱离普通文档流，加left 和right都为0使得其宽度等于视窗大小，body添加padding-top顶下去content</p>
 <h2 id="Sticky-Sidebar"><a href="#Sticky-Sidebar" class="headerlink" title="Sticky Sidebar"></a>Sticky Sidebar</h2><p>左侧 sidebar 固定在左侧且与视窗同高，当内容超出视窗高度时，在 sidebar 内部出现滚动条。左右两侧滚动条互相独立。</p>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h565d2oejlj20ql0q1ta3.jpg" srcset="/img/loading.gif" lazyload alt="image-20220814114514266" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h565d2oejlj20ql0q1ta3.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220814114514266" style="zoom:50%;" />
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span><br>    ASIDE<br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>item<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>item<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- many items --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>item<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>HEADER<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>CONTENT<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>FOOTER<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -373,7 +373,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/rrnn/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
   
   
 
@@ -388,9 +388,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/CSS/">#CSS</a>
+        <a href="/rrnn/tags/CSS/">#CSS</a>
       
-        <a href="/tags/%E5%B8%83%E5%B1%80/">#布局</a>
+        <a href="/rrnn/tags/%E5%B8%83%E5%B1%80/">#布局</a>
       
     </div>
   
@@ -403,7 +403,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>5 种常用布局的 flex 实现</div>
-      <div>http://rrnn.gitee.io/2022/08/14/css/5-种常用布局的-flex-实现/</div>
+      <div>https://tangyuan-x.github.io/rrnn/2022/08/14/css/5-种常用布局的-flex-实现/</div>
     </div>
     <div class="license-meta">
       
@@ -445,7 +445,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/14/HTTP%E7%9A%84%E7%89%88%E6%9C%AC%E8%BF%AD%E4%BB%A3%E8%BF%87%E7%A8%8B/" title="HTTP的版本迭代过程">
+                      <a href="/rrnn/2022/08/14/HTTP%E7%9A%84%E7%89%88%E6%9C%AC%E8%BF%AD%E4%BB%A3%E8%BF%87%E7%A8%8B/" title="HTTP的版本迭代过程">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">HTTP的版本迭代过程</span>
                         <span class="visible-mobile">上一篇</span>
@@ -455,7 +455,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/14/Interview/%E9%9D%A2%E7%BB%8F%E5%88%86%E4%BA%AB-8-13-%E7%8C%BF%E8%BE%85%E5%AF%BC%E4%B8%80%E9%9D%A2/" title="面经分享 -8/13 - 猿辅导一面">
+                      <a href="/rrnn/2022/08/14/Interview/%E9%9D%A2%E7%BB%8F%E5%88%86%E4%BA%AB-8-13-%E7%8C%BF%E8%BE%85%E5%AF%BC%E4%B8%80%E9%9D%A2/" title="面经分享 -8/13 - 猿辅导一面">
                         <span class="hidden-mobile">面经分享 -8/13 - 猿辅导一面</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -635,8 +635,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/rrnn/js/events.js" ></script>
+<script  src="/rrnn/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -658,7 +658,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/rrnn/js/img-lazyload.js" ></script>
   
 
 
@@ -730,9 +730,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/js/leancloud.js" ></script>
+  <script defer src="/rrnn/js/leancloud.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/rrnn/js/local-search.js" ></script>
 
 
 
@@ -740,7 +740,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/rrnn/js/boot.js" ></script>
 
 
   

@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/images/titleIcon.svg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/rrnn/img/fluid.png">
+  <link rel="icon" href="/rrnn/images/titleIcon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="Node的内置模块Node基本内置模块OSEOLend of line 一行结束后的分隔符 12const os &#x3D; require(&quot;os&quot;);console.log(os.EOL);  在wiondws中就是个’\n” arch()获取CPU的架构类型 1console.log(os.arch()); &#x2F;&#x2F;x64  cpus()获取cpu的核心数组 123456789101">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node的内置模块">
-<meta property="og:url" content="http://rrnn.gitee.io/2024/04/09/node/Node%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97%E3%80%81%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+<meta property="og:url" content="https://tangyuan-x.github.io/rrnn/2024/04/09/node/Node%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97%E3%80%81%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
 <meta property="og:description" content="Node的内置模块Node基本内置模块OSEOLend of line 一行结束后的分隔符 12const os &#x3D; require(&quot;os&quot;);console.log(os.EOL);  在wiondws中就是个’\n” arch()获取CPU的架构类型 1console.log(os.arch()); &#x2F;&#x2F;x64  cpus()获取cpu的核心数组 123456789101">
 <meta property="og:locale" content="zh_CN">
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/rrnn/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/rrnn/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/rrnn/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"rrnn.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"tangyuan-x.github.io","root":"/rrnn/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/rrnn/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/rrnn/js/utils.js" ></script>
+  <script  src="/rrnn/js/color-schema.js" ></script>
   
 
   
@@ -113,7 +113,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/rrnn/">
       <strong>TangyuanBlog</strong>
     </a>
 
@@ -132,7 +132,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/rrnn/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -144,7 +144,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/rrnn/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -156,7 +156,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/rrnn/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -168,7 +168,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/rrnn/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -180,7 +180,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/rrnn/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -192,7 +192,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/rrnn/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -436,9 +436,9 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">当前模块路径 <span class="hljs-attr">E</span>:\source_code\<span class="hljs-title class_">Node</span>\<span class="hljs-title class_">Node</span>_study<br>当前模块文件 <span class="hljs-attr">E</span>:\source_code\<span class="hljs-title class_">Node</span>\<span class="hljs-title class_">Node</span>_study\a.<span class="hljs-property">js</span><br>[<span class="hljs-title class_">Module</span>: <span class="hljs-literal">null</span> prototype] &#123;<br>  <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>,<br>  <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>,<br>  <span class="hljs-attr">default</span>: &#123; <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">d</span>: <span class="hljs-number">4</span> &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>不要在真实开发中这样操作！</p>
-<p><img src="" srcset="/img/loading.gif" lazyload alt="loading-ag-1042"></p>
+<p><img src="" srcset="/rrnn/img/loading.gif" lazyload alt="loading-ag-1042"></p>
 <h1 id="Node的生命周期"><a href="#Node的生命周期" class="headerlink" title="Node的生命周期"></a>Node的生命周期</h1><h1 id="Node的生命周期-1"><a href="#Node的生命周期-1" class="headerlink" title="Node的生命周期"></a>Node的生命周期</h1><p>main函数 -&gt; 事件循环 -&gt;结束</p>
-<p><img src="https://s2.loli.net/2024/03/28/xtonmf9MRe5XCNj.png" srcset="/img/loading.gif" lazyload alt="image-20240328210425371"></p>
+<p><img src="https://s2.loli.net/2024/03/28/xtonmf9MRe5XCNj.png" srcset="/rrnn/img/loading.gif" lazyload alt="image-20240328210425371"></p>
 <h2 id="timers"><a href="#timers" class="headerlink" title="timers"></a>timers</h2><p>存放计时器的回调函数，在底层上，Node维护的不是一个队列，而是判断定时与现在时间是否达到。</p>
 <h3 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h3><p>除了==timers，checks== 绝大部分回调都会放入该队列，如文件的读取，监听用户请求等。</p>
 <p>如果poll中有回调，依次执行回调，直到清空队列。</p>
@@ -469,7 +469,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/rrnn/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
   
   
 
@@ -484,7 +484,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Node/">#Node</a>
+        <a href="/rrnn/tags/Node/">#Node</a>
       
     </div>
   
@@ -497,7 +497,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Node的内置模块</div>
-      <div>http://rrnn.gitee.io/2024/04/09/node/Node中的内置模块、基本函数与生命周期/</div>
+      <div>https://tangyuan-x.github.io/rrnn/2024/04/09/node/Node中的内置模块、基本函数与生命周期/</div>
     </div>
     <div class="license-meta">
       
@@ -539,7 +539,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/13/node/Node%E6%97%A5%E5%BF%97log4js-node%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" title="Node日志log4j的简单使用">
+                      <a href="/rrnn/2024/04/13/node/Node%E6%97%A5%E5%BF%97log4js-node%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" title="Node日志log4j的简单使用">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Node日志log4j的简单使用</span>
                         <span class="visible-mobile">上一篇</span>
@@ -549,7 +549,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/31/soft/%E4%BD%BF%E7%94%A8PigGO%E5%92%8CGithub%E5%81%9A%E5%9B%BE%E5%BA%8A%EF%BC%8C%E4%BD%BF%E7%94%A8cdn%E5%8A%A0%E9%80%9F%E5%92%8Cobsdian%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/" title="使用PigGO和Github做图床，使用cdn加速和obsdian自动上传">
+                      <a href="/rrnn/2024/03/31/soft/%E4%BD%BF%E7%94%A8PigGO%E5%92%8CGithub%E5%81%9A%E5%9B%BE%E5%BA%8A%EF%BC%8C%E4%BD%BF%E7%94%A8cdn%E5%8A%A0%E9%80%9F%E5%92%8Cobsdian%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/" title="使用PigGO和Github做图床，使用cdn加速和obsdian自动上传">
                         <span class="hidden-mobile">使用PigGO和Github做图床，使用cdn加速和obsdian自动上传</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -729,8 +729,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/rrnn/js/events.js" ></script>
+<script  src="/rrnn/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -752,7 +752,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/rrnn/js/img-lazyload.js" ></script>
   
 
 
@@ -824,9 +824,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/js/leancloud.js" ></script>
+  <script defer src="/rrnn/js/leancloud.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/rrnn/js/local-search.js" ></script>
 
 
 
@@ -834,7 +834,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/rrnn/js/boot.js" ></script>
 
 
   

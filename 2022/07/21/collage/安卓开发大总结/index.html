@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/images/titleIcon.svg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/rrnn/img/fluid.png">
+  <link rel="icon" href="/rrnn/images/titleIcon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="移动开发大总结安卓四层架构 应用层：应用层包括手机上的所有APP，无论是系统自带的还是用户开发的。他们都是基于第二层应用框架层开发的。  应用框架层：该层提供了各种各样的系统API，开发人员通过使用这些API来构建上一层的各种各样的APP。 库层：  第一部分是Native C\C++系统库层，主要提供一系列第三方类库  第二部分是运行环境，包括Dalvik虚拟机和Java核心库。 内核层：And">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动开发大总结">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/07/21/collage/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%A4%A7%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:url" content="https://tangyuan-x.github.io/rrnn/2022/07/21/collage/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%A4%A7%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
 <meta property="og:description" content="移动开发大总结安卓四层架构 应用层：应用层包括手机上的所有APP，无论是系统自带的还是用户开发的。他们都是基于第二层应用框架层开发的。  应用框架层：该层提供了各种各样的系统API，开发人员通过使用这些API来构建上一层的各种各样的APP。 库层：  第一部分是Native C\C++系统库层，主要提供一系列第三方类库  第二部分是运行环境，包括Dalvik虚拟机和Java核心库。 内核层：And">
 <meta property="og:locale" content="zh_CN">
@@ -96,12 +96,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/rrnn/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/rrnn/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/rrnn/css/highlight-dark.css" />
   
 
 
@@ -110,15 +110,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"rrnn.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"tangyuan-x.github.io","root":"/rrnn/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/rrnn/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/rrnn/js/utils.js" ></script>
+  <script  src="/rrnn/js/color-schema.js" ></script>
   
 
   
@@ -152,7 +152,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/rrnn/">
       <strong>TangyuanBlog</strong>
     </a>
 
@@ -171,7 +171,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/rrnn/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -183,7 +183,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/rrnn/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -195,7 +195,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/rrnn/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -207,7 +207,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/rrnn/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -219,7 +219,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/rrnn/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -231,7 +231,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/rrnn/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -260,7 +260,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/rrnn/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -351,45 +351,45 @@
             
               <div class="markdown-body">
                 
-                <h1 id="移动开发大总结"><a href="#移动开发大总结" class="headerlink" title="移动开发大总结"></a>移动开发大总结</h1><h2 id="安卓四层架构"><a href="#安卓四层架构" class="headerlink" title="安卓四层架构"></a>安卓四层架构</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj04n7qrj20uh0fr40e.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706212646054"></p>
+                <h1 id="移动开发大总结"><a href="#移动开发大总结" class="headerlink" title="移动开发大总结"></a>移动开发大总结</h1><h2 id="安卓四层架构"><a href="#安卓四层架构" class="headerlink" title="安卓四层架构"></a>安卓四层架构</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj04n7qrj20uh0fr40e.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706212646054"></p>
 <p>应用层：应用层包括手机上的所有APP，无论是系统自带的还是用户开发的。他们都是基于第二层应用<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&spm=1001.2101.3001.7020">框架</a>层开发的。</p>
 <p> 应用框架层：该层提供了各种各样的系统<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=API&spm=1001.2101.3001.7020">API</a>，开发人员通过使用这些API来构建上一层的各种各样的APP。</p>
 <p>库层：  第一部分是Native C\C++系统库层，主要提供一系列第三方类库  第二部分是运行环境，包括Dalvik虚拟机和Java核心库。</p>
 <p>内核层：Android系统底层是基于Linux系统的，主要提供各种硬件驱动。</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj0h6s2dj20ti0c9gn8.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706212706203"></p>
-<h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj3xwf3ej20tn0h3wgz.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706213025888"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj45mjj6j20ti0bo75u.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706213038107"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4fk6cmj20t40gmtaw.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706213053887"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4nf5anj20uv0fo41w.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706213107229"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4yufqjj20t4066jsm.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706213124594"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj624k30j20ty0ecmzj.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706213228137"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj6cf0z0j20sm0ejdhs.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706213244518"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj76gawtj20kp08pjsd.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706213332238"></p>
-<h2 id="安卓的主题"><a href="#安卓的主题" class="headerlink" title="安卓的主题"></a>安卓的主题</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh4hejtjj20vh0egq5x.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706202145256"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgvgp9e0j20vw0i9775.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706201302672"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgw4cp4uj20sc08i0ty.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706201343381"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh55s1fkj20ko06jjrz.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706202224688"></p>
-<h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgz88dgnj20lq0g3wgi.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706201642471"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgziz0maj20m90ee0uu.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706201659831"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh00t729j20v30fvq5s.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706201728515"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhc6lq4tj20uf04xt96.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706202909225"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xheoymrgj20rx0bntaa.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706203134293"></p>
-<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhkf1dz5j20ui0fcq52.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706203703921"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhknbtatj20v40hvmz7.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706203717470"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhlc78n3j20v20hvmzz.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706203757695"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhljzqr3j20qz0d00ut.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706203809830"></p>
-<h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhz3bwf9j20v40endh1.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706205109496"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzbfrhbj20ux0dljtz.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706205123475"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzig2jcj20ti0c2gna.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706205135172"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzv5x5uj20l10b575e.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706205154931"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi03ionaj20ly0aedgv.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706205208448"></p>
-<h2 id="配置文件作用-解释-mainfest"><a href="#配置文件作用-解释-mainfest" class="headerlink" title="配置文件作用 解释 mainfest"></a>配置文件作用 解释 mainfest</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi6gq72pj20mm0f9abk.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706205814713"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi6rebqrj20uz0cumzc.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706205832836"></p>
-<h2 id="Android生命周期"><a href="#Android生命周期" class="headerlink" title="Android生命周期"></a>Android生命周期</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi780glfj20vm0d1q53.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706205858587"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi7dphxkj20u20f0gnr.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706205908369"></p>
-<h2 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixap1r9j20o309ddgu.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706212402378"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixf3rchj20st0a6q46.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706212409676"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixlmay7j20uc0fignb.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706212420355"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixxzl49j20sp0ifwhn.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706212440297"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xiz3kg0dj20mb0gjtbb.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706212547102"></p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xiz9jse4j20m00dz0uu.jpg" srcset="/img/loading.gif" lazyload alt="image-20220706212556850"></p>
-<h2 id="Application类"><a href="#Application类" class="headerlink" title="Application类"></a>Application类</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3y5kshahnj20uz0hpgo9.jpg" srcset="/img/loading.gif" lazyload alt="image-20220707102748113"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj0h6s2dj20ti0c9gn8.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706212706203"></p>
+<h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj3xwf3ej20tn0h3wgz.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706213025888"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj45mjj6j20ti0bo75u.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706213038107"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4fk6cmj20t40gmtaw.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706213053887"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4nf5anj20uv0fo41w.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706213107229"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj4yufqjj20t4066jsm.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706213124594"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj624k30j20ty0ecmzj.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706213228137"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj6cf0z0j20sm0ejdhs.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706213244518"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xj76gawtj20kp08pjsd.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706213332238"></p>
+<h2 id="安卓的主题"><a href="#安卓的主题" class="headerlink" title="安卓的主题"></a>安卓的主题</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh4hejtjj20vh0egq5x.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706202145256"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgvgp9e0j20vw0i9775.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706201302672"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgw4cp4uj20sc08i0ty.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706201343381"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh55s1fkj20ko06jjrz.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706202224688"></p>
+<h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgz88dgnj20lq0g3wgi.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706201642471"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xgziz0maj20m90ee0uu.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706201659831"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xh00t729j20v30fvq5s.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706201728515"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhc6lq4tj20uf04xt96.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706202909225"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xheoymrgj20rx0bntaa.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706203134293"></p>
+<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhkf1dz5j20ui0fcq52.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706203703921"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhknbtatj20v40hvmz7.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706203717470"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhlc78n3j20v20hvmzz.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706203757695"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhljzqr3j20qz0d00ut.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706203809830"></p>
+<h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhz3bwf9j20v40endh1.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706205109496"><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzbfrhbj20ux0dljtz.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706205123475"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzig2jcj20ti0c2gna.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706205135172"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xhzv5x5uj20l10b575e.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706205154931"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi03ionaj20ly0aedgv.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706205208448"></p>
+<h2 id="配置文件作用-解释-mainfest"><a href="#配置文件作用-解释-mainfest" class="headerlink" title="配置文件作用 解释 mainfest"></a>配置文件作用 解释 mainfest</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi6gq72pj20mm0f9abk.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706205814713"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi6rebqrj20uz0cumzc.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706205832836"></p>
+<h2 id="Android生命周期"><a href="#Android生命周期" class="headerlink" title="Android生命周期"></a>Android生命周期</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi780glfj20vm0d1q53.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706205858587"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xi7dphxkj20u20f0gnr.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706205908369"></p>
+<h2 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixap1r9j20o309ddgu.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706212402378"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixf3rchj20st0a6q46.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706212409676"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixlmay7j20uc0fignb.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706212420355"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xixxzl49j20sp0ifwhn.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706212440297"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xiz3kg0dj20mb0gjtbb.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706212547102"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3xiz9jse4j20m00dz0uu.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220706212556850"></p>
+<h2 id="Application类"><a href="#Application类" class="headerlink" title="Application类"></a>Application类</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3y5kshahnj20uz0hpgo9.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220707102748113"></p>
 <p>![image-20220707102802572](/Users/tangyuan/Library/Application Support/typora-user-images/image-20220707102802572.png)</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3y5l969rnj20gh09u752.jpg" srcset="/img/loading.gif" lazyload alt="image-20220707102815635"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h3y5l969rnj20gh09u752.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220707102815635"></p>
 
                 
               </div>
@@ -408,7 +408,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="category-chain-item">大学课程</a>
+  <a href="/rrnn/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="category-chain-item">大学课程</a>
   
   
 
@@ -423,7 +423,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%A4%8D%E4%B9%A0/">#复习</a>
+        <a href="/rrnn/tags/%E5%A4%8D%E4%B9%A0/">#复习</a>
       
     </div>
   
@@ -436,7 +436,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>移动开发大总结</div>
-      <div>http://rrnn.gitee.io/2022/07/21/collage/安卓开发大总结/</div>
+      <div>https://tangyuan-x.github.io/rrnn/2022/07/21/collage/安卓开发大总结/</div>
     </div>
     <div class="license-meta">
       
@@ -478,7 +478,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/21/collage/UML%E8%80%83%E7%82%B9/" title="UML考试总结">
+                      <a href="/rrnn/2022/07/21/collage/UML%E8%80%83%E7%82%B9/" title="UML考试总结">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">UML考试总结</span>
                         <span class="visible-mobile">上一篇</span>
@@ -488,7 +488,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/21/collage/%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86%E5%A4%8D%E4%B9%A0/" title="企业管理复习">
+                      <a href="/rrnn/2022/07/21/collage/%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86%E5%A4%8D%E4%B9%A0/" title="企业管理复习">
                         <span class="hidden-mobile">企业管理复习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -668,8 +668,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/rrnn/js/events.js" ></script>
+<script  src="/rrnn/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -691,7 +691,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/rrnn/js/img-lazyload.js" ></script>
   
 
 
@@ -763,9 +763,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/js/leancloud.js" ></script>
+  <script defer src="/rrnn/js/leancloud.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/rrnn/js/local-search.js" ></script>
 
 
 
@@ -773,7 +773,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/rrnn/js/boot.js" ></script>
 
 
   

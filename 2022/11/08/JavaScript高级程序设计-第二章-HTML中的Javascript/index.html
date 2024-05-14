@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/images/titleIcon.svg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/rrnn/img/fluid.png">
+  <link rel="icon" href="/rrnn/images/titleIcon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="因为某些原因，好久没更新了，今天开个新坑！精读一本书《JavaScript高级程序设计》。江湖人称红宝石，我以后会将每一章的读书笔记都放到自己的博客里。🤗第一章由于都是一些JS的历史，没有什么重要的内容，所以就跳过了，感兴趣的朋友可以自己翻阅。  第二章 HTML中的Javascriptscript标签script标签的属性 async：立即开始下载脚本，但不能阻止其他页面动作，比如下载资源或等">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript高级程序设计-第二章-HTML中的Javascript">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/11/08/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E7%AB%A0-HTML%E4%B8%AD%E7%9A%84Javascript/index.html">
+<meta property="og:url" content="https://tangyuan-x.github.io/rrnn/2022/11/08/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E7%AB%A0-HTML%E4%B8%AD%E7%9A%84Javascript/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
 <meta property="og:description" content="因为某些原因，好久没更新了，今天开个新坑！精读一本书《JavaScript高级程序设计》。江湖人称红宝石，我以后会将每一章的读书笔记都放到自己的博客里。🤗第一章由于都是一些JS的历史，没有什么重要的内容，所以就跳过了，感兴趣的朋友可以自己翻阅。  第二章 HTML中的Javascriptscript标签script标签的属性 async：立即开始下载脚本，但不能阻止其他页面动作，比如下载资源或等">
 <meta property="og:locale" content="zh_CN">
@@ -60,12 +60,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/rrnn/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/rrnn/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/rrnn/css/highlight-dark.css" />
   
 
 
@@ -74,15 +74,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"rrnn.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"tangyuan-x.github.io","root":"/rrnn/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/rrnn/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/rrnn/js/utils.js" ></script>
+  <script  src="/rrnn/js/color-schema.js" ></script>
   
 
   
@@ -116,7 +116,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/rrnn/">
       <strong>TangyuanBlog</strong>
     </a>
 
@@ -135,7 +135,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/rrnn/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -147,7 +147,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/rrnn/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -159,7 +159,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/rrnn/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -171,7 +171,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/rrnn/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -183,7 +183,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/rrnn/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -195,7 +195,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/rrnn/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -224,7 +224,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/rrnn/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -316,7 +316,7 @@
               <div class="markdown-body">
                 
                 <p>因为某些原因，好久没更新了，今天开个新坑！精读一本书《JavaScript高级程序设计》。江湖人称红宝石，我以后会将每一章的读书笔记都放到自己的博客里。🤗<br>第一章由于都是一些JS的历史，没有什么重要的内容，所以就跳过了，感兴趣的朋友可以自己翻阅。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008vxvgGly1h7xrd1qyy7j30ky0o6aci.jpg" srcset="/img/loading.gif" lazyload alt="image-20221108153719306"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008vxvgGly1h7xrd1qyy7j30ky0o6aci.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20221108153719306"></p>
 <h2 id="第二章-HTML中的Javascript"><a href="#第二章-HTML中的Javascript" class="headerlink" title="第二章 HTML中的Javascript"></a>第二章 HTML中的Javascript</h2><h3 id="script标签"><a href="#script标签" class="headerlink" title="script标签"></a>script标签</h3><h4 id="script标签的属性"><a href="#script标签的属性" class="headerlink" title="script标签的属性"></a>script标签的属性</h4><ul>
 <li>async：立即开始下载脚本，但不能阻止其他页面动作，比如下载资源或等待其他脚本加载，只对外部脚本有效</li>
 <li>charset：指定src属性使用的字符集</li>
@@ -334,7 +334,7 @@
 <li>defer属性表示把脚本立即下载，但推迟到文档渲染完毕后再执行，使用defer时最好保证在页面中出现顺序也在最后方。</li>
 <li>async表示脚本不需要等待其他脚本，同时也不会阻塞文档渲染，不保证其执行顺序。</li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/008vxvgGly1h7xpvm8vylj30kf03zmxe.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008vxvgGly1h7xpvm8vylj30kf03zmxe.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="img"></p>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2>
                 
               </div>
@@ -353,7 +353,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/rrnn/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
   
   
 
@@ -368,11 +368,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Javascript/">#Javascript</a>
+        <a href="/rrnn/tags/Javascript/">#Javascript</a>
       
-        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">#技术分析</a>
+        <a href="/rrnn/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">#技术分析</a>
       
-        <a href="/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">#JavaScript高级程序设计</a>
+        <a href="/rrnn/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">#JavaScript高级程序设计</a>
       
     </div>
   
@@ -385,7 +385,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>JavaScript高级程序设计-第二章-HTML中的Javascript</div>
-      <div>http://rrnn.gitee.io/2022/11/08/JavaScript高级程序设计-第二章-HTML中的Javascript/</div>
+      <div>https://tangyuan-x.github.io/rrnn/2022/11/08/JavaScript高级程序设计-第二章-HTML中的Javascript/</div>
     </div>
     <div class="license-meta">
       
@@ -427,7 +427,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/31/soft/%E4%BD%BF%E7%94%A8PigGO%E5%92%8CGithub%E5%81%9A%E5%9B%BE%E5%BA%8A%EF%BC%8C%E4%BD%BF%E7%94%A8cdn%E5%8A%A0%E9%80%9F%E5%92%8Cobsdian%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/" title="使用PigGO和Github做图床，使用cdn加速和obsdian自动上传">
+                      <a href="/rrnn/2024/03/31/soft/%E4%BD%BF%E7%94%A8PigGO%E5%92%8CGithub%E5%81%9A%E5%9B%BE%E5%BA%8A%EF%BC%8C%E4%BD%BF%E7%94%A8cdn%E5%8A%A0%E9%80%9F%E5%92%8Cobsdian%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/" title="使用PigGO和Github做图床，使用cdn加速和obsdian自动上传">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">使用PigGO和Github做图床，使用cdn加速和obsdian自动上传</span>
                         <span class="visible-mobile">上一篇</span>
@@ -437,7 +437,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/08/%E5%9C%A8vite-vue3%E4%B8%AD%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8Tailwindcss/" title="在vite+vue3中快速使用Tailwindcss">
+                      <a href="/rrnn/2022/10/08/%E5%9C%A8vite-vue3%E4%B8%AD%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8Tailwindcss/" title="在vite+vue3中快速使用Tailwindcss">
                         <span class="hidden-mobile">在vite+vue3中快速使用Tailwindcss</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -617,8 +617,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/rrnn/js/events.js" ></script>
+<script  src="/rrnn/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -640,7 +640,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/rrnn/js/img-lazyload.js" ></script>
   
 
 
@@ -712,9 +712,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/js/leancloud.js" ></script>
+  <script defer src="/rrnn/js/leancloud.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/rrnn/js/local-search.js" ></script>
 
 
 
@@ -722,7 +722,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/rrnn/js/boot.js" ></script>
 
 
   

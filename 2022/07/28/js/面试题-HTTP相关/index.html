@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/images/titleIcon.svg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/rrnn/img/fluid.png">
+  <link rel="icon" href="/rrnn/images/titleIcon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="面试题 - HTTP相关状态码分类 1xx 服务器收到请求 2xx请求成功 3xx重定向 301 永久重定向（更换域名等等） 302 临时重定向 （临时更改，应用很多） 304 资源未被修改 请求缓存   4xx客户端错误 403 没有权限 404 资源未找到   5xx服务端错误  请求类型 GET POST PUT DELETE  RESTFUL语法 请求头的属性（不包括缓存相关）  Acce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试题 - HTTP相关">
-<meta property="og:url" content="http://rrnn.gitee.io/2022/07/28/js/%E9%9D%A2%E8%AF%95%E9%A2%98-HTTP%E7%9B%B8%E5%85%B3/index.html">
+<meta property="og:url" content="https://tangyuan-x.github.io/rrnn/2022/07/28/js/%E9%9D%A2%E8%AF%95%E9%A2%98-HTTP%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
 <meta property="og:description" content="面试题 - HTTP相关状态码分类 1xx 服务器收到请求 2xx请求成功 3xx重定向 301 永久重定向（更换域名等等） 302 临时重定向 （临时更改，应用很多） 304 资源未被修改 请求缓存   4xx客户端错误 403 没有权限 404 资源未找到   5xx服务端错误  请求类型 GET POST PUT DELETE  RESTFUL语法 请求头的属性（不包括缓存相关）  Acce">
 <meta property="og:locale" content="zh_CN">
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/rrnn/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/rrnn/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/rrnn/css/highlight-dark.css" />
   
 
 
@@ -72,15 +72,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"rrnn.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"tangyuan-x.github.io","root":"/rrnn/","version":"1.9.2","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"MP25FCKbRroatsSucWWCISlz-gzGzoHsz","app_key":"TAgYePm1cLAy3Bgn2XqE5pTG","server_url":"https://mp25fckb.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/rrnn/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/rrnn/js/utils.js" ></script>
+  <script  src="/rrnn/js/color-schema.js" ></script>
   
 
   
@@ -114,7 +114,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/rrnn/">
       <strong>TangyuanBlog</strong>
     </a>
 
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/rrnn/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/rrnn/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/rrnn/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/rrnn/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -181,7 +181,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/rrnn/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -193,7 +193,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/rrnn/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -369,7 +369,7 @@
 </ul>
 </li>
 </ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mf32wx79j214x0u041p.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728101016970" style="zoom:50%;" /></li>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mf32wx79j214x0u041p.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220728101016970" style="zoom:50%;" /></li>
 </ul>
 <h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><ul>
 <li>服务器缓存策略</li>
@@ -380,19 +380,19 @@
 <li>在 Response Headers 中，有两种</li>
 <li> Last-Modified 资源的最后修改时间 </li>
 </ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfvxm9m9j20rg0gf400.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728103803638" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfvxm9m9j20rg0gf400.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220728103803638" style="zoom:50%;" />
 
 <ul>
 <li>Etag 资源的唯一标识（一个字符串，类似人类的指纹）</li>
 </ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfwkeqhlj20s20gvjsx.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728103839305" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfwkeqhlj20s20gvjsx.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220728103839305" style="zoom:50%;" />
 
 <ul>
 <li>会优先使用 Etag </li>
 <li>Last-Modified 只能精确到秒级</li>
 <li>如果资源被重复生成，而内容不变，则 Etag 更精确</li>
 </ul>
-<h4 id="缓存的流程综述"><a href="#缓存的流程综述" class="headerlink" title="缓存的流程综述"></a>缓存的流程综述</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfxymq5yj20nm0fvq3s.jpg" srcset="/img/loading.gif" lazyload alt="image-20220728104000521"></p>
+<h4 id="缓存的流程综述"><a href="#缓存的流程综述" class="headerlink" title="缓存的流程综述"></a>缓存的流程综述</h4><p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h4mfxymq5yj20nm0fvq3s.jpg" srcset="/rrnn/img/loading.gif" lazyload alt="image-20220728104000521"></p>
 <h4 id="三种浏览器的刷新操作"><a href="#三种浏览器的刷新操作" class="headerlink" title="三种浏览器的刷新操作"></a>三种浏览器的刷新操作</h4><ul>
 <li>正常操作：地址栏输入 url，跳转链接，前进后退等（强制缓存，协商缓存有效）</li>
 <li>手动刷新：F5，点击刷新按钮，右击菜单刷新 （强制缓存失效，协商缓存有效）</li>
@@ -416,7 +416,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/rrnn/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
   
   
 
@@ -431,9 +431,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+        <a href="/rrnn/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
+        <a href="/rrnn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
       
     </div>
   
@@ -446,7 +446,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>面试题 - HTTP相关</div>
-      <div>http://rrnn.gitee.io/2022/07/28/js/面试题-HTTP相关/</div>
+      <div>https://tangyuan-x.github.io/rrnn/2022/07/28/js/面试题-HTTP相关/</div>
     </div>
     <div class="license-meta">
       
@@ -488,7 +488,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/28/Interview/JS%E9%9D%A2%E8%AF%95%E9%A2%98-JS%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" title="JS面试题 - JS的数据存储">
+                      <a href="/rrnn/2022/07/28/Interview/JS%E9%9D%A2%E8%AF%95%E9%A2%98-JS%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" title="JS面试题 - JS的数据存储">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">JS面试题 - JS的数据存储</span>
                         <span class="visible-mobile">上一篇</span>
@@ -498,7 +498,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/27/js/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-7-27-%E5%AD%97%E8%8A%82%E9%A3%9E%E4%B9%A6%E6%8F%90%E5%89%8D%E6%89%B9%E6%A0%A1%E6%8B%9B%E4%B8%80%E9%9D%A2/" title="面经学习 - 7/27 - 字节飞书提前批校招一面">
+                      <a href="/rrnn/2022/07/27/js/%E9%9D%A2%E7%BB%8F%E5%AD%A6%E4%B9%A0-7-27-%E5%AD%97%E8%8A%82%E9%A3%9E%E4%B9%A6%E6%8F%90%E5%89%8D%E6%89%B9%E6%A0%A1%E6%8B%9B%E4%B8%80%E9%9D%A2/" title="面经学习 - 7/27 - 字节飞书提前批校招一面">
                         <span class="hidden-mobile">面经学习 - 7/27 - 字节飞书提前批校招一面</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -678,8 +678,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/rrnn/js/events.js" ></script>
+<script  src="/rrnn/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -701,7 +701,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/rrnn/js/img-lazyload.js" ></script>
   
 
 
@@ -773,9 +773,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="/js/leancloud.js" ></script>
+  <script defer src="/rrnn/js/leancloud.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/rrnn/js/local-search.js" ></script>
 
 
 
@@ -783,7 +783,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/rrnn/js/boot.js" ></script>
 
 
   
