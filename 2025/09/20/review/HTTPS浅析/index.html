@@ -16,26 +16,26 @@
   <meta name="author" content="软软糯糯的汤圆">
   <meta name="keywords" content="个人博客,JS笔记">
   
-    <meta name="description" content="XSS 攻击XSS（Cross Site Scripting）跨站脚本攻击 危害 窃取 cookie 信息：黑客可以在其他电脑上模拟登录状态 可以监听用户行为：可以监听用户点击键盘的行为，得到用户信息 伪造登录窗口 在你的页面生成浮窗广告  如何注入 存储型攻击：将脚本提交到数据库中 比如在评论的时候，我们可以写一个 script 放到评论区   反射型攻击：在 url 中写入参数，就是上面的例子">
+    <meta name="description" content="WHY HTTP因为HTTP是明文传输，所有传输节点都能看到信息。这会造成流量劫持和中间人攻击。 HTTPS实现原理HTTPS其实就是将HTTP的数据包再通过SSL&#x2F;TLS加密后传输，SSL（Secure Sockets Layer）安全套接层和TLS（Transport Layer Security）传输层安全协议其实是一套东西。  工作流程我们先来看看HTTPS的加解密流程。   用户在浏览器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web安全 XSS &amp; CSRF">
-<meta property="og:url" content="https://tangyuan-x.github.io/rrnn/2025/09/20/review/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93-HTTP%E7%BC%93%E5%AD%98/index.html">
+<meta property="og:title" content="HTTPS浅析">
+<meta property="og:url" content="https://tangyuan-x.github.io/rrnn/2025/09/20/review/HTTPS%E6%B5%85%E6%9E%90/index.html">
 <meta property="og:site_name" content="Tangyuan的博客">
-<meta property="og:description" content="XSS 攻击XSS（Cross Site Scripting）跨站脚本攻击 危害 窃取 cookie 信息：黑客可以在其他电脑上模拟登录状态 可以监听用户行为：可以监听用户点击键盘的行为，得到用户信息 伪造登录窗口 在你的页面生成浮窗广告  如何注入 存储型攻击：将脚本提交到数据库中 比如在评论的时候，我们可以写一个 script 放到评论区   反射型攻击：在 url 中写入参数，就是上面的例子">
+<meta property="og:description" content="WHY HTTP因为HTTP是明文传输，所有传输节点都能看到信息。这会造成流量劫持和中间人攻击。 HTTPS实现原理HTTPS其实就是将HTTP的数据包再通过SSL&#x2F;TLS加密后传输，SSL（Secure Sockets Layer）安全套接层和TLS（Transport Layer Security）传输层安全协议其实是一套东西。  工作流程我们先来看看HTTPS的加解密流程。   用户在浏览器">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://th.wallhaven.cc/lg/9m/9mjoy1.jpg">
 <meta property="article:published_time" content="2025-09-20T06:54:48.000Z">
-<meta property="article:modified_time" content="2025-09-20T13:44:35.064Z">
+<meta property="article:modified_time" content="2025-09-20T14:19:18.515Z">
 <meta property="article:author" content="软软糯糯的汤圆">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="技术分析">
-<meta property="article:tag" content="网络安全">
+<meta property="article:tag" content="HTTPS">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://th.wallhaven.cc/lg/9m/9mjoy1.jpg">
   
   
   
-  <title>Web安全 XSS &amp; CSRF - Tangyuan的博客</title>
+  <title>HTTPS浅析 - Tangyuan的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +229,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Web安全 XSS &amp; CSRF"></span>
+            <span id="subtitle" data-typed-text="HTTPS浅析"></span>
           
         </div>
 
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          1.1k 字
         
       </span>
     
@@ -263,7 +263,7 @@
         
         
         
-          18 分钟
+          10 分钟
         
       </span>
     
@@ -309,67 +309,45 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Web安全 XSS &amp; CSRF</h1>
+            <h1 style="display: none">HTTPS浅析</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="XSS-攻击"><a href="#XSS-攻击" class="headerlink" title="XSS 攻击"></a>XSS 攻击</h1><p>XSS（Cross Site Scripting）跨站脚本攻击</p>
-<h2 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h2><ul>
-<li>窃取 cookie 信息：黑客可以在其他电脑上模拟登录状态</li>
-<li>可以监听用户行为：可以监听用户点击键盘的行为，得到用户信息</li>
-<li>伪造登录窗口</li>
-<li>在你的页面生成浮窗广告</li>
-</ul>
-<h2 id="如何注入"><a href="#如何注入" class="headerlink" title="如何注入"></a>如何注入</h2><ul>
-<li>存储型攻击：将脚本提交到数据库中<ul>
-<li>比如在评论的时候，我们可以写一个 script 放到评论区</li>
-</ul>
-</li>
-<li>反射型攻击：在 url 中写入参数，就是上面的例子<ul>
-<li>当然，如果数据库中给你进行了字符串转译就不会有这种问题。据说以前喜马拉雅编辑专辑的时候后端没有做这个处理，导致可以被 XSS 攻击</li>
-</ul>
-</li>
-<li>基于 Dom 的 XSS：比如我可以用些硬件去截取响应回用户的数据，然后塞入脚本返回给用户，这个方式的成本比较高</li>
-</ul>
-<hr>
-<h1 id="CSRF-攻击"><a href="#CSRF-攻击" class="headerlink" title="CSRF 攻击"></a>CSRF 攻击</h1><p>CSRF（Cross-Site Request Forgery，跨站请求伪造）是一种常见的网络安全攻击方式，攻击者通过诱骗用户执行非授权操作，利用用户的身份发送请求。这种攻击通常发生在用户已登录目标网站的情况下，攻击者通过伪造请求（如通过一个包含恶意代码的网页或邮件）来执行一些用户无意中授权的操作。</p>
-<h2 id="两个例子及代码"><a href="#两个例子及代码" class="headerlink" title="两个例子及代码"></a>两个例子及代码</h2><h3 id="例子-1：银行转账攻击"><a href="#例子-1：银行转账攻击" class="headerlink" title="例子 1：银行转账攻击"></a>例子 1：银行转账攻击</h3><p>假设攻击者希望通过 CSRF 攻击让用户向攻击者的账户转账。攻击者可以构造一个恶意网页，包含以下代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs html">html<br><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>CSRF 攻击示例<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>感谢您的访问！<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;https://bank.com/transfer&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;transferForm&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;to_account&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;攻击者的账号&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;amount&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1000&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-comment">// 自动提交表单</span></span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;transferForm&#x27;</span>).<span class="hljs-title function_">submit</span>();</span><br><span class="language-javascript"></span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>说明：</strong></p>
+                <h2 id="WHY-HTTP"><a href="#WHY-HTTP" class="headerlink" title="WHY HTTP"></a>WHY HTTP</h2><p>因为HTTP是明文传输，所有传输节点都能看到信息。这会造成流量劫持和中间人攻击。</p>
+<h2 id="HTTPS实现原理"><a href="#HTTPS实现原理" class="headerlink" title="HTTPS实现原理"></a><font style="color:rgb(37, 41, 51);">HTTPS实现原理</font></h2><p><font style="color:rgb(102, 102, 102);background-color:rgb(248, 248, 248);">HTTPS其实就是将HTTP的数据包再通过SSL/TLS加密后传输，</font><font style="color:rgb(37, 41, 51);">SSL（Secure Sockets Layer）安全套接层和TLS（Transport Layer Security）传输层安全协议其实是</font><strong><font style="color:rgb(37, 41, 51);">一套东西</font></strong><font style="color:rgb(37, 41, 51);">。</font></p>
+<p><font style="color:rgb(37, 41, 51);"></font></p>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a><font style="color:rgb(37, 41, 51);">工作流程</font></h3><p><font style="color:rgb(37, 41, 51);">我们先来看看HTTPS的加解密流程。</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/webp/21487995/1741605970697-67ebef2a-2b5c-4dde-86b2-3849990a4505.webp" srcset="/rrnn/img/loading.gif" lazyload></p>
 <ul>
-<li>攻击者创建了一个包含隐藏表单的页面。</li>
-<li>当用户访问此页面时，隐藏的表单会自动提交到银行的转账接口。</li>
-<li>如果用户已经登录了银行网站（且银行网站没有 CSRF 防护机制），转账请求会被执行。</li>
+<li>用户在浏览器发起HTTPS请求（如 <a target="_blank" rel="noopener" href="https://juejin.im/user/747323638163768/posts">juejin.im/</a>），默认使用服务端的443端口进行连接；</li>
+<li>HTTPS需要使用一套<strong>CA数字证书</strong>，证书内会附带一个<strong>公钥Pub</strong>，而与之对应的<strong>私钥Private</strong>保留在服务端不公开；</li>
+<li>服务端收到请求，返回配置好的包含<strong>公钥Pub</strong>的证书给客户端；</li>
+<li>客户端收到<strong>证书</strong>，校验合法性，主要包括是否在有效期内、证书的域名与请求的域名是否匹配，上一级证书是否有效（递归判断，直到判断到系统内置或浏览器配置好的根证书），如果不通过，则显示HTTPS警告信息，如果通过则继续；</li>
+<li>客户端生成一个用于对称加密的<strong>随机Key</strong>，并用证书内的<strong>公钥Pub</strong>进行加密，发送给服务端；</li>
+<li>服务端收到<strong>随机Key</strong>的密文，使用与<strong>公钥Pub</strong>配对的<strong>私钥Private</strong>进行解密，得到客户端真正想发送的<strong>随机Key</strong>；</li>
+<li>服务端使用客户端发送过来的<strong>随机Key</strong>对要传输的HTTP数据进行对称加密，将密文返回客户端；</li>
+<li>客户端使用<strong>随机Key</strong>对称解密密文，得到HTTP数据明文；</li>
+<li>后续HTTPS请求使用之前交换好的<strong>随机Key</strong>进行对称加解密。</li>
 </ul>
-<h3 id="例子-2：社交媒体发帖攻击"><a href="#例子-2：社交媒体发帖攻击" class="headerlink" title="例子 2：社交媒体发帖攻击"></a>例子 2：社交媒体发帖攻击</h3><p>假设攻击者希望通过 CSRF 攻击让用户在社交媒体上发布一条包含恶意链接的帖子。攻击者可以构造以下页面：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>CSRF 攻击示例<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>欢迎访问我的页面！<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;https://socialmedia.com/api/post&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;postForm&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;content&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;点击这里获取免费礼品：http://malicious.com&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-comment">// 自动提交表单</span></span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;postForm&#x27;</span>).<span class="hljs-title function_">submit</span>();</span><br><span class="language-javascript"></span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>说明：</strong></p>
-<ul>
-<li>攻击者创建了一个包含隐藏表单的页面。</li>
-<li>当用户访问此页面时，隐藏的表单会自动提交到社交媒体的发帖接口。</li>
-<li>如果用户已经登录了社交媒体（且社交媒体没有 CSRF 防护机制），恶意内容会被发布。</li>
-</ul>
-<h2 id="如何防范-CSRF-攻击？"><a href="#如何防范-CSRF-攻击？" class="headerlink" title="如何防范 CSRF 攻击？"></a>如何防范 CSRF 攻击？</h2><ul>
-<li><p><strong>使用 CSRF Token：</strong></p>
-<ul>
-<li>在表单中添加一个唯一的随机令牌（CSRF Token），并在用户提交表单时验证该令牌。</li>
-<li>例如，使用 Django 的 <code>csrf_token</code> 或 Flask 的 <code>csrf_token</code>。</li>
-</ul>
-</li>
-<li><p><strong>检查 Referer 头：</strong></p>
-<ul>
-<li>验证请求的 Referer 头是否来自可信的来源。</li>
-</ul>
-</li>
-<li><p><strong>使用 SameSite Cookie 标志：</strong></p>
-<ul>
-<li>设置 <code>SameSite</code> 标志，防止跨站请求中携带 Cookie。</li>
-</ul>
-</li>
-</ul>
+<h3 id="为什么要混用非对称和对称？"><a href="#为什么要混用非对称和对称？" class="headerlink" title="为什么要混用非对称和对称？"></a>为什么要混用非对称和对称？</h3><p>只使用对称加密显然是不行的，因为密钥也会被劫持呀，只是用一个非对称也是不行的，因为客户端只有一个公钥，而且这个公钥已经泄露了呀。</p>
+<p>使用两对非对称是可以的，但是这样会导致每次通话都要非对称，非对称的加解密任务是很消耗时间的。</p>
+<p>所以混用就巧妙地解决了这个问题。<font style="color:rgb(37, 41, 51);">看起来是一个非常完美的方案，</font><strong><font style="color:rgb(37, 41, 51);">兼顾</font></strong><font style="color:rgb(37, 41, 51);">了安全性和性能，但是，真的就安全了么？</font></p>
+<h3 id="CA颁发机构"><a href="#CA颁发机构" class="headerlink" title="CA颁发机构"></a><font style="color:rgb(37, 41, 51);">CA颁发机构</font></h3><p>这样依然会被劫持转发呀，如果把公钥偷偷换了怎么办？</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/webp/21487995/1741606567823-6e05cca6-b8f7-45fb-a9e0-c7347ced67af.webp" srcset="/rrnn/img/loading.gif" lazyload></p>
+<p><font style="color:rgb(37, 41, 51);">私钥除了解密外的真正用途其实还有一个，就是</font><strong><font style="color:rgb(37, 41, 51);">数字签名</font></strong><font style="color:rgb(37, 41, 51);">，其实就是一种防伪技术，只要有人篡改了证书，那么数字签名必然校验失败。具体过程如下</font></p>
+<ol>
+<li><font style="color:rgb(37, 41, 51);">CA机构拥有自己的一对公钥和私钥</font></li>
+<li><font style="color:rgb(37, 41, 51);">CA机构在颁发证书时对证书明文信息进行哈希</font></li>
+<li><font style="color:rgb(37, 41, 51);">将哈希值用私钥进行</font><strong><font style="color:rgb(37, 41, 51);">加签</font></strong><font style="color:rgb(37, 41, 51);">，得到数字签名</font></li>
+</ol>
+<h5 id="明文数据和数字签名组成证书，传递给客户端。"><a href="#明文数据和数字签名组成证书，传递给客户端。" class="headerlink" title="明文数据和数字签名组成证书，传递给客户端。"></a><font style="color:rgb(37, 41, 51);">明文数据和数字签名组成证书，传递给客户端。</font></h5><ol>
+<li><font style="color:rgb(37, 41, 51);">客户端得到证书，分解成明文部分Text和数字签名Sig1</font></li>
+<li><font style="color:rgb(37, 41, 51);">用CA机构的公钥进行</font><strong>解签</strong><font style="color:rgb(37, 41, 51);">，得到Sig2（由于CA机构是一种公信身份，因此在系统或浏览器中会内置CA机构的证书和公钥信息）</font></li>
+<li><font style="color:rgb(37, 41, 51);">用证书里声明的哈希算法对明文Text部分进行哈希得到T</font></li>
+<li><font style="color:rgb(37, 41, 51);">当自己计算得到的哈希值H与</font><strong>解签</strong><font style="color:rgb(37, 41, 51);">后的Sig2</font><strong>相等</strong><font style="color:rgb(37, 41, 51);">，表示证书可信，</font><strong>没有被篡改</strong></li>
+</ol>
+<p><font style="color:rgb(37, 41, 51);"></font></p>
 
                 
               </div>
@@ -407,7 +385,7 @@
       
         <a href="/rrnn/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">#技术分析</a>
       
-        <a href="/rrnn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">#网络安全</a>
+        <a href="/rrnn/tags/HTTPS/">#HTTPS</a>
       
     </div>
   
@@ -419,8 +397,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Web安全 XSS &amp; CSRF</div>
-      <div>https://tangyuan-x.github.io/rrnn/2025/09/20/review/技术总结-HTTP缓存/</div>
+      <div>HTTPS浅析</div>
+      <div>https://tangyuan-x.github.io/rrnn/2025/09/20/review/HTTPS浅析/</div>
     </div>
     <div class="license-meta">
       
@@ -466,8 +444,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/rrnn/2024/04/13/node/Node%E6%97%A5%E5%BF%97log4js-node%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" title="Node日志log4j的简单使用">
-                        <span class="hidden-mobile">Node日志log4j的简单使用</span>
+                      <a href="/rrnn/2025/09/20/review/Web%E5%AE%89%E5%85%A8%20XSS%20&amp;%20CSRF/" title="Web安全 XSS &amp; CSRF">
+                        <span class="hidden-mobile">Web安全 XSS &amp; CSRF</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
